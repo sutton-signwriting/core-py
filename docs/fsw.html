@@ -1,0 +1,515 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FSW Module &mdash; sutton-signwriting-core 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=589ca1d9" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="FSW Query Module" href="fswquery.html" />
+    <link rel="prev" title="Regular Expressions" href="regex.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            sutton-signwriting-core
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="regex.html">Regular Expressions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">FSW Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.fsw.fsw_is_type"><code class="docutils literal notranslate"><span class="pre">fsw_is_type()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.fsw.fsw_colorize"><code class="docutils literal notranslate"><span class="pre">fsw_colorize()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.fsw.fsw_parse_symbol"><code class="docutils literal notranslate"><span class="pre">fsw_parse_symbol()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.fsw.fsw_parse_sign"><code class="docutils literal notranslate"><span class="pre">fsw_parse_sign()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.fsw.fsw_parse_text"><code class="docutils literal notranslate"><span class="pre">fsw_parse_text()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.fsw.fsw_compose_symbol"><code class="docutils literal notranslate"><span class="pre">fsw_compose_symbol()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.fsw.fsw_compose_sign"><code class="docutils literal notranslate"><span class="pre">fsw_compose_sign()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.fsw.fsw_info"><code class="docutils literal notranslate"><span class="pre">fsw_info()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.fsw.fsw_column_defaults_merge"><code class="docutils literal notranslate"><span class="pre">fsw_column_defaults_merge()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.fsw.fsw_columns"><code class="docutils literal notranslate"><span class="pre">fsw_columns()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.fsw.fsw_tokenize"><code class="docutils literal notranslate"><span class="pre">fsw_tokenize()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.fsw.fsw_detokenize"><code class="docutils literal notranslate"><span class="pre">fsw_detokenize()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.fsw.fsw_chunk_tokens"><code class="docutils literal notranslate"><span class="pre">fsw_chunk_tokens()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.fsw.FSWTokenizer"><code class="docutils literal notranslate"><span class="pre">FSWTokenizer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.fsw.FSWTokenizer.vocab"><code class="docutils literal notranslate"><span class="pre">FSWTokenizer.vocab()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.fsw.FSWTokenizer.encode_tokens"><code class="docutils literal notranslate"><span class="pre">FSWTokenizer.encode_tokens()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.fsw.FSWTokenizer.decode_tokens"><code class="docutils literal notranslate"><span class="pre">FSWTokenizer.decode_tokens()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.fsw.FSWTokenizer.encode"><code class="docutils literal notranslate"><span class="pre">FSWTokenizer.encode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.fsw.FSWTokenizer.decode"><code class="docutils literal notranslate"><span class="pre">FSWTokenizer.decode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.fsw.FSWTokenizer.chunk"><code class="docutils literal notranslate"><span class="pre">FSWTokenizer.chunk()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fswquery.html">FSW Query Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swu.html">SWU Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swuquery.html">SWU Query Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="style.html">Style Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="convert.html">Convert Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datatypes.html">Types Module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">sutton-signwriting-core</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="api.html">API Reference</a></li>
+      <li class="breadcrumb-item active">FSW Module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/fsw.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-sutton_signwriting_core.fsw">
+<span id="fsw-module"></span><h1>FSW Module<a class="headerlink" href="#module-sutton_signwriting_core.fsw" title="Link to this heading"></a></h1>
+<p>The fsw module contains functions for handling Formal SignWriting in ASCII (FSW) characters.</p>
+<p>FSW characters definition: <a class="reference external" href="https://datatracker.ietf.org/doc/id/draft-slevinski-formal-signwriting-10.html#name-formal-signwriting-in-ascii">https://datatracker.ietf.org/doc/id/draft-slevinski-formal-signwriting-10.html#name-formal-signwriting-in-ascii</a></p>
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.fsw.fsw_is_type">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.fsw.</span></span><span class="sig-name descname"><span class="pre">fsw_is_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sym_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#sutton_signwriting_core.fsw.fsw_is_type" title="Link to this definition"></a></dt>
+<dd><p>Test whether an FSW symbol key is of the given type/range.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sym_key</strong> – an FSW symbol key</p></li>
+<li><p><strong>type_name</strong> – the name of a symbol range</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if symbol of specified type</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fsw_is_type</span><span class="p">(</span><span class="s1">&#39;S10000&#39;</span><span class="p">,</span> <span class="s1">&#39;hand&#39;</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The following <cite>type_name</cite> values are supported:</p>
+<ul class="simple">
+<li><p><strong>all symbols</strong> - All symbols used in Formal SignWriting.</p></li>
+<li><p><strong>writing</strong> - Symbols that can be used in the spatial signbox or the temporal prefix.</p></li>
+<li><p><strong>hand</strong> - Various handshapes.</p></li>
+<li><p><strong>movement</strong> - Contact symbols, small finger movements, straight arrows, curved arrows, and circles.</p></li>
+<li><p><strong>dynamic</strong> - Dynamic symbols used to express “feeling” or “tempo” of movement.</p></li>
+<li><p><strong>head</strong> - Symbols for the head and face.</p></li>
+<li><p><strong>hcenter</strong> - Used to determine the horizontal center of a sign (same as the head type).</p></li>
+<li><p><strong>vcenter</strong> - Used to determine the vertical center of a sign (includes head and trunk types).</p></li>
+<li><p><strong>trunk</strong> - Symbols for torso movement, shoulders, and hips.</p></li>
+<li><p><strong>limb</strong> - Symbols for limbs and fingers.</p></li>
+<li><p><strong>location</strong> - Detailed location symbols used only in the temporal prefix.</p></li>
+<li><p><strong>punctuation</strong> - Symbols used to divide signs into sentences.</p></li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.fsw.fsw_colorize">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.fsw.</span></span><span class="sig-name descname"><span class="pre">fsw_colorize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#sutton_signwriting_core.fsw.fsw_colorize" title="Link to this definition"></a></dt>
+<dd><p>Function that returns the standardized color for a symbol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> – an FSW symbol key</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>name of standardized color for symbol</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fsw_colorize</span><span class="p">(</span><span class="s1">&#39;S10000&#39;</span><span class="p">)</span>
+<span class="go">&#39;#0000CC&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.fsw.fsw_parse_symbol">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.fsw.</span></span><span class="sig-name descname"><span class="pre">fsw_parse_symbol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fsw_sym</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sutton_signwriting_core.fsw.fsw_parse_symbol" title="Link to this definition"></a></dt>
+<dd><p>Parse an FSW symbol with optional coordinate and style string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fsw_sym</strong> – an FSW symbol string</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with ‘symbol’, ‘coord’, ‘style’ keys</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fsw_parse_symbol</span><span class="p">(</span><span class="s1">&#39;S10000500x500-C&#39;</span><span class="p">)</span>
+<span class="go">{&#39;symbol&#39;: &#39;S10000&#39;, &#39;coord&#39;: [500, 500], &#39;style&#39;: &#39;-C&#39;}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.fsw.fsw_parse_sign">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.fsw.</span></span><span class="sig-name descname"><span class="pre">fsw_parse_sign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fsw_sign</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sutton_signwriting_core.fsw.fsw_parse_sign" title="Link to this definition"></a></dt>
+<dd><p>Parse an FSW sign with optional style string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fsw_sign</strong> – an FSW sign string</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with ‘sequence’, ‘box’, ‘max’, ‘spatials’, ‘style’ keys</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fsw_parse_sign</span><span class="p">(</span><span class="s1">&#39;AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475-C&#39;</span><span class="p">)</span>
+<span class="go">{&#39;sequence&#39;: [&#39;S10011&#39;, &#39;S10019&#39;, &#39;S2e704&#39;, &#39;S2e748&#39;],</span>
+<span class="go"> &#39;box&#39;: &#39;M&#39;,</span>
+<span class="go"> &#39;max&#39;: [525, 535],</span>
+<span class="go"> &#39;spatials&#39;: [{&#39;symbol&#39;: &#39;S2e748&#39;, &#39;coord&#39;: [483, 510]},</span>
+<span class="go">              {&#39;symbol&#39;: &#39;S10011&#39;, &#39;coord&#39;: [501, 466]},</span>
+<span class="go">              {&#39;symbol&#39;: &#39;S2e704&#39;, &#39;coord&#39;: [510, 500]},</span>
+<span class="go">              {&#39;symbol&#39;: &#39;S10019&#39;, &#39;coord&#39;: [476, 475]}],</span>
+<span class="go"> &#39;style&#39;: &#39;-C&#39;}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.fsw.fsw_parse_text">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.fsw.</span></span><span class="sig-name descname"><span class="pre">fsw_parse_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fsw_text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sutton_signwriting_core.fsw.fsw_parse_text" title="Link to this definition"></a></dt>
+<dd><p>Parse an FSW text into signs and punctuations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fsw_text</strong> – an FSW text string</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of FSW signs and punctuations</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fsw_parse_text</span><span class="p">(</span><span class="s1">&#39;AS14c20S27106M518x529S14c20481x471S27106503x489 AS18701S1870aS2e734S20500M518x533S1870a489x515S18701482x490S20500508x496S2e734500x468 S38800464x496&#39;</span><span class="p">)</span>
+<span class="go">[&#39;AS14c20S27106M518x529S14c20481x471S27106503x489&#39;,</span>
+<span class="go"> &#39;AS18701S1870aS2e734S20500M518x533S1870a489x515S18701482x490S20500508x496S2e734500x468&#39;,</span>
+<span class="go"> &#39;S38800464x496&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.fsw.fsw_compose_symbol">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.fsw.</span></span><span class="sig-name descname"><span class="pre">fsw_compose_symbol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fsw_sym_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#sutton_signwriting_core.fsw.fsw_compose_symbol" title="Link to this definition"></a></dt>
+<dd><p>Function to compose an fsw symbol with optional coordinate and style string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fsw_sym_object</strong> – an fsw symbol object with keys:
+- ‘symbol’: str
+- ‘coord’: Optional[List[int]]
+- ‘style’: Optional[str]</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>an fsw symbol string</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fsw_compose_symbol</span><span class="p">({</span><span class="s1">&#39;symbol&#39;</span><span class="p">:</span> <span class="s1">&#39;S10000&#39;</span><span class="p">,</span> <span class="s1">&#39;coord&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">480</span><span class="p">,</span> <span class="mi">480</span><span class="p">],</span> <span class="s1">&#39;style&#39;</span><span class="p">:</span> <span class="s1">&#39;-C&#39;</span><span class="p">})</span>
+<span class="go">&#39;S10000480x480-C&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.fsw.fsw_compose_sign">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.fsw.</span></span><span class="sig-name descname"><span class="pre">fsw_compose_sign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fsw_sign_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#sutton_signwriting_core.fsw.fsw_compose_sign" title="Link to this definition"></a></dt>
+<dd><p>Function to compose an fsw sign with style string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fsw_sign_object</strong> – an fsw sign object with keys:
+- ‘sequence’: Optional[List[str]]
+- ‘box’: Optional[str]
+- ‘max’: Optional[List[int]]
+- ‘spatials’: Optional[List[Dict[str, Tuple[int, int]]]]
+- ‘style’: Optional[str]</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>an fsw sign string</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fsw_compose_sign</span><span class="p">({</span>
+<span class="gp">... </span>    <span class="s1">&#39;sequence&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;S10011&#39;</span><span class="p">,</span> <span class="s1">&#39;S10019&#39;</span><span class="p">,</span> <span class="s1">&#39;S2e704&#39;</span><span class="p">,</span> <span class="s1">&#39;S2e748&#39;</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="s1">&#39;box&#39;</span><span class="p">:</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">525</span><span class="p">,</span> <span class="mi">535</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="s1">&#39;spatials&#39;</span><span class="p">:</span> <span class="p">[</span>
+<span class="gp">... </span>        <span class="p">{</span><span class="s1">&#39;symbol&#39;</span><span class="p">:</span> <span class="s1">&#39;S2e748&#39;</span><span class="p">,</span> <span class="s1">&#39;coord&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">483</span><span class="p">,</span> <span class="mi">510</span><span class="p">]},</span>
+<span class="gp">... </span>        <span class="p">{</span><span class="s1">&#39;symbol&#39;</span><span class="p">:</span> <span class="s1">&#39;S10011&#39;</span><span class="p">,</span> <span class="s1">&#39;coord&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">501</span><span class="p">,</span> <span class="mi">466</span><span class="p">]},</span>
+<span class="gp">... </span>        <span class="p">{</span><span class="s1">&#39;symbol&#39;</span><span class="p">:</span> <span class="s1">&#39;S2e704&#39;</span><span class="p">,</span> <span class="s1">&#39;coord&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">510</span><span class="p">,</span> <span class="mi">500</span><span class="p">]},</span>
+<span class="gp">... </span>        <span class="p">{</span><span class="s1">&#39;symbol&#39;</span><span class="p">:</span> <span class="s1">&#39;S10019&#39;</span><span class="p">,</span> <span class="s1">&#39;coord&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">476</span><span class="p">,</span> <span class="mi">475</span><span class="p">]}</span>
+<span class="gp">... </span>    <span class="p">],</span>
+<span class="gp">... </span>    <span class="s1">&#39;style&#39;</span><span class="p">:</span> <span class="s1">&#39;-C&#39;</span>
+<span class="gp">... </span><span class="p">})</span>
+<span class="go">&#39;AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475-C&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.fsw.fsw_info">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.fsw.</span></span><span class="sig-name descname"><span class="pre">fsw_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fsw</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sutton_signwriting_core.fsw.fsw_info" title="Link to this definition"></a></dt>
+<dd><p>Function to gather sizing information about an fsw sign or symbol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fsw</strong> – an fsw sign or symbol</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>information about the fsw string</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fsw_info</span><span class="p">(</span><span class="s1">&#39;AS14c20S27106L518x529S14c20481x471S27106503x489-P10Z2&#39;</span><span class="p">)</span>
+<span class="go">{</span>
+<span class="go">    &#39;minX&#39;: 481,</span>
+<span class="go">    &#39;minY&#39;: 471,</span>
+<span class="go">    &#39;width&#39;: 37,</span>
+<span class="go">    &#39;height&#39;: 58,</span>
+<span class="go">    &#39;lane&#39;: -1,</span>
+<span class="go">    &#39;padding&#39;: 10,</span>
+<span class="go">    &#39;segment&#39;: &#39;sign&#39;,</span>
+<span class="go">    &#39;zoom&#39;: 2</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.fsw.fsw_column_defaults_merge">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.fsw.</span></span><span class="sig-name descname"><span class="pre">fsw_column_defaults_merge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sutton_signwriting_core.fsw.fsw_column_defaults_merge" title="Link to this definition"></a></dt>
+<dd><p>Function to merge an object of column options with default values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>options</strong> – object of column options</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>object of column options merged with column defaults</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fsw_column_defaults_merge</span><span class="p">({</span><span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span> <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="mi">150</span><span class="p">})</span>
+<span class="go">{&#39;height&#39;: 500, &#39;width&#39;: 150, &#39;offset&#39;: 50, ...}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.fsw.fsw_columns">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.fsw.</span></span><span class="sig-name descname"><span class="pre">fsw_columns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fsw_text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sutton_signwriting_core.fsw.fsw_columns" title="Link to this definition"></a></dt>
+<dd><p>Function to transform an FSW text to an array of columns.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fsw_text</strong> – FSW text of signs and punctuation</p></li>
+<li><p><strong>options</strong> – object of column options</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>object of column options, widths array, and column data</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fsw_columns</span><span class="p">(</span><span class="s1">&#39;AS14c20S27106M518x529S14c20481x471S27106503x489 AS18701S1870aS2e734S20500M518x533S1870a489x515S18701482x490S20500508x496S2e734500x468 S38800464x496&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span> <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="mi">150</span><span class="p">})</span>
+<span class="go">{&#39;options&#39;: {...}, &#39;widths&#39;: [150], &#39;columns&#39;: [[{&#39;x&#39;: 56, &#39;y&#39;: 20, ...}, ...]]}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.fsw.fsw_tokenize">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.fsw.</span></span><span class="sig-name descname"><span class="pre">fsw_tokenize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fsw</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sequence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signbox</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sep</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'[SEP]'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sutton_signwriting_core.fsw.fsw_tokenize" title="Link to this definition"></a></dt>
+<dd><p>Tokenizes an FSW string into an array of tokens</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fsw</strong> – FSW string to tokenize</p></li>
+<li><p><strong>sequence</strong> – Whether to include sequence tokens</p></li>
+<li><p><strong>signbox</strong> – Whether to include signbox tokens</p></li>
+<li><p><strong>sep</strong> – Separator token</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Array of tokens</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fsw_tokenize</span><span class="p">(</span><span class="s2">&quot;AS10e00M507x515S10e00492x485&quot;</span><span class="p">,</span> <span class="n">sequence</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="go">[&#39;M&#39;, &#39;p507&#39;, &#39;p515&#39;, &#39;S10e&#39;, &#39;c0&#39;, &#39;r0&#39;, &#39;p492&#39;, &#39;p485&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.fsw.fsw_detokenize">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.fsw.</span></span><span class="sig-name descname"><span class="pre">fsw_detokenize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tokens</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">special_tokens</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">SpecialToken</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[{'index':</span> <span class="pre">0,</span> <span class="pre">'name':</span> <span class="pre">'UNK',</span> <span class="pre">'value':</span> <span class="pre">'[UNK]'},</span> <span class="pre">{'index':</span> <span class="pre">1,</span> <span class="pre">'name':</span> <span class="pre">'PAD',</span> <span class="pre">'value':</span> <span class="pre">'[PAD]'},</span> <span class="pre">{'index':</span> <span class="pre">2,</span> <span class="pre">'name':</span> <span class="pre">'CLS',</span> <span class="pre">'value':</span> <span class="pre">'[CLS]'},</span> <span class="pre">{'index':</span> <span class="pre">3,</span> <span class="pre">'name':</span> <span class="pre">'SEP',</span> <span class="pre">'value':</span> <span class="pre">'[SEP]'}]</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#sutton_signwriting_core.fsw.fsw_detokenize" title="Link to this definition"></a></dt>
+<dd><p>Converts an array of tokens back into an FSW string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tokens</strong> – Array of tokens to convert</p></li>
+<li><p><strong>special_tokens</strong> – Array of special token objects to filter out</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>FSW string</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fsw_detokenize</span><span class="p">([</span><span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;p507&#39;</span><span class="p">,</span> <span class="s1">&#39;p515&#39;</span><span class="p">,</span> <span class="s1">&#39;S10e&#39;</span><span class="p">,</span> <span class="s1">&#39;c0&#39;</span><span class="p">,</span> <span class="s1">&#39;r0&#39;</span><span class="p">,</span> <span class="s1">&#39;p492&#39;</span><span class="p">,</span> <span class="s1">&#39;p485&#39;</span><span class="p">])</span>
+<span class="go">&quot;M507x515S10e00492x485&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.fsw.fsw_chunk_tokens">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.fsw.</span></span><span class="sig-name descname"><span class="pre">fsw_chunk_tokens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tokens</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cls</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'[CLS]'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sep</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'[SEP]'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'[PAD]'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sutton_signwriting_core.fsw.fsw_chunk_tokens" title="Link to this definition"></a></dt>
+<dd><p>Splits tokens into chunks of specified size while preserving sign boundaries</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tokens</strong> – Array of tokens to chunk</p></li>
+<li><p><strong>chunk_size</strong> – Maximum size of each chunk</p></li>
+<li><p><strong>cls</strong> – CLS token</p></li>
+<li><p><strong>sep</strong> – SEP token</p></li>
+<li><p><strong>pad</strong> – PAD token</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Array of token chunks</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sutton_signwriting_core.fsw.FSWTokenizer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.fsw.</span></span><span class="sig-name descname"><span class="pre">FSWTokenizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">special_tokens</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">SpecialToken</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[{'index':</span> <span class="pre">0,</span> <span class="pre">'name':</span> <span class="pre">'UNK',</span> <span class="pre">'value':</span> <span class="pre">'[UNK]'},</span> <span class="pre">{'index':</span> <span class="pre">1,</span> <span class="pre">'name':</span> <span class="pre">'PAD',</span> <span class="pre">'value':</span> <span class="pre">'[PAD]'},</span> <span class="pre">{'index':</span> <span class="pre">2,</span> <span class="pre">'name':</span> <span class="pre">'CLS',</span> <span class="pre">'value':</span> <span class="pre">'[CLS]'},</span> <span class="pre">{'index':</span> <span class="pre">3,</span> <span class="pre">'name':</span> <span class="pre">'SEP',</span> <span class="pre">'value':</span> <span class="pre">'[SEP]'}]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">starting_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sutton_signwriting_core.fsw.FSWTokenizer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Creates a tokenizer object with encoding and decoding capabilities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>special_tokens</strong> – Special tokens list</p></li>
+<li><p><strong>starting_index</strong> – Starting index for regular tokens</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">FSWTokenizer</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;M507x515S10e00492x485&#39;</span><span class="p">)</span>
+<span class="go">[7, 941, 949, 24, 678, 662, 926, 919, 3]</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="sutton_signwriting_core.fsw.FSWTokenizer.vocab">
+<span class="sig-name descname"><span class="pre">vocab</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sutton_signwriting_core.fsw.FSWTokenizer.vocab" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sutton_signwriting_core.fsw.FSWTokenizer.encode_tokens">
+<span class="sig-name descname"><span class="pre">encode_tokens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tokens</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sutton_signwriting_core.fsw.FSWTokenizer.encode_tokens" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sutton_signwriting_core.fsw.FSWTokenizer.decode_tokens">
+<span class="sig-name descname"><span class="pre">decode_tokens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sutton_signwriting_core.fsw.FSWTokenizer.decode_tokens" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sutton_signwriting_core.fsw.FSWTokenizer.encode">
+<span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sequence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signbox</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sutton_signwriting_core.fsw.FSWTokenizer.encode" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sutton_signwriting_core.fsw.FSWTokenizer.decode">
+<span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tokens</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#sutton_signwriting_core.fsw.FSWTokenizer.decode" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sutton_signwriting_core.fsw.FSWTokenizer.chunk">
+<span class="sig-name descname"><span class="pre">chunk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tokens</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sutton_signwriting_core.fsw.FSWTokenizer.chunk" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="regex.html" class="btn btn-neutral float-left" title="Regular Expressions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fswquery.html" class="btn btn-neutral float-right" title="FSW Query Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Steve Slevinski &lt;slevinski@signwriting.org&gt;.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,316 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SWU Query Module &mdash; sutton-signwriting-core 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=589ca1d9" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Style Module" href="style.html" />
+    <link rel="prev" title="SWU Module" href="swu.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            sutton-signwriting-core
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="regex.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fsw.html">FSW Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fswquery.html">FSW Query Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swu.html">SWU Module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">SWU Query Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.swuquery.swuquery_parse"><code class="docutils literal notranslate"><span class="pre">swuquery_parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.swuquery.swuquery_compose"><code class="docutils literal notranslate"><span class="pre">swuquery_compose()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.swuquery.swu_to_query"><code class="docutils literal notranslate"><span class="pre">swu_to_query()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.swuquery.swuquery_range"><code class="docutils literal notranslate"><span class="pre">swuquery_range()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.swuquery.swuquery_regex"><code class="docutils literal notranslate"><span class="pre">swuquery_regex()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.swuquery.swuquery_results"><code class="docutils literal notranslate"><span class="pre">swuquery_results()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.swuquery.swuquery_lines"><code class="docutils literal notranslate"><span class="pre">swuquery_lines()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="style.html">Style Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="convert.html">Convert Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datatypes.html">Types Module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">sutton-signwriting-core</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="api.html">API Reference</a></li>
+      <li class="breadcrumb-item active">SWU Query Module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/swuquery.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-sutton_signwriting_core.swuquery">
+<span id="swu-query-module"></span><h1>SWU Query Module<a class="headerlink" href="#module-sutton_signwriting_core.swuquery" title="Link to this heading"></a></h1>
+<p>The swuquery module contains functions for handling the SWU query language.</p>
+<p>Query Language definition: <a class="reference external" href="https://datatracker.ietf.org/doc/id/draft-slevinski-formal-signwriting-10.html#name-query-language">https://datatracker.ietf.org/doc/id/draft-slevinski-formal-signwriting-10.html#name-query-language</a></p>
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.swuquery.swuquery_parse">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.swuquery.</span></span><span class="sig-name descname"><span class="pre">swuquery_parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">swu_query_string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sutton_signwriting_core.swuquery.swuquery_parse" title="Link to this definition"></a></dt>
+<dd><p>Parse an SWU query string to a structured dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>swu_query_string</strong> – an SWU query string</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary representing the query structure</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">swuquery_parse</span><span class="p">(</span><span class="s1">&#39;QA񀀁R񀀁񆆑񆇡T񆀁R񀀁񀇱𝤆𝤆V5-&#39;</span><span class="p">)</span>
+<span class="go">{&#39;query&#39;: True,</span>
+<span class="go"> &#39;prefix&#39;: {&#39;required&#39;: True,</span>
+<span class="go">            &#39;parts&#39;: [&#39;񀀁&#39;, [&#39;񀀁&#39;, &#39;񆆑&#39;], &#39;񆇡&#39;]},</span>
+<span class="go"> &#39;signbox&#39;: [{&#39;symbol&#39;: &#39;񆀁&#39;},</span>
+<span class="go">             {&#39;range&#39;: [&#39;񀀁&#39;, &#39;񀇱&#39;], &#39;coord&#39;: [500, 500]}],</span>
+<span class="go"> &#39;variance&#39;: 5,</span>
+<span class="go"> &#39;style&#39;: True}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.swuquery.swuquery_compose">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.swuquery.</span></span><span class="sig-name descname"><span class="pre">swuquery_compose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">swu_query_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#sutton_signwriting_core.swuquery.swuquery_compose" title="Link to this definition"></a></dt>
+<dd><p>Function to compose SWU query string from object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>swu_query_object</strong> – Dictionary representing the query structure:
+- ‘query’: bool (required, True)
+- ‘prefix’: Optional[Dict] with ‘required’: bool, ‘parts’: List[Union[str, List]]
+- ‘signbox’: Optional[List[Dict]] each with ‘symbol’, ‘range’, ‘or’, ‘coord’
+- ‘variance’: Optional[int]
+- ‘style’: Optional[bool]</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>SWU query string, or None if invalid</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">swuquery_compose</span><span class="p">({</span>
+<span class="gp">... </span>    <span class="s1">&#39;query&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="s1">&#39;prefix&#39;</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>        <span class="s1">&#39;required&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="gp">... </span>        <span class="s1">&#39;parts&#39;</span><span class="p">:</span> <span class="p">[</span>
+<span class="gp">... </span>            <span class="s1">&#39;񀀁&#39;</span><span class="p">,</span>
+<span class="gp">... </span>            <span class="p">[</span><span class="s1">&#39;񀀁&#39;</span><span class="p">,</span> <span class="s1">&#39;񆆑&#39;</span><span class="p">],</span>
+<span class="gp">... </span>            <span class="s1">&#39;񆇡&#39;</span>
+<span class="gp">... </span>        <span class="p">]</span>
+<span class="gp">... </span>    <span class="p">},</span>
+<span class="gp">... </span>    <span class="s1">&#39;signbox&#39;</span><span class="p">:</span> <span class="p">[</span>
+<span class="gp">... </span>        <span class="p">{</span><span class="s1">&#39;symbol&#39;</span><span class="p">:</span> <span class="s1">&#39;񆀁&#39;</span><span class="p">},</span>
+<span class="gp">... </span>        <span class="p">{</span><span class="s1">&#39;range&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;񀀁&#39;</span><span class="p">,</span> <span class="s1">&#39;񀇱&#39;</span><span class="p">],</span> <span class="s1">&#39;coord&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">]}</span>
+<span class="gp">... </span>    <span class="p">],</span>
+<span class="gp">... </span>    <span class="s1">&#39;variance&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="s1">&#39;style&#39;</span><span class="p">:</span> <span class="kc">True</span>
+<span class="gp">... </span><span class="p">})</span>
+<span class="go">&#39;QA񀀁R񀀁񆆑񆇡T񆀁R񀀁񀇱𝤆𝤆V5-&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.swuquery.swu_to_query">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.swuquery.</span></span><span class="sig-name descname"><span class="pre">swu_to_query</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">swu_sign</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flags</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#sutton_signwriting_core.swuquery.swu_to_query" title="Link to this definition"></a></dt>
+<dd><p>Function to convert an SWU sign to a query string.</p>
+<p>For the flags parameter, use one or more of the following:
+- A: exact symbol in temporal prefix
+- a: general symbol in temporal prefix
+- S: exact symbol in spatial signbox
+- s: general symbol in spatial signbox
+- L: spatial signbox symbol at location</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>swu_sign</strong> – SWU sign</p></li>
+<li><p><strong>flags</strong> – flags for query string creation</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>SWU query string</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">swu_to_query</span><span class="p">(</span><span class="s1">&#39;𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭&#39;</span><span class="p">,</span> <span class="s1">&#39;ASL&#39;</span><span class="p">)</span>
+<span class="go">&#39;QA񀀒񀀚񋚥񋛩T񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.swuquery.swuquery_range">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.swuquery.</span></span><span class="sig-name descname"><span class="pre">swuquery_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_char</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_char</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#sutton_signwriting_core.swuquery.swuquery_range" title="Link to this definition"></a></dt>
+<dd><p>Function to transform a range of SWU characters to a regular expression.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min_char</strong> – an SWU character</p></li>
+<li><p><strong>max_char</strong> – an SWU character</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a regular expression that matches a range of SWU characters</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">swuquery_range</span><span class="p">(</span><span class="s1">&#39;񀀁&#39;</span><span class="p">,</span> <span class="s1">&#39;񀇡&#39;</span><span class="p">)</span>
+<span class="go">&#39;[\U00040001-\U000401E1]&#39;</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">swuquery_range</span><span class="p">(</span><span class="s1">&#39;𝣔&#39;</span><span class="p">,</span> <span class="s1">&#39;𝤸&#39;</span><span class="p">)</span>
+<span class="go">&#39;[\U0001D8D4-\U0001D938]&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.swuquery.swuquery_regex">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.swuquery.</span></span><span class="sig-name descname"><span class="pre">swuquery_regex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sutton_signwriting_core.swuquery.swuquery_regex" title="Link to this definition"></a></dt>
+<dd><p>Function to transform an SWU query string to one or more regular expressions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>query</strong> – an SWU query string</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of one or more regular expression strings</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">swuquery_regex</span><span class="p">(</span><span class="s1">&#39;QA񀀒T&#39;</span><span class="p">)</span>
+<span class="go">[&#39;(?:\U0001d800\U00040012(?:\U00040000|(?:[\U00040001-\U0004f480]))*)\U0001d80[1-4](?:\U0001d8[0c-f][0-9a-f]|\U0001d9[0-9a-f][0-9a-f]){2}(?:(?:[\U00040001-\U0004f480])(?:\U0001d8[0c-f][0-9a-f]|\U0001d9[0-9a-f][0-9a-f]){2})*&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.swuquery.swuquery_results">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.swuquery.</span></span><span class="sig-name descname"><span class="pre">swuquery_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sutton_signwriting_core.swuquery.swuquery_results" title="Link to this definition"></a></dt>
+<dd><p>Function that uses a query string to match signs from a string of text.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> – an SWU query string</p></li>
+<li><p><strong>text</strong> – a string of text containing multiple signs</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>an array of SWU signs</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">swuquery_results</span><span class="p">(</span><span class="s1">&#39;QA񀀒T&#39;</span><span class="p">,</span><span class="s1">&#39;𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭 𝠀񂇢񂇈񆙡񋎥񋎵𝠃𝤛𝤬񂇈𝤀𝣺񂇢𝤄𝣻񋎥𝤄𝤗񋎵𝤃𝣟񆙡𝣱𝣸 𝠀񅨑񀀙񆉁𝠃𝤙𝤞񀀙𝣷𝤀񅨑𝣼𝤀񆉁𝣳𝣮&#39;</span><span class="p">)</span>
+<span class="go">[&#39;𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.swuquery.swuquery_lines">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.swuquery.</span></span><span class="sig-name descname"><span class="pre">swuquery_lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sutton_signwriting_core.swuquery.swuquery_lines" title="Link to this definition"></a></dt>
+<dd><p>Function that uses an SWU query string to match signs from multiple lines of text.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> – an SWU query string</p></li>
+<li><p><strong>text</strong> – multiple lines of text, each starting with an SWU sign</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>an array of lines of text, each starting with an SWU sign</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">swuquery_lines</span><span class="p">(</span><span class="s1">&#39;QA񀀒T&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;&#39;𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭 line one</span>
+<span class="gp">... </span><span class="s1">𝠀񂇢񂇈񆙡񋎥񋎵𝠃𝤛𝤬񂇈𝤀𝣺񂇢𝤄𝣻񋎥𝤄𝤗񋎵𝤃𝣟񆙡𝣱𝣸 line two</span>
+<span class="gp">... </span><span class="s1">𝠀񅨑񀀙񆉁𝠃𝤙𝤞񀀙𝣷𝤀񅨑𝣼𝤀񆉁𝣳𝣮 line three&#39;&#39;&#39;</span><span class="p">)</span>
+<span class="go">[&#39;𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭 line one&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="swu.html" class="btn btn-neutral float-left" title="SWU Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="style.html" class="btn btn-neutral float-right" title="Style Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Steve Slevinski &lt;slevinski@signwriting.org&gt;.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

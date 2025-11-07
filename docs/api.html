@@ -1,0 +1,231 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Reference &mdash; sutton-signwriting-core 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=589ca1d9" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Regular Expressions" href="regex.html" />
+    <link rel="prev" title="sutton-signwriting-core" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            sutton-signwriting-core
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="regex.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fsw.html">FSW Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fswquery.html">FSW Query Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swu.html">SWU Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swuquery.html">SWU Query Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="style.html">Style Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="convert.html">Convert Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datatypes.html">Types Module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">sutton-signwriting-core</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API Reference</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="regex.html">Regular Expressions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="regex.html#fsw-patterns">FSW Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regex.html#fsw-query-patterns">FSW Query Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regex.html#swu-patterns">SWU Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regex.html#swu-query-patterns">SWU Query Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regex.html#style-patterns">Style Patterns</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fsw.html">FSW Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fsw.html#sutton_signwriting_core.fsw.fsw_is_type"><code class="docutils literal notranslate"><span class="pre">fsw_is_type()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fsw.html#sutton_signwriting_core.fsw.fsw_colorize"><code class="docutils literal notranslate"><span class="pre">fsw_colorize()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fsw.html#sutton_signwriting_core.fsw.fsw_parse_symbol"><code class="docutils literal notranslate"><span class="pre">fsw_parse_symbol()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fsw.html#sutton_signwriting_core.fsw.fsw_parse_sign"><code class="docutils literal notranslate"><span class="pre">fsw_parse_sign()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fsw.html#sutton_signwriting_core.fsw.fsw_parse_text"><code class="docutils literal notranslate"><span class="pre">fsw_parse_text()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fsw.html#sutton_signwriting_core.fsw.fsw_compose_symbol"><code class="docutils literal notranslate"><span class="pre">fsw_compose_symbol()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fsw.html#sutton_signwriting_core.fsw.fsw_compose_sign"><code class="docutils literal notranslate"><span class="pre">fsw_compose_sign()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fsw.html#sutton_signwriting_core.fsw.fsw_info"><code class="docutils literal notranslate"><span class="pre">fsw_info()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fsw.html#sutton_signwriting_core.fsw.fsw_column_defaults_merge"><code class="docutils literal notranslate"><span class="pre">fsw_column_defaults_merge()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fsw.html#sutton_signwriting_core.fsw.fsw_columns"><code class="docutils literal notranslate"><span class="pre">fsw_columns()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fsw.html#sutton_signwriting_core.fsw.fsw_tokenize"><code class="docutils literal notranslate"><span class="pre">fsw_tokenize()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fsw.html#sutton_signwriting_core.fsw.fsw_detokenize"><code class="docutils literal notranslate"><span class="pre">fsw_detokenize()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fsw.html#sutton_signwriting_core.fsw.fsw_chunk_tokens"><code class="docutils literal notranslate"><span class="pre">fsw_chunk_tokens()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fsw.html#sutton_signwriting_core.fsw.FSWTokenizer"><code class="docutils literal notranslate"><span class="pre">FSWTokenizer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fswquery.html">FSW Query Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fswquery.html#sutton_signwriting_core.fswquery.fswquery_parse"><code class="docutils literal notranslate"><span class="pre">fswquery_parse()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fswquery.html#sutton_signwriting_core.fswquery.fswquery_compose"><code class="docutils literal notranslate"><span class="pre">fswquery_compose()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fswquery.html#sutton_signwriting_core.fswquery.fsw_to_query"><code class="docutils literal notranslate"><span class="pre">fsw_to_query()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fswquery.html#sutton_signwriting_core.fswquery.fswquery_range"><code class="docutils literal notranslate"><span class="pre">fswquery_range()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fswquery.html#sutton_signwriting_core.fswquery.fswquery_regex"><code class="docutils literal notranslate"><span class="pre">fswquery_regex()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fswquery.html#sutton_signwriting_core.fswquery.fswquery_results"><code class="docutils literal notranslate"><span class="pre">fswquery_results()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fswquery.html#sutton_signwriting_core.fswquery.fswquery_lines"><code class="docutils literal notranslate"><span class="pre">fswquery_lines()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="swu.html">SWU Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="swu.html#sutton_signwriting_core.swu.swu_is_type"><code class="docutils literal notranslate"><span class="pre">swu_is_type()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="swu.html#sutton_signwriting_core.swu.swu_colorize"><code class="docutils literal notranslate"><span class="pre">swu_colorize()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="swu.html#sutton_signwriting_core.swu.swu_parse_symbol"><code class="docutils literal notranslate"><span class="pre">swu_parse_symbol()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="swu.html#sutton_signwriting_core.swu.swu_parse_sign"><code class="docutils literal notranslate"><span class="pre">swu_parse_sign()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="swu.html#sutton_signwriting_core.swu.swu_parse_text"><code class="docutils literal notranslate"><span class="pre">swu_parse_text()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="swu.html#sutton_signwriting_core.swu.swu_compose_symbol"><code class="docutils literal notranslate"><span class="pre">swu_compose_symbol()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="swu.html#sutton_signwriting_core.swu.swu_compose_sign"><code class="docutils literal notranslate"><span class="pre">swu_compose_sign()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="swu.html#sutton_signwriting_core.swu.swu_info"><code class="docutils literal notranslate"><span class="pre">swu_info()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="swu.html#sutton_signwriting_core.swu.swu_column_defaults_merge"><code class="docutils literal notranslate"><span class="pre">swu_column_defaults_merge()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="swu.html#sutton_signwriting_core.swu.swu_columns"><code class="docutils literal notranslate"><span class="pre">swu_columns()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="swuquery.html">SWU Query Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="swuquery.html#sutton_signwriting_core.swuquery.swuquery_parse"><code class="docutils literal notranslate"><span class="pre">swuquery_parse()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="swuquery.html#sutton_signwriting_core.swuquery.swuquery_compose"><code class="docutils literal notranslate"><span class="pre">swuquery_compose()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="swuquery.html#sutton_signwriting_core.swuquery.swu_to_query"><code class="docutils literal notranslate"><span class="pre">swu_to_query()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="swuquery.html#sutton_signwriting_core.swuquery.swuquery_range"><code class="docutils literal notranslate"><span class="pre">swuquery_range()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="swuquery.html#sutton_signwriting_core.swuquery.swuquery_regex"><code class="docutils literal notranslate"><span class="pre">swuquery_regex()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="swuquery.html#sutton_signwriting_core.swuquery.swuquery_results"><code class="docutils literal notranslate"><span class="pre">swuquery_results()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="swuquery.html#sutton_signwriting_core.swuquery.swuquery_lines"><code class="docutils literal notranslate"><span class="pre">swuquery_lines()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Style Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="style.html#sutton_signwriting_core.style.style_parse"><code class="docutils literal notranslate"><span class="pre">style_parse()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="style.html#sutton_signwriting_core.style.style_compose"><code class="docutils literal notranslate"><span class="pre">style_compose()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="style.html#sutton_signwriting_core.style.style_rgb_to_hex"><code class="docutils literal notranslate"><span class="pre">style_rgb_to_hex()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="style.html#sutton_signwriting_core.style.style_rgba_to_hex"><code class="docutils literal notranslate"><span class="pre">style_rgba_to_hex()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="style.html#sutton_signwriting_core.style.style_merge"><code class="docutils literal notranslate"><span class="pre">style_merge()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="convert.html">Convert Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="convert.html#sutton_signwriting_core.convert.swu_to_mark"><code class="docutils literal notranslate"><span class="pre">swu_to_mark()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="convert.html#sutton_signwriting_core.convert.mark_to_swu"><code class="docutils literal notranslate"><span class="pre">mark_to_swu()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="convert.html#sutton_signwriting_core.convert.swu_to_num"><code class="docutils literal notranslate"><span class="pre">swu_to_num()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="convert.html#sutton_signwriting_core.convert.num_to_swu"><code class="docutils literal notranslate"><span class="pre">num_to_swu()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="convert.html#sutton_signwriting_core.convert.swu_to_coord"><code class="docutils literal notranslate"><span class="pre">swu_to_coord()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="convert.html#sutton_signwriting_core.convert.coord_to_swu"><code class="docutils literal notranslate"><span class="pre">coord_to_swu()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="convert.html#sutton_signwriting_core.convert.fsw_to_coord"><code class="docutils literal notranslate"><span class="pre">fsw_to_coord()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="convert.html#sutton_signwriting_core.convert.coord_to_fsw"><code class="docutils literal notranslate"><span class="pre">coord_to_fsw()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="convert.html#sutton_signwriting_core.convert.swu_to_code"><code class="docutils literal notranslate"><span class="pre">swu_to_code()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="convert.html#sutton_signwriting_core.convert.code_to_swu"><code class="docutils literal notranslate"><span class="pre">code_to_swu()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="convert.html#sutton_signwriting_core.convert.swu_to_id"><code class="docutils literal notranslate"><span class="pre">swu_to_id()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="convert.html#sutton_signwriting_core.convert.id_to_swu"><code class="docutils literal notranslate"><span class="pre">id_to_swu()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="convert.html#sutton_signwriting_core.convert.key_to_id"><code class="docutils literal notranslate"><span class="pre">key_to_id()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="convert.html#sutton_signwriting_core.convert.id_to_key"><code class="docutils literal notranslate"><span class="pre">id_to_key()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="convert.html#sutton_signwriting_core.convert.swu_to_key"><code class="docutils literal notranslate"><span class="pre">swu_to_key()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="convert.html#sutton_signwriting_core.convert.key_to_swu"><code class="docutils literal notranslate"><span class="pre">key_to_swu()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="convert.html#sutton_signwriting_core.convert.swu_to_fsw"><code class="docutils literal notranslate"><span class="pre">swu_to_fsw()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="convert.html#sutton_signwriting_core.convert.fsw_to_swu"><code class="docutils literal notranslate"><span class="pre">fsw_to_swu()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="convert.html#sutton_signwriting_core.convert.symid_max"><code class="docutils literal notranslate"><span class="pre">symid_max()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="convert.html#sutton_signwriting_core.convert.symid_min"><code class="docutils literal notranslate"><span class="pre">symid_min()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="convert.html#sutton_signwriting_core.convert.symid_to_key"><code class="docutils literal notranslate"><span class="pre">symid_to_key()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="convert.html#sutton_signwriting_core.convert.key_to_symid"><code class="docutils literal notranslate"><span class="pre">key_to_symid()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="datatypes.html">Types Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="datatypes.html#sutton_signwriting_core.datatypes.ColumnOptions"><code class="docutils literal notranslate"><span class="pre">ColumnOptions</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="datatypes.html#sutton_signwriting_core.datatypes.ColumnPunctuation"><code class="docutils literal notranslate"><span class="pre">ColumnPunctuation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="datatypes.html#sutton_signwriting_core.datatypes.ColumnSegment"><code class="docutils literal notranslate"><span class="pre">ColumnSegment</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="datatypes.html#sutton_signwriting_core.datatypes.QueryObject"><code class="docutils literal notranslate"><span class="pre">QueryObject</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="datatypes.html#sutton_signwriting_core.datatypes.QueryPrefix"><code class="docutils literal notranslate"><span class="pre">QueryPrefix</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="datatypes.html#sutton_signwriting_core.datatypes.QuerySignboxOr"><code class="docutils literal notranslate"><span class="pre">QuerySignboxOr</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="datatypes.html#sutton_signwriting_core.datatypes.QuerySignboxRange"><code class="docutils literal notranslate"><span class="pre">QuerySignboxRange</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="datatypes.html#sutton_signwriting_core.datatypes.QuerySignboxSymbol"><code class="docutils literal notranslate"><span class="pre">QuerySignboxSymbol</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="datatypes.html#sutton_signwriting_core.datatypes.SegmentInfo"><code class="docutils literal notranslate"><span class="pre">SegmentInfo</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="datatypes.html#sutton_signwriting_core.datatypes.SignObject"><code class="docutils literal notranslate"><span class="pre">SignObject</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="datatypes.html#sutton_signwriting_core.datatypes.SignSpatial"><code class="docutils literal notranslate"><span class="pre">SignSpatial</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="datatypes.html#sutton_signwriting_core.datatypes.StyleObject"><code class="docutils literal notranslate"><span class="pre">StyleObject</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="datatypes.html#sutton_signwriting_core.datatypes.SymbolObject"><code class="docutils literal notranslate"><span class="pre">SymbolObject</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="sutton-signwriting-core" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="regex.html" class="btn btn-neutral float-right" title="Regular Expressions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Steve Slevinski &lt;slevinski@signwriting.org&gt;.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,573 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Convert Module &mdash; sutton-signwriting-core 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=589ca1d9" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Types Module" href="datatypes.html" />
+    <link rel="prev" title="Style Module" href="style.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            sutton-signwriting-core
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="regex.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fsw.html">FSW Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fswquery.html">FSW Query Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swu.html">SWU Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swuquery.html">SWU Query Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="style.html">Style Module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Convert Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.convert.swu_to_mark"><code class="docutils literal notranslate"><span class="pre">swu_to_mark()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.convert.mark_to_swu"><code class="docutils literal notranslate"><span class="pre">mark_to_swu()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.convert.swu_to_num"><code class="docutils literal notranslate"><span class="pre">swu_to_num()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.convert.num_to_swu"><code class="docutils literal notranslate"><span class="pre">num_to_swu()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.convert.swu_to_coord"><code class="docutils literal notranslate"><span class="pre">swu_to_coord()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.convert.coord_to_swu"><code class="docutils literal notranslate"><span class="pre">coord_to_swu()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.convert.fsw_to_coord"><code class="docutils literal notranslate"><span class="pre">fsw_to_coord()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.convert.coord_to_fsw"><code class="docutils literal notranslate"><span class="pre">coord_to_fsw()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.convert.swu_to_code"><code class="docutils literal notranslate"><span class="pre">swu_to_code()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.convert.code_to_swu"><code class="docutils literal notranslate"><span class="pre">code_to_swu()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.convert.swu_to_id"><code class="docutils literal notranslate"><span class="pre">swu_to_id()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.convert.id_to_swu"><code class="docutils literal notranslate"><span class="pre">id_to_swu()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.convert.key_to_id"><code class="docutils literal notranslate"><span class="pre">key_to_id()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.convert.id_to_key"><code class="docutils literal notranslate"><span class="pre">id_to_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.convert.swu_to_key"><code class="docutils literal notranslate"><span class="pre">swu_to_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.convert.key_to_swu"><code class="docutils literal notranslate"><span class="pre">key_to_swu()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.convert.swu_to_fsw"><code class="docutils literal notranslate"><span class="pre">swu_to_fsw()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.convert.fsw_to_swu"><code class="docutils literal notranslate"><span class="pre">fsw_to_swu()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.convert.symid_max"><code class="docutils literal notranslate"><span class="pre">symid_max()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.convert.symid_min"><code class="docutils literal notranslate"><span class="pre">symid_min()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.convert.symid_to_key"><code class="docutils literal notranslate"><span class="pre">symid_to_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.convert.key_to_symid"><code class="docutils literal notranslate"><span class="pre">key_to_symid()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="datatypes.html">Types Module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">sutton-signwriting-core</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="api.html">API Reference</a></li>
+      <li class="breadcrumb-item active">Convert Module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/convert.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-sutton_signwriting_core.convert">
+<span id="convert-module"></span><h1>Convert Module<a class="headerlink" href="#module-sutton_signwriting_core.convert" title="Link to this heading"></a></h1>
+<p>The convert module contains functions to convert between Formal SignWriitng in ASCII (FSW) and SignWriting in Unicode (SWU) characters, along with other types of data.</p>
+<p>Characters set definitions: <a class="reference external" href="https://datatracker.ietf.org/doc/id/draft-slevinski-formal-signwriting-10.html#name-character-sets">https://datatracker.ietf.org/doc/id/draft-slevinski-formal-signwriting-10.html#name-character-sets</a></p>
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.convert.swu_to_mark">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.convert.</span></span><span class="sig-name descname"><span class="pre">swu_to_mark</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">swu_mark</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#sutton_signwriting_core.convert.swu_to_mark" title="Link to this definition"></a></dt>
+<dd><p>Convert an SWU structural marker to FSW equivalent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>swu_mark</strong> – single-character SWU marker</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>single-letter FSW marker</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">swu_to_mark</span><span class="p">(</span><span class="s1">&#39;𝠀&#39;</span><span class="p">)</span>
+<span class="go">&#39;A&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.convert.mark_to_swu">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.convert.</span></span><span class="sig-name descname"><span class="pre">mark_to_swu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fsw_mark</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#sutton_signwriting_core.convert.mark_to_swu" title="Link to this definition"></a></dt>
+<dd><p>Convert an FSW structural marker to SWU equivalent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fsw_mark</strong> – single-letter FSW marker</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>single-character SWU marker</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mark_to_swu</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="go">&#39;𝠀&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.convert.swu_to_num">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.convert.</span></span><span class="sig-name descname"><span class="pre">swu_to_num</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">swu_num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#sutton_signwriting_core.convert.swu_to_num" title="Link to this definition"></a></dt>
+<dd><p>Convert an SWU number character to an integer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>swu_num</strong> – a single SWU number character</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>integer value</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">swu_to_num</span><span class="p">(</span><span class="s1">&#39;𝤆&#39;</span><span class="p">)</span>
+<span class="go">500</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.convert.num_to_swu">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.convert.</span></span><span class="sig-name descname"><span class="pre">num_to_swu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#sutton_signwriting_core.convert.num_to_swu" title="Link to this definition"></a></dt>
+<dd><p>Convert an integer to an SWU number character.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>num</strong> – integer</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>single SWU number character</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">num_to_swu</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="go">&#39;𝤆&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.convert.swu_to_coord">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.convert.</span></span><span class="sig-name descname"><span class="pre">swu_to_coord</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">swu_coord</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sutton_signwriting_core.convert.swu_to_coord" title="Link to this definition"></a></dt>
+<dd><p>Convert two SWU number characters to an [x, y] integer list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>swu_coord</strong> – string of two SWU number characters</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>[x, y] integer list</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">swu_to_coord</span><span class="p">(</span><span class="s1">&#39;𝤆𝤆&#39;</span><span class="p">)</span>
+<span class="go">[500, 500]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.convert.coord_to_swu">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.convert.</span></span><span class="sig-name descname"><span class="pre">coord_to_swu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coord</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#sutton_signwriting_core.convert.coord_to_swu" title="Link to this definition"></a></dt>
+<dd><p>Convert an [x, y] integer list to two SWU number characters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>coord</strong> – [x, y] integer list</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>string of two SWU number characters</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">coord_to_swu</span><span class="p">([</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">])</span>
+<span class="go">&#39;𝤆𝤆&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.convert.fsw_to_coord">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.convert.</span></span><span class="sig-name descname"><span class="pre">fsw_to_coord</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fsw_coord</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sutton_signwriting_core.convert.fsw_to_coord" title="Link to this definition"></a></dt>
+<dd><p>Convert an FSW coordinate string to [x, y] integer list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fsw_coord</strong> – fsw coordinate string</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>[x, y] integer list</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fsw_to_coord</span><span class="p">(</span><span class="s1">&#39;500x500&#39;</span><span class="p">)</span>
+<span class="go">[500, 500]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.convert.coord_to_fsw">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.convert.</span></span><span class="sig-name descname"><span class="pre">coord_to_fsw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coord</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#sutton_signwriting_core.convert.coord_to_fsw" title="Link to this definition"></a></dt>
+<dd><p>Convert an [x, y] list to an FSW coordinate string (‘500x500’).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>coord</strong> – [x, y] integer list</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>fsw coordinate string</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">coord_to_fsw</span><span class="p">([</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">])</span>
+<span class="go">&#39;500x500&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.convert.swu_to_code">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.convert.</span></span><span class="sig-name descname"><span class="pre">swu_to_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">swu_sym</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#sutton_signwriting_core.convert.swu_to_code" title="Link to this definition"></a></dt>
+<dd><p>Convert an SWU symbol character to its Unicode code point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>swu_sym</strong> – SWU symbol character</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>integer codepoint</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">swu_to_code</span><span class="p">(</span><span class="s1">&#39;񀀁&#39;</span><span class="p">)</span>
+<span class="go">0x40001</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.convert.code_to_swu">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.convert.</span></span><span class="sig-name descname"><span class="pre">code_to_swu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#sutton_signwriting_core.convert.code_to_swu" title="Link to this definition"></a></dt>
+<dd><p>Convert a codepoint on plane 4 to an SWU symbol character.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>code</strong> – integer codepoint</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>SWU symbol character</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">code_to_swu</span><span class="p">(</span><span class="mh">0x40001</span><span class="p">)</span>
+<span class="go">&#39;񀀁&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.convert.swu_to_id">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.convert.</span></span><span class="sig-name descname"><span class="pre">swu_to_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">swu_sym</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#sutton_signwriting_core.convert.swu_to_id" title="Link to this definition"></a></dt>
+<dd><p>Convert an SWU symbol character to a 16-bit ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>swu_sym</strong> – SWU symbol character</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>16-bit ID</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">swu_to_id</span><span class="p">(</span><span class="s1">&#39;񀀁&#39;</span><span class="p">)</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.convert.id_to_swu">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.convert.</span></span><span class="sig-name descname"><span class="pre">id_to_swu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#sutton_signwriting_core.convert.id_to_swu" title="Link to this definition"></a></dt>
+<dd><p>Convert a 16-bit ID to an SWU symbol character.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>id</strong> – 16-bit ID</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>SWU symbol character</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">id_to_swu</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">&#39;񀀁&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.convert.key_to_id">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.convert.</span></span><span class="sig-name descname"><span class="pre">key_to_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#sutton_signwriting_core.convert.key_to_id" title="Link to this definition"></a></dt>
+<dd><p>Convert an FSW symbol key to a 16-bit ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> – FSW symbol key</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>16-bit ID</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">key_to_id</span><span class="p">(</span><span class="s1">&#39;S10000&#39;</span><span class="p">)</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.convert.id_to_key">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.convert.</span></span><span class="sig-name descname"><span class="pre">id_to_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#sutton_signwriting_core.convert.id_to_key" title="Link to this definition"></a></dt>
+<dd><p>Convert a 16-bit ID to an FSW symbol key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>id</strong> – 16-bit ID</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>FSW symbol key</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">id_to_key</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">&#39;S10000&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.convert.swu_to_key">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.convert.</span></span><span class="sig-name descname"><span class="pre">swu_to_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">swu_sym</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#sutton_signwriting_core.convert.swu_to_key" title="Link to this definition"></a></dt>
+<dd><p>Convert an SWU symbol character to an FSW symbol key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>swu_sym</strong> – SWU symbol character</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>FSW symbol key</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">swu_to_key</span><span class="p">(</span><span class="s1">&#39;񀀁&#39;</span><span class="p">)</span>
+<span class="go">&#39;S10000&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.convert.key_to_swu">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.convert.</span></span><span class="sig-name descname"><span class="pre">key_to_swu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#sutton_signwriting_core.convert.key_to_swu" title="Link to this definition"></a></dt>
+<dd><p>Convert an FSW symbol key to an SWU symbol character.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> – FSW symbol key</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>SWU symbol character</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">key_to_swu</span><span class="p">(</span><span class="s1">&#39;S10000)</span>
+<span class="go">&#39;񀀁&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.convert.swu_to_fsw">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.convert.</span></span><span class="sig-name descname"><span class="pre">swu_to_fsw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">swu_text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#sutton_signwriting_core.convert.swu_to_fsw" title="Link to this definition"></a></dt>
+<dd><p>Convert SWU text to FSW text.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>swu_text</strong> – SWU text string</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>SWU text string</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">swu_to_fsw</span><span class="p">(</span><span class="s1">&#39;𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭&#39;</span><span class="p">)</span>
+<span class="go">&#39;AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.convert.fsw_to_swu">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.convert.</span></span><span class="sig-name descname"><span class="pre">fsw_to_swu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fsw_text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#sutton_signwriting_core.convert.fsw_to_swu" title="Link to this definition"></a></dt>
+<dd><p>Convert FSW text to SWU text.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fsw_text</strong> – FSW text string</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>SWU text string</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fsw_to_swu</span><span class="p">(</span><span class="s1">&#39;AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475&#39;</span><span class="p">)</span>
+<span class="go">&#39;𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.convert.symid_max">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.convert.</span></span><span class="sig-name descname"><span class="pre">symid_max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">symid_min</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#sutton_signwriting_core.convert.symid_max" title="Link to this definition"></a></dt>
+<dd><p>Convert base or full symbol ID Min to symbol ID Max.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>symid_min</strong> – minimized symbol ID</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>maximized symbol ID</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">symid_max</span><span class="p">(</span><span class="s1">&#39;101011&#39;</span><span class="p">)</span>
+<span class="go">&#39;01-01-001-01&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">symid_max</span><span class="p">(</span><span class="s1">&#39;101011616&#39;</span><span class="p">)</span>
+<span class="go">&#39;01-01-001-01-06-16&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.convert.symid_min">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.convert.</span></span><span class="sig-name descname"><span class="pre">symid_min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">symid_max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#sutton_signwriting_core.convert.symid_min" title="Link to this definition"></a></dt>
+<dd><p>Convert base or full symbol ID Max to symbol ID Min.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>symid_max</strong> – maximized symbol ID</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>minimized symbol ID</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">symid_min</span><span class="p">(</span><span class="s1">&#39;01-01-001-01&#39;</span><span class="p">)</span>
+<span class="go">&#39;101011&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">symid_min</span><span class="p">(</span><span class="s1">&#39;01-01-001-01-06-16&#39;</span><span class="p">)</span>
+<span class="go">&#39;101011616&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.convert.symid_to_key">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.convert.</span></span><span class="sig-name descname"><span class="pre">symid_to_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">symid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#sutton_signwriting_core.convert.symid_to_key" title="Link to this definition"></a></dt>
+<dd><p>Convert base or full symbol ID max to FSW symbol key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>symid</strong> – base of full maximized symbol ID</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>FSW symbol key</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">symid_to_key</span><span class="p">(</span><span class="s1">&#39;01-01-001-01&#39;</span><span class="p">)</span>
+<span class="go">&#39;S100&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">symid_to_key</span><span class="p">(</span><span class="s1">&#39;01-01-001-01-06-16&#39;</span><span class="p">)</span>
+<span class="go">&#39;S1005f&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.convert.key_to_symid">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.convert.</span></span><span class="sig-name descname"><span class="pre">key_to_symid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#sutton_signwriting_core.convert.key_to_symid" title="Link to this definition"></a></dt>
+<dd><p>Convert base or full FSW symbol key to maximized symbol ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> – FSW symbol key</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>maximized symbol ID</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">key_to_symid</span><span class="p">(</span><span class="s1">&#39;S100&#39;</span><span class="p">)</span>
+<span class="go">&#39;01-01-001-01&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">key_to_symid</span><span class="p">(</span><span class="s1">&#39;S1005f&#39;</span><span class="p">)</span>
+<span class="go">&#39;01-01-001-01-06-16&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="style.html" class="btn btn-neutral float-left" title="Style Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="datatypes.html" class="btn btn-neutral float-right" title="Types Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Steve Slevinski &lt;slevinski@signwriting.org&gt;.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

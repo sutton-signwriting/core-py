@@ -1,0 +1,464 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Regular Expressions &mdash; sutton-signwriting-core 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=589ca1d9" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="FSW Module" href="fsw.html" />
+    <link rel="prev" title="API Reference" href="api.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            sutton-signwriting-core
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Regular Expressions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fsw-patterns">FSW Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fsw-query-patterns">FSW Query Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#swu-patterns">SWU Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#swu-query-patterns">SWU Query Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#style-patterns">Style Patterns</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fsw.html">FSW Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fswquery.html">FSW Query Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swu.html">SWU Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swuquery.html">SWU Query Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="style.html">Style Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="convert.html">Convert Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datatypes.html">Types Module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">sutton-signwriting-core</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="api.html">API Reference</a></li>
+      <li class="breadcrumb-item active">Regular Expressions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/regex.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="regular-expressions">
+<h1>Regular Expressions<a class="headerlink" href="#regular-expressions" title="Link to this heading"></a></h1>
+<p>Patterns for matching Formal SignWriting in ASCII (FSW), FSW Query, SignWriting in Unicode (SWU), SWU Query, and Style strings.</p>
+<section id="fsw-patterns">
+<h2>FSW Patterns<a class="headerlink" href="#fsw-patterns" title="Link to this heading"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">fsw_pattern_null</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'S00000'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">fsw_pattern_symbol</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'S[123][0-9a-f]{2}[0-5][0-9a-f]'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">fsw_pattern_number</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'[0-9]{3}'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">fsw_pattern_sort</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'A'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">fsw_pattern_box</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'[BLMR]'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">fsw_pattern_null_or_symbol</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'(?:S00000|S[123][0-9a-f]{2}[0-5][0-9a-f])'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">fsw_pattern_prefix</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'(?:A(?:S00000|S[123][0-9a-f]{2}[0-5][0-9a-f])+)'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">fsw_pattern_coord</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'[0-9]{3}x[0-9]{3}'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">fsw_pattern_spatial</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3}'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">fsw_pattern_signbox</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'[BLMR][0-9]{3}x[0-9]{3}(?:S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">fsw_pattern_sign</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'(?:A(?:S00000|S[123][0-9a-f]{2}[0-5][0-9a-f])+)?[BLMR][0-9]{3}x[0-9]{3}(?:S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">fsw_pattern_sortable</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'(?:A(?:S00000|S[123][0-9a-f]{2}[0-5][0-9a-f])+)[BLMR][0-9]{3}x[0-9]{3}(?:S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*'</span></em></dt>
+<dd></dd></dl>
+
+</section>
+<section id="fsw-query-patterns">
+<h2>FSW Query Patterns<a class="headerlink" href="#fsw-query-patterns" title="Link to this heading"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">fswquery_pattern_null</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'S00000'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">fswquery_pattern_base</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'[123][0-9a-f]{2}'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">fswquery_pattern_coord</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'(?:[0-9]{3}x[0-9]{3})?'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">fswquery_pattern_var</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'V[0-9]+'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">fswquery_pattern_symbol</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'S[123][0-9a-f]{2}[0-5u][0-9a-fu]'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">fswquery_pattern_null_or_symbol</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'(?:S00000|S[123][0-9a-f]{2}[0-5u][0-9a-fu])'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">fswquery_pattern_range</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'R[123][0-9a-f]{2}t[123][0-9a-f]{2}'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">fswquery_pattern_item</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'(?:S00000|S[123][0-9a-f]{2}[0-5u][0-9a-fu]|R[123][0-9a-f]{2}t[123][0-9a-f]{2})'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">fswquery_pattern_list</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'(?:S00000|S[123][0-9a-f]{2}[0-5u][0-9a-fu]|R[123][0-9a-f]{2}t[123][0-9a-f]{2})(?:o(?:S00000|S[123][0-9a-f]{2}[0-5u][0-9a-fu]|R[123][0-9a-f]{2}t[123][0-9a-f]{2}))*'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">fswquery_pattern_prefix</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'(?:A(?:(?:S00000|S[123][0-9a-f]{2}[0-5u][0-9a-fu]|R[123][0-9a-f]{2}t[123][0-9a-f]{2})(?:o(?:S00000|S[123][0-9a-f]{2}[0-5u][0-9a-fu]|R[123][0-9a-f]{2}t[123][0-9a-f]{2}))*)+)?T'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">fswquery_pattern_signbox</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'(?:(?:S00000|S[123][0-9a-f]{2}[0-5u][0-9a-fu]|R[123][0-9a-f]{2}t[123][0-9a-f]{2})(?:o(?:S00000|S[123][0-9a-f]{2}[0-5u][0-9a-fu]|R[123][0-9a-f]{2}t[123][0-9a-f]{2}))*(?:[0-9]{3}x[0-9]{3})?)*'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">fswquery_pattern_full</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Q((?:A(?:(?:S00000|S[123][0-9a-f]{2}[0-5u][0-9a-fu]|R[123][0-9a-f]{2}t[123][0-9a-f]{2})(?:o(?:S00000|S[123][0-9a-f]{2}[0-5u][0-9a-fu]|R[123][0-9a-f]{2}t[123][0-9a-f]{2}))*)+)?T)?((?:(?:S00000|S[123][0-9a-f]{2}[0-5u][0-9a-fu]|R[123][0-9a-f]{2}t[123][0-9a-f]{2})(?:o(?:S00000|S[123][0-9a-f]{2}[0-5u][0-9a-fu]|R[123][0-9a-f]{2}t[123][0-9a-f]{2}))*(?:[0-9]{3}x[0-9]{3})?)*)?(V[0-9]+)?(-?)'</span></em></dt>
+<dd></dd></dl>
+
+</section>
+<section id="swu-patterns">
+<h2>SWU Patterns<a class="headerlink" href="#swu-patterns" title="Link to this heading"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">swu_pattern_null</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\\U00040000'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">swu_pattern_symbol</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'[\\U00040001-\\U0004F480]'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">swu_pattern_number</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'[\\U0001D80C-\\U0001D9FF]'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">swu_pattern_sort</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\\U0001D800'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">swu_pattern_box</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'[\\U0001D801-\\U0001D804]'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">swu_pattern_null_or_symbol</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'(?:\\U00040000|[\\U00040001-\\U0004F480])'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">swu_pattern_prefix</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'(?:\\U0001D800(?:\\U00040000|[\\U00040001-\\U0004F480])+)'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">swu_pattern_coord</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'[\\U0001D80C-\\U0001D9FF]{2}'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">swu_pattern_spatial</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'[\\U00040001-\\U0004F480][\\U0001D80C-\\U0001D9FF]{2}'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">swu_pattern_signbox</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'[\\U0001D801-\\U0001D804][\\U0001D80C-\\U0001D9FF]{2}(?:[\\U00040001-\\U0004F480][\\U0001D80C-\\U0001D9FF]{2})*'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">swu_pattern_sign</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'(?:\\U0001D800(?:\\U00040000|[\\U00040001-\\U0004F480])+)?[\\U0001D801-\\U0001D804][\\U0001D80C-\\U0001D9FF]{2}(?:[\\U00040001-\\U0004F480][\\U0001D80C-\\U0001D9FF]{2})*'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">swu_pattern_sortable</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'(?:\\U0001D800(?:\\U00040000|[\\U00040001-\\U0004F480])+)[\\U0001D801-\\U0001D804][\\U0001D80C-\\U0001D9FF]{2}(?:[\\U00040001-\\U0004F480][\\U0001D80C-\\U0001D9FF]{2})*'</span></em></dt>
+<dd></dd></dl>
+
+</section>
+<section id="swu-query-patterns">
+<h2>SWU Query Patterns<a class="headerlink" href="#swu-query-patterns" title="Link to this heading"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">swuquery_pattern_null</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\\U00040000'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">swuquery_pattern_base</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'[\\U00040001-\\U0004F480]'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">swuquery_pattern_coord</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'(?:[\\U0001D80C-\\U0001D9FF]{2})?'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">swuquery_pattern_var</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'V[0-9]+'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">swuquery_pattern_symbol</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'[\\U00040001-\\U0004F480]f?r?'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">swuquery_pattern_null_or_symbol</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'(?:\\U00040000|[\\U00040001-\\U0004F480]f?r?)'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">swuquery_pattern_range</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'R[\\U00040001-\\U0004F480][\\U00040001-\\U0004F480]'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">swuquery_pattern_item</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'(?:\\U00040000|[\\U00040001-\\U0004F480]f?r?|R[\\U00040001-\\U0004F480][\\U00040001-\\U0004F480])'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">swuquery_pattern_list</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'(?:\\U00040000|[\\U00040001-\\U0004F480]f?r?|R[\\U00040001-\\U0004F480][\\U00040001-\\U0004F480])(?:o(?:\\U00040000|[\\U00040001-\\U0004F480]f?r?|R[\\U00040001-\\U0004F480][\\U00040001-\\U0004F480]))*'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">swuquery_pattern_prefix</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'(?:A(?:(?:\\U00040000|[\\U00040001-\\U0004F480]f?r?|R[\\U00040001-\\U0004F480][\\U00040001-\\U0004F480])(?:o(?:\\U00040000|[\\U00040001-\\U0004F480]f?r?|R[\\U00040001-\\U0004F480][\\U00040001-\\U0004F480]))*)+)?T'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">swuquery_pattern_signbox</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'(?:(?:\\U00040000|[\\U00040001-\\U0004F480]f?r?|R[\\U00040001-\\U0004F480][\\U00040001-\\U0004F480])(?:o(?:\\U00040000|[\\U00040001-\\U0004F480]f?r?|R[\\U00040001-\\U0004F480][\\U00040001-\\U0004F480]))*(?:[\\U0001D80C-\\U0001D9FF]{2})?)*'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">swuquery_pattern_full</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Q((?:A(?:(?:\\U00040000|[\\U00040001-\\U0004F480]f?r?|R[\\U00040001-\\U0004F480][\\U00040001-\\U0004F480])(?:o(?:\\U00040000|[\\U00040001-\\U0004F480]f?r?|R[\\U00040001-\\U0004F480][\\U00040001-\\U0004F480]))*)+)?T)?((?:(?:\\U00040000|[\\U00040001-\\U0004F480]f?r?|R[\\U00040001-\\U0004F480][\\U00040001-\\U0004F480])(?:o(?:\\U00040000|[\\U00040001-\\U0004F480]f?r?|R[\\U00040001-\\U0004F480][\\U00040001-\\U0004F480]))*(?:[\\U0001D80C-\\U0001D9FF]{2})?)*)?(V[0-9]+)?(-?)'</span></em></dt>
+<dd></dd></dl>
+
+</section>
+<section id="style-patterns">
+<h2>Style Patterns<a class="headerlink" href="#style-patterns" title="Link to this heading"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">style_pattern_colorize</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'C'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">style_pattern_colorhex</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'(?:[0-9a-fA-F]{3}){1,2}'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">style_pattern_colorname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'[a-zA-Z]+'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">style_pattern_padding</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'P[0-9]{2}'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">style_pattern_zoom</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Z(?:[0-9]+(?:\\.[0-9]+)?|x)'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">style_pattern_classbase</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'-?[_a-zA-Z][_a-zA-Z0-9-]{0,100}'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">style_pattern_id</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'[a-zA-Z][_a-zA-Z0-9-]{0,100}'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">style_pattern_colorbase</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'(?:(?:[0-9a-fA-F]{3}){1,2}|[a-zA-Z]+)'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">style_pattern_color</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'_(?:(?:[0-9a-fA-F]{3}){1,2}|[a-zA-Z]+)_'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">style_pattern_colors</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'_(?:(?:[0-9a-fA-F]{3}){1,2}|[a-zA-Z]+)(?:,(?:(?:[0-9a-fA-F]{3}){1,2}|[a-zA-Z]+))?_'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">style_pattern_background</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'G_(?:(?:[0-9a-fA-F]{3}){1,2}|[a-zA-Z]+)_'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">style_pattern_detail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'D_(?:(?:[0-9a-fA-F]{3}){1,2}|[a-zA-Z]+)(?:,(?:(?:[0-9a-fA-F]{3}){1,2}|[a-zA-Z]+))?_'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">style_pattern_detailsym</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'D[0-9]{2}_(?:(?:[0-9a-fA-F]{3}){1,2}|[a-zA-Z]+)(?:,(?:(?:[0-9a-fA-F]{3}){1,2}|[a-zA-Z]+))?_'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">style_pattern_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'-?[_a-zA-Z][_a-zA-Z0-9-]{0,100}(?:</span> <span class="pre">-?[_a-zA-Z][_a-zA-Z0-9-]{0,100})*'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">style_pattern_full_groups</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'-(C)?(P[0-9]{2})?(G_(?:(?:[0-9a-fA-F]{3}){1,2}|[a-zA-Z]+)_)?(D_(?:(?:[0-9a-fA-F]{3}){1,2}|[a-zA-Z]+)(?:,(?:(?:[0-9a-fA-F]{3}){1,2}|[a-zA-Z]+))?_)?(Z(?:[0-9]+(?:\\.[0-9]+)?|x))?(?:-((?:D[0-9]{2}_(?:(?:[0-9a-fA-F]{3}){1,2}|[a-zA-Z]+)(?:,(?:(?:[0-9a-fA-F]{3}){1,2}|[a-zA-Z]+))?_)*))?(?:-(-?[_a-zA-Z][_a-zA-Z0-9-]{0,100}(?:</span> <span class="pre">-?[_a-zA-Z][_a-zA-Z0-9-]{0,100})*)?!(?:([a-zA-Z][_a-zA-Z0-9-]{0,100})!)?)?'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.regex.</span></span><span class="sig-name descname"><span class="pre">style_pattern_full</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'-(?:C)?(?:P[0-9]{2})?(?:G_(?:(?:[0-9a-fA-F]{3}){1,2}|[a-zA-Z]+)_)?(?:D_(?:(?:[0-9a-fA-F]{3}){1,2}|[a-zA-Z]+)(?:,(?:(?:[0-9a-fA-F]{3}){1,2}|[a-zA-Z]+))?_)?(?:Z(?:[0-9]+(?:\\.[0-9]+)?|x))?(?:-(?:(?:D[0-9]{2}_(?:(?:[0-9a-fA-F]{3}){1,2}|[a-zA-Z]+)(?:,(?:(?:[0-9a-fA-F]{3}){1,2}|[a-zA-Z]+))?_)*))?(?:-(?:-?[_a-zA-Z][_a-zA-Z0-9-]{0,100}(?:</span> <span class="pre">-?[_a-zA-Z][_a-zA-Z0-9-]{0,100})*)?!(?:(?:[a-zA-Z][_a-zA-Z0-9-]{0,100})!)?)?'</span></em></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="api.html" class="btn btn-neutral float-left" title="API Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fsw.html" class="btn btn-neutral float-right" title="FSW Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Steve Slevinski &lt;slevinski@signwriting.org&gt;.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
