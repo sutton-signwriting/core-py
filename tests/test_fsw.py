@@ -61,19 +61,38 @@ def test_fsw_colorize_bad_input():
 # ------------------------------------------------------------------ #
 
 
-def test_fsw_parse_symbol_basic():
-    assert fsw_parse_symbol("S10000") == {"symbol": "S10000"}
+@pytest.mark.parametrize(
+    "input_str, expected",
+    [
+        ("S10000", {"symbol": "S10000"}),
+        ("S10000500x500", {"symbol": "S10000", "coord": [500, 500]}),
+        ("S10000-C", {"symbol": "S10000", "style": "-C"}),
+        ("S10000-Zx", {"symbol": "S10000", "style": "-Zx"}),
+        (
+            "S10000--D01_FF0000_",
+            {"symbol": "S10000", "style": "--D01_FF0000_"},
+        ),
+        (
+            "S10000-CD_green,red_-D01_red,blue_",
+            {"symbol": "S10000", "style": "-CD_green,red_-D01_red,blue_"},
+        ),
+    ],
+)
+def test_fsw_parse_symbol(input_str, expected):
+    assert fsw_parse_symbol(input_str) == expected
 
 
-def test_fsw_parse_symbol_with_coord():
-    assert fsw_parse_symbol("S10000500x500") == {
-        "symbol": "S10000",
-        "coord": [500, 500],
-    }
-
-
-def test_fsw_parse_symbol_with_style():
-    assert fsw_parse_symbol("S10000-C") == {"symbol": "S10000", "style": "-C"}
+@pytest.mark.parametrize(
+    "input_str, expected",
+    [
+        (
+            "S10000-CD_green,red_G_yellow_",  # background (G) should be before detail (D)
+            {"symbol": "S10000", "style": "-CD_green,red_"},
+        ),
+    ],
+)
+def test_fsw_parse_symbol_malformed_style(input_str, expected):
+    assert fsw_parse_symbol(input_str) == expected
 
 
 @pytest.mark.parametrize("invalid_input", ["a"])
@@ -81,72 +100,85 @@ def test_fsw_parse_symbol_invalid(invalid_input):
     assert fsw_parse_symbol(invalid_input) == {}
 
 
-def test_fsw_parse_sign_empty_signbox():
-    assert fsw_parse_sign("M500x500") == {"box": "M", "max": [500, 500]}
-
-
-def test_fsw_parse_sign_plain_signbox():
-    assert fsw_parse_sign(
-        "M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475"
-    ) == {
-        "box": "M",
-        "max": [525, 535],
-        "spatials": [
-            {"symbol": "S2e748", "coord": [483, 510]},
-            {"symbol": "S10011", "coord": [501, 466]},
-            {"symbol": "S2e704", "coord": [510, 500]},
-            {"symbol": "S10019", "coord": [476, 475]},
-        ],
-    }
-
-
-def test_fsw_parse_sign_prefixed_signbox():
-    assert fsw_parse_sign(
-        "AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475"
-    ) == {
-        "sequence": ["S10011", "S10019", "S2e704", "S2e748"],
-        "box": "M",
-        "max": [525, 535],
-        "spatials": [
-            {"symbol": "S2e748", "coord": [483, 510]},
-            {"symbol": "S10011", "coord": [501, 466]},
-            {"symbol": "S2e704", "coord": [510, 500]},
-            {"symbol": "S10019", "coord": [476, 475]},
-        ],
-    }
-
-
-def test_fsw_parse_sign_prefixed_with_null():
-    assert fsw_parse_sign(
-        "AS10011S00000S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475"
-    ) == {
-        "sequence": ["S10011", "S00000", "S2e704", "S2e748"],
-        "box": "M",
-        "max": [525, 535],
-        "spatials": [
-            {"symbol": "S2e748", "coord": [483, 510]},
-            {"symbol": "S10011", "coord": [501, 466]},
-            {"symbol": "S2e704", "coord": [510, 500]},
-            {"symbol": "S10019", "coord": [476, 475]},
-        ],
-    }
-
-
-def test_fsw_parse_sign_prefixed_with_style():
-    assert fsw_parse_sign(
-        "AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475-C"
-    ) == {
-        "sequence": ["S10011", "S10019", "S2e704", "S2e748"],
-        "box": "M",
-        "max": [525, 535],
-        "spatials": [
-            {"symbol": "S2e748", "coord": [483, 510]},
-            {"symbol": "S10011", "coord": [501, 466]},
-            {"symbol": "S2e704", "coord": [510, 500]},
-            {"symbol": "S10019", "coord": [476, 475]},
-        ],
-        "style": "-C",
-    }
+@pytest.mark.parametrize(
+    "input_str, expected",
+    [
+        ("M500x500", {"box": "M", "max": [500, 500]}),
+        (
+            "M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475",
+            {
+                "box": "M",
+                "max": [525, 535],
+                "spatials": [
+                    {"symbol": "S2e748", "coord": [483, 510]},
+                    {"symbol": "S10011", "coord": [501, 466]},
+                    {"symbol": "S2e704", "coord": [510, 500]},
+                    {"symbol": "S10019", "coord": [476, 475]},
+                ],
+            },
+        ),
+        (
+            "AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475",
+            {
+                "sequence": ["S10011", "S10019", "S2e704", "S2e748"],
+                "box": "M",
+                "max": [525, 535],
+                "spatials": [
+                    {"symbol": "S2e748", "coord": [483, 510]},
+                    {"symbol": "S10011", "coord": [501, 466]},
+                    {"symbol": "S2e704", "coord": [510, 500]},
+                    {"symbol": "S10019", "coord": [476, 475]},
+                ],
+            },
+        ),
+        (
+            "AS10011S00000S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475",
+            {
+                "sequence": ["S10011", "S00000", "S2e704", "S2e748"],
+                "box": "M",
+                "max": [525, 535],
+                "spatials": [
+                    {"symbol": "S2e748", "coord": [483, 510]},
+                    {"symbol": "S10011", "coord": [501, 466]},
+                    {"symbol": "S2e704", "coord": [510, 500]},
+                    {"symbol": "S10019", "coord": [476, 475]},
+                ],
+            },
+        ),
+        (
+            "AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475-C",
+            {
+                "sequence": ["S10011", "S10019", "S2e704", "S2e748"],
+                "box": "M",
+                "max": [525, 535],
+                "spatials": [
+                    {"symbol": "S2e748", "coord": [483, 510]},
+                    {"symbol": "S10011", "coord": [501, 466]},
+                    {"symbol": "S2e704", "coord": [510, 500]},
+                    {"symbol": "S10019", "coord": [476, 475]},
+                ],
+                "style": "-C",
+            },
+        ),
+        (
+            "AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475-CD_green,red_-D01_red,blue_",
+            {
+                "sequence": ["S10011", "S10019", "S2e704", "S2e748"],
+                "box": "M",
+                "max": [525, 535],
+                "spatials": [
+                    {"symbol": "S2e748", "coord": [483, 510]},
+                    {"symbol": "S10011", "coord": [501, 466]},
+                    {"symbol": "S2e704", "coord": [510, 500]},
+                    {"symbol": "S10019", "coord": [476, 475]},
+                ],
+                "style": "-CD_green,red_-D01_red,blue_",
+            },
+        ),
+    ],
+)
+def test_fsw_parse_sign(input_str, expected):
+    assert fsw_parse_sign(input_str) == expected
 
 
 @pytest.mark.parametrize("invalid_input", ["a"])

@@ -43,7 +43,7 @@ sutton-signwriting-core
 ``sutton-signwriting-core`` is a Python library that supports general processing of SignWriting text.
 
 This library supports both **Formal SignWriting in ASCII (FSW)** and **SignWriting in Unicode (SWU)** character sets, along with the associated query languages and style string.  
-See the `draft-slevinski-formal-signwriting <https://tools.ietf.org/id/draft-slevinski-formal-signwriting>`_ specification for details.
+See the `draft-slevinski-formal-signwriting <https://www.ietf.org/archive/id/draft-slevinski-formal-signwriting-10.html>`_ specification for details.
 
 
 .. toctree::

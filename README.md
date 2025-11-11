@@ -15,7 +15,7 @@
 
 `sutton-signwriting-core` is a Python library that supports general processing of SignWriting text
 
-This library supports both Formal SignWriting in ASCII (FSW) and SignWriting in Unicode (SWU) character sets, , along with the associated query languages and style string.  See [draft-slevinski-formal-signwriting](https://tools.ietf.org/id/draft-slevinski-formal-signwriting) for detailed specification.
+This library supports both Formal SignWriting in ASCII (FSW) and SignWriting in Unicode (SWU) character sets, , along with the associated query languages and style string.  See [draft-slevinski-formal-signwriting](https://www.ietf.org/archive/id/draft-slevinski-formal-signwriting-10.html) for detailed specification.
 
 > **Author:** [Steve Slevinski](https://steveslevinski.me)  
 **Channel:** [YouTube](https://www.youtube.com/channel/UCXu4AXlG0rXFtk_5SzumDow)  
@@ -106,15 +106,20 @@ black .
 ruff check .
 mypy src
 
-# 8. Create HTML documentation
+# 8. Update Version string
+pyproject.toml:version = "1.0.0"
+sphinx-docs/source/conf.py:release = "1.0.0"
+src/sutton_signwriting_core/__init__.py:__version__ = "1.0.0"
+
+# 9. Create HTML documentation
 cd sphinx-docs
 sphinx-build -b html source/ ../docs/
 
-# 9. Build distributions
+# 10. Build distributions
 poetry build
 
-# 10. Publish to pypi
-poetry publish --build
+# 11. Publish to pypi
+poetry publish
 
 ```
 

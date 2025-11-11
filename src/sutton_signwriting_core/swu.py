@@ -107,7 +107,7 @@ def swu_is_type(swu_char: str, type_name: str) -> bool:
     Note:
         The following `type_name` values are supported:
 
-        - **all symbols** - All symbols used in Formal SignWriting.
+        - **all** - All symbols used in Formal SignWriting.
         - **writing** - Symbols that can be used in the spatial signbox or the temporal prefix.
         - **hand** - Various handshapes.
         - **movement** - Contact symbols, small finger movements, straight arrows, curved arrows, and circles.
@@ -192,7 +192,7 @@ def swu_parse_symbol(swu_sym: str) -> Dict[str, Any]:
         {'symbol': '񀀁', 'coord': [500, 500], 'style': '-C'}
     """
     pattern = re.compile(
-        rf"^({swu_pattern_symbol})({swu_pattern_coord})?({style_pattern_full})?$"
+        rf"^({swu_pattern_symbol})({swu_pattern_coord})?({style_pattern_full})?"
     )
     m = pattern.match(swu_sym)
     if not m:
@@ -228,7 +228,7 @@ def swu_parse_sign(swu_sign: str) -> Dict[str, Any]:
          'style': '-C'}
     """
     pattern = re.compile(
-        rf"^({swu_pattern_prefix})?({swu_pattern_signbox})({style_pattern_full})?$"
+        rf"^({swu_pattern_prefix})?({swu_pattern_signbox})({style_pattern_full})?"
     )
     m = pattern.match(swu_sign)
     if not m:

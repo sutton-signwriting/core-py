@@ -44,7 +44,7 @@ def style_parse(style_string: str) -> Dict[str, Any]:
         >>> style_parse('-CP10G_blue_D_red,Cyan_')
         {'colorize': True, 'padding': 10, 'background': 'blue', 'detail': ['red', 'Cyan']}
     """
-    pattern = re.compile(rf"^{style_pattern_full_groups}$")
+    pattern = re.compile(rf"^{style_pattern_full_groups}")
     m = pattern.match(style_string) if isinstance(style_string, str) else None
     if not m:
         return {}
@@ -57,18 +57,19 @@ def style_parse(style_string: str) -> Dict[str, Any]:
         else [_prefix_color(p.strip()) for p in s[2:-1].split(",")]
     )
     zoom_str = m.group(5)
-    zoom: Optional[Union[float, bool]] = None
+    zoom: Optional[Union[float, str]] = None
     if zoom_str:
-        zoom = True if zoom_str == "Zx" else float(zoom_str[1:])
+        zoom = "x" if zoom_str == "Zx" else float(zoom_str[1:])
     detailsym_str = m.group(6)
     detailsym: Optional[List[Dict[str, Any]]] = None
     if detailsym_str:
         detailsym_matches = re.findall(style_pattern_detailsym, detailsym_str)
         detailsym = []
         for ds in detailsym_matches:
-            parts = ds[3:].split("_")[:2]
-            det = [_prefix_color(p) for p in parts if p]
-            detailsym.append({"index": int(ds[1:3]), "detail": det})
+            index = int(ds[1:3])
+            inner = ds[4:-1]  # strip "D01_" and trailing "_"
+            det = [_prefix_color(p.strip()) for p in inner.split(",") if p]
+            detailsym.append({"index": index, "detail": det})
     classes = m.group(7) if m.group(7) else None
     id_ = m.group(8) if m.group(8) else None
     res = {
@@ -99,7 +100,7 @@ def style_compose(style_dict: Dict[str, Any]) -> Optional[str]:
             - 'padding': Optional[int]
             - 'background': Optional[str]
             - 'detail': Optional[List[str]]
-            - 'zoom': Optional[float]
+            - 'zoom': Optional[Union[float, str]]
             - 'detailsym': Optional[List[Dict]] (each with 'index': int, 'detail': List[str])
             - 'classes': Optional[str]
             - 'id': Optional[str]

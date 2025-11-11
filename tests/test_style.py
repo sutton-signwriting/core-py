@@ -31,7 +31,37 @@ from sutton_signwriting_core import (
         ("-G_000000_", {"background": "#000000"}),
         ("-D_FF0000_", {"detail": ["#FF0000"]}),
         ("-Z2", {"zoom": 2}),
+        ("-Zx", {"zoom": "x"}),
+        (
+            "-CD_green,red_-D01_red,blue_",
+            {
+                "colorize": True,
+                "detail": [
+                    "green",
+                    "red",
+                ],
+                "detailsym": [
+                    {
+                        "detail": [
+                            "red",
+                            "blue",
+                        ],
+                        "index": 1,
+                    },
+                ],
+            },
+        ),
         ("--D01_FF0000_", {"detailsym": [{"index": 1, "detail": ["#FF0000"]}]}),
+        ("--D01_red,blue_", {"detailsym": [{"index": 1, "detail": ["red", "blue"]}]}),
+        (
+            "--D01_red,blue_D02_black_",
+            {
+                "detailsym": [
+                    {"index": 1, "detail": ["red", "blue"]},
+                    {"index": 2, "detail": ["black"]},
+                ]
+            },
+        ),
         ("----class1 class2!", {"classes": "-class1 class2"}),
         ("---!id1!", {"id": "id1"}),
         (
@@ -71,7 +101,20 @@ def test_style_parse_invalid(invalid_style):
         ({"background": "#000000"}, "-G_000000_"),
         ({"detail": ["#FF0000"]}, "-D_FF0000_"),
         ({"zoom": 2}, "-Z2"),
-        ({"detailsym": [{"index": 1, "detail": ["#FF0000"]}]}, "--D01_FF0000_"),
+        ({"zoom": "x"}, "-Zx"),
+        (
+            {"detailsym": [{"index": 1, "detail": ["#FF0000", "yellow"]}]},
+            "--D01_FF0000,yellow_",
+        ),
+        (
+            {
+                "detailsym": [
+                    {"index": 1, "detail": ["#FF0000"]},
+                    {"index": 2, "detail": ["red"]},
+                ]
+            },
+            "--D01_FF0000_D02_red_",
+        ),
         ({"classes": "-class1 class2"}, "----class1 class2!"),
         ({"id": "id1"}, "---!id1!"),
         (

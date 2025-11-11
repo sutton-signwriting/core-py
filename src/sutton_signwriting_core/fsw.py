@@ -105,7 +105,7 @@ def fsw_is_type(sym_key: str, type_name: str) -> bool:
     Note:
         The following `type_name` values are supported:
 
-        - **all symbols** - All symbols used in Formal SignWriting.
+        - **all** - All symbols used in Formal SignWriting.
         - **writing** - Symbols that can be used in the spatial signbox or the temporal prefix.
         - **hand** - Various handshapes.
         - **movement** - Contact symbols, small finger movements, straight arrows, curved arrows, and circles.
@@ -193,7 +193,7 @@ def fsw_parse_symbol(fsw_sym: str) -> Dict[str, Any]:
         {'symbol': 'S10000', 'coord': [500, 500], 'style': '-C'}
     """
     pattern = re.compile(
-        rf"^({fsw_pattern_symbol})({fsw_pattern_coord})?({style_pattern_full})?$"
+        rf"^({fsw_pattern_symbol})({fsw_pattern_coord})?({style_pattern_full})?"
     )
     m = pattern.match(fsw_sym)
     if not m:
@@ -202,7 +202,7 @@ def fsw_parse_symbol(fsw_sym: str) -> Dict[str, Any]:
         {
             "symbol": m.group(1),
             "coord": fsw_to_coord(m.group(2)) if m.group(2) else None,
-            "style": m.group(3) if m.group(3) else None,
+            "style": m.group(3),
         }
     )
 
@@ -229,7 +229,7 @@ def fsw_parse_sign(fsw_sign: str) -> Dict[str, Any]:
          'style': '-C'}
     """
     pattern = re.compile(
-        rf"^({fsw_pattern_prefix})?({fsw_pattern_signbox})({style_pattern_full})?$"
+        rf"^({fsw_pattern_prefix})?({fsw_pattern_signbox})({style_pattern_full})?"
     )
     m = pattern.match(fsw_sign)
     if not m:
