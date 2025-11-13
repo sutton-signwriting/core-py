@@ -55,7 +55,7 @@ def test_fswquery_parse_prefix_with_or():
         "query": True,
         "prefix": {
             "required": True,
-            "parts": ["S10000", ["or", ["100", "204"], "S20500"]],
+            "parts": ["S10000", ["or_list", ["100", "204"], "S20500"]],
         },
     }
 
@@ -101,7 +101,7 @@ def test_fswquery_parse_signbox_mixed():
 def test_fswquery_parse_signbox_with_or():
     assert fswquery_parse("QS1000uoR100t105500x500") == {
         "query": True,
-        "signbox": [{"or": ["S1000u", ["100", "105"]], "coord": [500, 500]}],
+        "signbox": [{"or_list": ["S1000u", ["100", "105"]], "coord": [500, 500]}],
     }
 
 
@@ -150,7 +150,7 @@ def test_fswquery_compose_prefix_with_or():
                 "query": True,
                 "prefix": {
                     "required": True,
-                    "parts": ["S10000", ["or", ["100", "204"], "S20500"]],
+                    "parts": ["S10000", ["or_list", ["100", "204"], "S20500"]],
                 },
             }
         )
@@ -210,7 +210,9 @@ def test_fswquery_compose_signbox_with_or():
         fswquery_compose(
             {
                 "query": True,
-                "signbox": [{"or": ["S1000u", ["100", "105"]], "coord": [500, 500]}],
+                "signbox": [
+                    {"or_list": ["S1000u", ["100", "105"]], "coord": [500, 500]}
+                ],
             }
         )
         == "QS1000uoR100t105500x500"

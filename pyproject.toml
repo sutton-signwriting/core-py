@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "sutton-signwriting-core"
-version = "1.0.1"
+version = "1.1.0"
 description = "Python tools for Sutton SignWriting core functionality."
 authors = ["Steve Slevinski <Slevinski@signwriting.org>"]
 license = "MIT"
@@ -15,9 +15,10 @@ classifiers = [
     "Intended Audience :: Developers",
     "Topic :: Text Processing :: Linguistic",
     "Topic :: Scientific/Engineering :: Information Analysis",
+    "Typing :: Typed",
 ]
 packages = [{include = "sutton_signwriting_core", from = "src"}]
-include = ["LICENSE", "README.md"]
+include = ["LICENSE", "README.md", "src/sutton_signwriting_core/py.typed"]
 exclude = ["tests", "*.pyc"]  
 
 [tool.poetry.dependencies]
@@ -38,6 +39,7 @@ target-version = "py311"
 
 [tool.mypy]
 python_version = "3.11"
+strict = true
 warn_return_any = true
 warn_unused_configs = true
 

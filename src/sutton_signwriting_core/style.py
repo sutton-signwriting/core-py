@@ -5,7 +5,12 @@ Style string definition: https://datatracker.ietf.org/doc/id/draft-slevinski-for
 """
 
 import re
-from typing import Any, Dict, List, Optional, Union
+from typing import List, Optional, Union
+
+from .datatypes import (
+    DetailSym,
+    StyleObject,
+)
 
 from .regex import (
     style_pattern_colorbase,
@@ -13,6 +18,8 @@ from .regex import (
     style_pattern_full_groups,
     style_pattern_full,
 )
+
+from .convert import to_zoom
 
 # ----------------------------
 # Style Parsing
@@ -30,7 +37,7 @@ def _prefix_color(color: str) -> str:
     return color
 
 
-def style_parse(style_string: str) -> Dict[str, Any]:
+def style_parse(style_string: str) -> StyleObject:
     """
     Parse a style string to a structured dictionary.
 
@@ -48,41 +55,56 @@ def style_parse(style_string: str) -> Dict[str, Any]:
     m = pattern.match(style_string) if isinstance(style_string, str) else None
     if not m:
         return {}
+
+    res: StyleObject = {}
+
     colorize = True if m.group(1) else None
+    if colorize is not None:
+        res["colorize"] = colorize
+
     padding = int(m.group(2)[1:]) if m.group(2) else None
+    if padding is not None:
+        res["padding"] = padding
+
     background = None if not m.group(3) else _prefix_color(m.group(3)[2:-1])
+    if background is not None:
+        res["background"] = background
+
     detail = (
         None
         if not (s := m.group(4))
         else [_prefix_color(p.strip()) for p in s[2:-1].split(",")]
     )
+    if detail is not None:
+        res["detail"] = detail
+
     zoom_str = m.group(5)
-    zoom: Optional[Union[float, str]] = None
+    zoom: Optional[Union[int, float, str]] = None
     if zoom_str:
         zoom = "x" if zoom_str == "Zx" else float(zoom_str[1:])
-    detailsym_str = m.group(6)
-    detailsym: Optional[List[Dict[str, Any]]] = None
-    if detailsym_str:
+    if zoom is not None:
+        res["zoom"] = zoom
+
+    detailsym: List[DetailSym] = []
+    if detailsym_str := m.group(6):
         detailsym_matches = re.findall(style_pattern_detailsym, detailsym_str)
-        detailsym = []
         for ds in detailsym_matches:
             index = int(ds[1:3])
-            inner = ds[4:-1]  # strip "D01_" and trailing "_"
+            inner = ds[4:-1]
             det = [_prefix_color(p.strip()) for p in inner.split(",") if p]
             detailsym.append({"index": index, "detail": det})
+    if detailsym:
+        res["detailsym"] = detailsym
+
     classes = m.group(7) if m.group(7) else None
+    if classes is not None:
+        res["classes"] = classes
+
     id_ = m.group(8) if m.group(8) else None
-    res = {
-        "colorize": colorize,
-        "padding": padding,
-        "background": background,
-        "detail": detail,
-        "zoom": zoom,
-        "detailsym": detailsym,
-        "classes": classes,
-        "id": id_,
-    }
-    return {k: v for k, v in res.items() if v is not None}
+    if id_ is not None:
+        res["id"] = id_
+
+    return res
 
 
 # ----------------------------
@@ -90,7 +112,7 @@ def style_parse(style_string: str) -> Dict[str, Any]:
 # ----------------------------
 
 
-def style_compose(style_dict: Dict[str, Any]) -> Optional[str]:
+def style_compose(style_dict: StyleObject) -> Optional[str]:
     """
     Function to compose style string from dictionary.
 
@@ -248,8 +270,8 @@ def style_rgba_to_hex(color: str, background: str) -> str:
 
 
 def style_merge(
-    style1: Optional[Dict[str, Any]], style2: Optional[Dict[str, Any]]
-) -> Dict[str, Any]:
+    style1: Optional[StyleObject], style2: Optional[StyleObject]
+) -> StyleObject:
     """
     Function to merge style dictionaries.
 
@@ -268,9 +290,9 @@ def style_merge(
         style1 = {}
     if not isinstance(style2, dict):
         style2 = {}
-    zoom1 = style1.get("zoom", 1)
-    zoom2 = style2.get("zoom", 1)
-    merged = {**style1, **style2}
+    zoom1 = to_zoom(style1.get("zoom"))
+    zoom2 = to_zoom(style2.get("zoom"))
+    merged: StyleObject = {**style1, **style2}
     merged["zoom"] = zoom1 * zoom2
     return merged
 

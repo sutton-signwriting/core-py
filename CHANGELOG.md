@@ -11,10 +11,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * **Fixed** for any bug fixes.
 * **Security** in case of vulnerabilities.
 
+
 ## [Unreleased]
 ### Todo
-* Move tokenizer data types to datatypes.py
-* Integrate data types into various functions
+- expand documentation with details and more examples
+
+## [1.1.0] - 2025-11-13
+### Updated
+- function with custom data types
 
 
 ## [1.0.1] - 2025-11-11

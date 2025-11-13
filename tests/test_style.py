@@ -171,5 +171,12 @@ def test_merge_style_object():
     assert style_merge({"colorize": True}, {"zoom": 2}) == {"colorize": True, "zoom": 2}
 
 
+def test_merge_style_object_zoomx():
+    assert style_merge({"colorize": True}, {"zoom": "x"}) == {
+        "colorize": True,
+        "zoom": 1,
+    }
+
+
 def test_merge_bad_data():
     assert style_merge("a", "b") == {"zoom": 1}

@@ -3,11 +3,10 @@ Data Types for Sutton SignWriting core functionality.
 """
 
 from typing import (
+    Dict,
     TypedDict,
     List,
     Union,
-    Optional,
-    Dict,
     NotRequired,
 )
 
@@ -19,7 +18,7 @@ class QuerySignboxSymbol(TypedDict):
 
     symbol: str
     """A symbol identifier."""
-    coord: Optional[List[int]]
+    coord: NotRequired[List[int]]
     """An optional coordinate [x, y]."""
 
 
@@ -28,20 +27,34 @@ class QuerySignboxRange(TypedDict):
 
     range: List[str]
     """An array of two symbols defining the range [start, end]."""
-    coord: Optional[List[int]]
+    coord: NotRequired[List[int]]
     """An optional coordinate [x, y]."""
 
 
 class QuerySignboxOr(TypedDict):
     """An OR group of symbols or ranges in a signbox query."""
 
-    or_: List[Union[str, List[str]]]
+    or_list: List[Union[str, List[str]]]
     """An array of symbol strings and/or range arrays."""
-    coord: Optional[List[int]]
+    coord: NotRequired[List[int]]
     """An optional coordinate [x, y]."""
 
 
 QuerySignboxElement = Union[QuerySignboxSymbol, QuerySignboxRange, QuerySignboxOr]
+"""A signbox query element as a symbol, range, or an OR group of symbols and ranges."""
+
+
+QueryPrefixSymbol = str
+"""A symbol identifier in a prefix query."""
+
+QueryPrefixRange = List[str]
+"""A symbol range in a prefix query."""
+
+QueryPrefixOr = List[Union[str, List[str]]]
+"""An OR group of symbols or ranges in a prefix query."""
+
+QueryPrefixElement = Union[QueryPrefixSymbol, QueryPrefixRange, QueryPrefixOr]
+"""A prefix query element as a :py:data:`.QueryPrefixSymbol`, :py:data:`.QueryPrefixRange`, or :py:data:`.QueryPrefixOr`."""
 
 
 class QueryPrefix(TypedDict):
@@ -49,8 +62,8 @@ class QueryPrefix(TypedDict):
 
     required: bool
     """Whether the prefix is required."""
-    parts: Optional[List[Union[str, List[str], List[Union[str, List[str]]]]]]
-    """An object for prefix elements."""
+    parts: NotRequired[List[QueryPrefixElement]]
+    """A list of symbols, ranges, or OR groups."""
 
 
 class QueryObject(TypedDict):
@@ -60,13 +73,13 @@ class QueryObject(TypedDict):
 
     query: bool
     """Required true for query object."""
-    prefix: NotRequired[Optional[QueryPrefix]]
+    prefix: NotRequired[QueryPrefix]
     """An object for prefix elements."""
-    signbox: NotRequired[Optional[List[QuerySignboxElement]]]
+    signbox: NotRequired[List[QuerySignboxElement]]
     """Array of objects for symbols, ranges, and list of symbols or ranges, with optional coordinates."""
-    variance: NotRequired[Optional[int]]
+    variance: NotRequired[int]
     """Amount that x or y coordinates can vary and find a match, defaults to 20."""
-    style: NotRequired[Optional[bool]]
+    style: NotRequired[bool]
     """Boolean value for including style string in matches."""
 
 
@@ -76,12 +89,23 @@ class QueryObject(TypedDict):
 class ColumnPunctuation(TypedDict):
     """Punctuation options for columns."""
 
-    spacing: Optional[bool]
+    spacing: NotRequired[bool]
     """Whether to add spacing for punctuation."""
-    pad: Optional[int]
+    pad: NotRequired[int]
     """Padding for punctuation."""
-    pull: Optional[bool]
+    pull: NotRequired[bool]
     """Whether to pull punctuation closer."""
+
+
+class DetailSym(TypedDict):
+    """
+    A symbol-specific style configuration for custom colors.
+    """
+
+    index: int
+    """The index of the symbol."""
+    detail: List[str]
+    """Array of CSS names or hex colors for line and optional fill."""
 
 
 class StyleObject(TypedDict):
@@ -89,21 +113,21 @@ class StyleObject(TypedDict):
     The elements of a style string.
     """
 
-    colorize: Optional[bool]
+    colorize: NotRequired[bool]
     """Boolean to use standardized colors for symbol groups."""
-    padding: Optional[int]
+    padding: NotRequired[int]
     """Integer value for padding around symbol or sign."""
-    background: Optional[str]
+    background: NotRequired[str]
     """CSS name or hex color for background."""
-    detail: Optional[List[str]]
+    detail: NotRequired[List[str]]
     """Array for CSS name or hex color for line and optional fill."""
-    zoom: Optional[float]
+    zoom: NotRequired[Union[int, float, str]]
     """Decimal value for zoom level."""
-    detailsym: Optional[List[Dict[str, Union[int, List[str]]]]]
+    detailsym: NotRequired[List[DetailSym]]
     """Custom colors for individual symbols: list of {index: int, detail: List[str]}."""
-    classes: Optional[str]
+    classes: NotRequired[str]
     """List of class names separated with spaces used for SVG."""
-    id: Optional[str]
+    id: NotRequired[str]
     """ID name used for SVG."""
 
 
@@ -112,23 +136,23 @@ class ColumnOptions(TypedDict):
     Options for column layout.
     """
 
-    height: Optional[int]
+    height: NotRequired[int]
     """The height of the columns."""
-    width: Optional[int]
+    width: NotRequired[int]
     """The widths of the columns."""
-    offset: Optional[int]
+    offset: NotRequired[int]
     """The lane offset for left and right lanes."""
-    pad: Optional[int]
+    pad: NotRequired[int]
     """Amount of padding before and after signs as well as at top, left, and right of columns."""
-    margin: Optional[int]
+    margin: NotRequired[int]
     """Amount of space at bottom of column that is not available."""
-    dynamic: Optional[bool]
+    dynamic: NotRequired[bool]
     """Enables variable width columns."""
-    background: Optional[str]
+    background: NotRequired[str]
     """Background color for columns."""
-    style: Optional[StyleObject]
+    style: NotRequired[StyleObject]
     """An object of style options."""
-    punctuation: Optional[ColumnPunctuation]
+    punctuation: NotRequired[ColumnPunctuation]
     """An object of punctuation options."""
 
 
@@ -151,7 +175,7 @@ class SegmentInfo(TypedDict):
     """The padding of the text segment affects colored background."""
     segment: str
     """'sign' or 'symbol'."""
-    zoom: float
+    zoom: Union[int, float, str]
     """The zoom size of the segment."""
 
 
@@ -168,7 +192,18 @@ class ColumnSegment(SegmentInfo):
 
 ColumnData = List[ColumnSegment]
 
-# Symbol and sign types
+
+class ColumnsResult(TypedDict):
+    """
+    The result of the columns functions, containing column layout data.
+    """
+
+    options: NotRequired[ColumnOptions]
+    """Column layout options."""
+    widths: NotRequired[List[int]]
+    """Widths of each column."""
+    columns: NotRequired[List[List[ColumnSegment]]]
+    """Array of columns, each containing an array of segments."""
 
 
 class SymbolObject(TypedDict):
@@ -176,11 +211,11 @@ class SymbolObject(TypedDict):
     The elements of a symbol string.
     """
 
-    symbol: Optional[str]
+    symbol: NotRequired[str]
     """Symbol identifier."""
-    coord: Optional[List[int]]
+    coord: NotRequired[List[int]]
     """X, y coordinate."""
-    style: Optional[str]
+    style: NotRequired[str]
     """Style string."""
 
 
@@ -198,16 +233,27 @@ class SignObject(TypedDict):
     The elements of a sign string.
     """
 
-    sequence: Optional[List[str]]
+    sequence: NotRequired[List[str]]
     """Array of symbols."""
-    box: Optional[str]
+    box: NotRequired[str]
     """Signbox marker or lane."""
-    max: Optional[List[int]]
+    max: NotRequired[List[int]]
     """Preprocessed x, y coordinate."""
-    spatials: Optional[List[SignSpatial]]
+    spatials: NotRequired[List[SignSpatial]]
     """Array of symbols with coordinates."""
-    style: Optional[str]
+    style: NotRequired[str]
     """Style string."""
+
+
+class SpecialToken(TypedDict):
+    index: int
+    name: str
+    value: str
+
+
+class TokenizerMappings(TypedDict):
+    i2s: Dict[int, str]
+    s2i: Dict[str, int]
 
 
 __all__ = [
@@ -215,7 +261,12 @@ __all__ = [
     "ColumnOptions",
     "ColumnPunctuation",
     "ColumnSegment",
+    "ColumnsResult",
     "QueryObject",
+    "QueryPrefixSymbol",
+    "QueryPrefixRange",
+    "QueryPrefixOr",
+    "QueryPrefixElement",
     "QueryPrefix",
     "QuerySignboxElement",
     "QuerySignboxOr",
@@ -224,6 +275,9 @@ __all__ = [
     "SegmentInfo",
     "SignObject",
     "SignSpatial",
+    "DetailSym",
     "StyleObject",
     "SymbolObject",
+    "SpecialToken",
+    "TokenizerMappings",
 ]

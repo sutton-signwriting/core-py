@@ -1,6 +1,0 @@
-Types Module
-==============
-
-.. automodule:: sutton_signwriting_core.types
-   :members:
-   :show-inheritance:

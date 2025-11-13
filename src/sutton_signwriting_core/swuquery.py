@@ -5,11 +5,19 @@ Query Language definition: https://datatracker.ietf.org/doc/id/draft-slevinski-f
 """
 
 import re
+from typing import List, Optional, Union, cast
 
-from typing import Any, Dict, List, Optional, Union
+from .datatypes import (
+    QueryObject,
+    QueryPrefixElement,
+    QueryPrefix,
+    QuerySignboxElement,
+    QuerySignboxOr,
+    QuerySignboxRange,
+    QuerySignboxSymbol,
+)
 
 from .convert import (
-    drop_none,
     swu_to_coord,
     coord_to_swu,
     num_to_swu,
@@ -43,15 +51,15 @@ from .swu import swu_parse_sign
 # ----------------------------
 
 
-def _swuquery_parse_prefix(text: str) -> Dict[str, Any]:
+def _swuquery_parse_prefix(text: str) -> QueryPrefix:
     if text == "T":
         return {"required": True}
     parts = re.findall(swuquery_pattern_list, text)
-    processed_parts: List[Union[str, List[Any]]] = []
+    processed_parts: List[QueryPrefixElement] = []
     for part in parts:
         if "o" in part:
             or_parts = re.findall(swuquery_pattern_item, part)
-            processed: list[Union[str, list[str]]] = ["or"]
+            processed: list[Union[str, list[str]]] = ["or_list"]
             for or_part in or_parts:
                 if or_part[0] != "R":
                     processed.append(or_part)
@@ -66,14 +74,25 @@ def _swuquery_parse_prefix(text: str) -> Dict[str, Any]:
     return {"required": True, "parts": processed_parts}
 
 
-def _swuquery_parse_signbox(text: str) -> List[Dict[str, Any]]:
+def _swuquery_parse_signbox(text: str) -> List[QuerySignboxElement]:
+    """
+    Parse a signbox query string into a list of query elements.
+
+    Args:
+        text: A string representing the signbox query.
+
+    Returns:
+        A list of QuerySignboxElement (symbols, ranges, or OR groups).
+    """
     items = re.findall(rf"{swuquery_pattern_list}{swuquery_pattern_coord}", text)
-    processed: List[Dict[str, Any]] = []
+    processed: List[QuerySignboxElement] = []
+
     for item in items:
         coord_match = re.search(rf"{swuquery_pattern_coord}$", item)
         coord_str = coord_match.group(0) if coord_match else ""
         front = item[: -len(coord_str)] if coord_str else item
         coord = swu_to_coord(coord_str) if coord_str else None
+
         if "o" in front:
             or_parts = front.split("o")
             or_list = []
@@ -82,15 +101,25 @@ def _swuquery_parse_signbox(text: str) -> List[Dict[str, Any]]:
                     or_list.append(or_part)
                 else:
                     or_list.append([or_part[1], or_part[2]])
-            processed.append(drop_none({"or": or_list, "coord": coord}))
+            query_or: QuerySignboxOr = {"or_list": or_list}
+            if coord is not None:
+                query_or["coord"] = coord
+            processed.append(query_or)
         elif "R" not in front:
-            processed.append(drop_none({"symbol": front, "coord": coord}))
+            query_symbol: QuerySignboxSymbol = {"symbol": front}
+            if coord is not None:
+                query_symbol["coord"] = coord
+            processed.append(query_symbol)
         else:
-            processed.append(drop_none({"range": [front[1], front[2]], "coord": coord}))
+            query_range: QuerySignboxRange = {"range": [front[1], front[2]]}
+            if coord is not None:
+                query_range["coord"] = coord
+            processed.append(query_range)
+
     return processed
 
 
-def swuquery_parse(swu_query_string: str) -> Dict[str, Any]:
+def swuquery_parse(swu_query_string: str) -> QueryObject:
     """
     Parse an SWU query string to a structured dictionary.
 
@@ -113,16 +142,23 @@ def swuquery_parse(swu_query_string: str) -> Dict[str, Any]:
     pattern = re.compile(rf"^{swuquery_pattern_full}$")
     m = pattern.match(swu_query_string)
     if not m:
-        return {}
-    return drop_none(
-        {
-            "query": True,
-            "prefix": _swuquery_parse_prefix(m.group(1)) if m.group(1) else None,
-            "signbox": _swuquery_parse_signbox(m.group(2)) if m.group(2) else None,
-            "variance": int(m.group(3)[1:]) if m.group(3) else None,
-            "style": True if m.group(4) else None,
-        }
-    )
+        return {"query": False}
+
+    result: QueryObject = {"query": True}
+    prefix = _swuquery_parse_prefix(m.group(1)) if m.group(1) else None
+    if prefix is not None:
+        result["prefix"] = prefix
+    signbox = _swuquery_parse_signbox(m.group(2)) if m.group(2) else None
+    if signbox is not None:
+        result["signbox"] = signbox
+    variance = int(m.group(3)[1:]) if m.group(3) else None
+    if variance is not None:
+        result["variance"] = variance
+    style = True if m.group(4) else None
+    if style is not None:
+        result["style"] = style
+
+    return result
 
 
 # ----------------------------
@@ -130,20 +166,15 @@ def swuquery_parse(swu_query_string: str) -> Dict[str, Any]:
 # ----------------------------
 
 
-def swuquery_compose(swu_query_object: Dict[str, Any]) -> Optional[str]:
+def swuquery_compose(swu_query_object: QueryObject) -> Optional[str]:
     """
     Function to compose SWU query string from object.
 
     Args:
-        swu_query_object: Dictionary representing the query structure:
-            - 'query': bool (required, True)
-            - 'prefix': Optional[Dict] with 'required': bool, 'parts': List[Union[str, List]]
-            - 'signbox': Optional[List[Dict]] each with 'symbol', 'range', 'or', 'coord'
-            - 'variance': Optional[int]
-            - 'style': Optional[bool]
+        swu_query_object: Dictionary of type QueryObject
 
     Returns:
-        SWU query string, or None if invalid
+        SWU query string
 
     Example:
         >>> swuquery_compose({
@@ -180,7 +211,7 @@ def swuquery_compose(swu_query_object: Dict[str, Any]) -> Optional[str]:
                     query += part
                 elif isinstance(part, list) and len(part) == 2:
                     query += f"R{part[0]}{part[1]}"
-                elif isinstance(part, list) and len(part) > 2 and part[0] == "or":
+                elif isinstance(part, list) and len(part) > 2 and part[0] == "or_list":
                     or_parts = part[1:]
                     or_strs = []
                     for or_part in or_parts:
@@ -193,29 +224,33 @@ def swuquery_compose(swu_query_object: Dict[str, Any]) -> Optional[str]:
 
     signbox = swu_query_object.get("signbox")
     if isinstance(signbox, list):
-        for part in signbox:
+        for part_sb in signbox:
             out = ""
-            or_list = part.get("or")
-            if or_list:
-                or_strs = []
-                for item in or_list:
-                    if isinstance(item, str):
-                        or_strs.append(item)
-                    elif isinstance(item, list) and len(item) == 2:
-                        or_strs.append(f"R{item[0]}{item[1]}")
-                out = "o".join(or_strs)
-            elif part.get("symbol"):
-                out = part["symbol"]
-            elif (
-                part.get("range")
-                and isinstance(part["range"], list)
-                and len(part["range"]) == 2
-            ):
-                out = f"R{part['range'][0]}{part['range'][1]}"
+            if isinstance(part_sb, dict):
+                if "or_list" in part_sb:
+                    query_or = cast(QuerySignboxOr, part_sb)
+                    or_list: List[Union[str, List[str]]] = query_or["or_list"]
+                    or_strs = []
+                    for item in or_list:
+                        if isinstance(item, str):
+                            or_strs.append(item)
+                        elif isinstance(item, list) and len(item) == 2:
+                            or_strs.append(f"R{item[0]}{item[1]}")
+                    out = "o".join(or_strs)
+                elif "symbol" in part_sb:
+                    query_symbol = cast(QuerySignboxSymbol, part_sb)
+                    out = query_symbol["symbol"]
+                elif (
+                    "range" in part_sb
+                    and isinstance(part_sb["range"], list)
+                    and len(part_sb["range"]) == 2
+                ):  # QuerySignboxRange
+                    query_range = part_sb
+                    out = f"R{query_range['range'][0]}{query_range['range'][1]}"
 
-            coord = part.get("coord")
-            if isinstance(coord, list) and len(coord) == 2:
-                out += coord_to_swu(coord)
+                coord = part_sb.get("coord")
+                if isinstance(coord, list) and len(coord) == 2:
+                    out += coord_to_swu(coord)
 
             query += out
 

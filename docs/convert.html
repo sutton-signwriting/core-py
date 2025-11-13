@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Convert Module &mdash; sutton-signwriting-core 1.0.1 documentation</title>
+  <title>Convert Module &mdash; sutton-signwriting-core 1.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css?v=589ca1d9" />
@@ -14,7 +14,7 @@
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=292eb321"></script>
+      <script src="_static/documentation_options.js?v=fc837d61"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -53,6 +53,8 @@
 <li class="toctree-l2"><a class="reference internal" href="swuquery.html">SWU Query Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="style.html">Style Module</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Convert Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.convert.drop_none"><code class="docutils literal notranslate"><span class="pre">drop_none()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.convert.to_zoom"><code class="docutils literal notranslate"><span class="pre">to_zoom()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.convert.swu_to_mark"><code class="docutils literal notranslate"><span class="pre">swu_to_mark()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.convert.mark_to_swu"><code class="docutils literal notranslate"><span class="pre">mark_to_swu()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.convert.swu_to_num"><code class="docutils literal notranslate"><span class="pre">swu_to_num()</span></code></a></li>
@@ -111,6 +113,31 @@
 <span id="convert-module"></span><h1>Convert Module<a class="headerlink" href="#module-sutton_signwriting_core.convert" title="Link to this heading"></a></h1>
 <p>The convert module contains functions to convert between Formal SignWriitng in ASCII (FSW) and SignWriting in Unicode (SWU) characters, along with other types of data.</p>
 <p>Characters set definitions: <a class="reference external" href="https://datatracker.ietf.org/doc/id/draft-slevinski-formal-signwriting-10.html#name-character-sets">https://datatracker.ietf.org/doc/id/draft-slevinski-formal-signwriting-10.html#name-character-sets</a></p>
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.convert.drop_none">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.convert.</span></span><span class="sig-name descname"><span class="pre">drop_none</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sutton_signwriting_core.convert.drop_none" title="Link to this definition"></a></dt>
+<dd><p>Remove key-value pairs from a dictionary where the value is None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>d</strong> – Input dictionary with optional values.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with same keys and non-None values.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">drop_none</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="s2">&quot;x&quot;</span><span class="p">})</span>
+<span class="go">{&quot;a&quot;: 1, &quot;c&quot;: &quot;x&quot;}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sutton_signwriting_core.convert.to_zoom">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.convert.</span></span><span class="sig-name descname"><span class="pre">to_zoom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zoom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#sutton_signwriting_core.convert.to_zoom" title="Link to this definition"></a></dt>
+<dd><p>Convert zoom to float, handling ‘x’ and None.</p>
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="sutton_signwriting_core.convert.swu_to_mark">
 <span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.convert.</span></span><span class="sig-name descname"><span class="pre">swu_to_mark</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">swu_mark</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#sutton_signwriting_core.convert.swu_to_mark" title="Link to this definition"></a></dt>

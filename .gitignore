@@ -9,3 +9,6 @@ build/
 .python-version
 coverage.xml
 sphinx-docs/build/
+docs/.doctrees/
+docs/.buildinfo*
+docs/_sources

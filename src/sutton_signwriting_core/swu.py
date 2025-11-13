@@ -6,9 +6,18 @@ SWU characters definition: https://datatracker.ietf.org/doc/id/draft-slevinski-f
 """
 
 import re
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple
 
-from .convert import drop_none, swu_to_coord, coord_to_swu, swu_to_code
+from .datatypes import (
+    SymbolObject,
+    SignObject,
+    SegmentInfo,
+    ColumnOptions,
+    ColumnSegment,
+    ColumnsResult,
+)
+
+from .convert import drop_none, to_zoom, swu_to_coord, coord_to_swu, swu_to_code
 
 from .regex import (
     style_pattern_full,
@@ -176,7 +185,7 @@ def swu_colorize(sym: str) -> str:
 # ----------------------------
 
 
-def swu_parse_symbol(swu_sym: str) -> Dict[str, Any]:
+def swu_parse_symbol(swu_sym: str) -> SymbolObject:
     """
     Parse an SWU symbol with optional coordinate and style string.
 
@@ -203,10 +212,10 @@ def swu_parse_symbol(swu_sym: str) -> Dict[str, Any]:
             "coord": swu_to_coord(m.group(2)) if m.group(2) else None,
             "style": m.group(3) if m.group(3) else None,
         }
-    )
+    )  # type: ignore[return-value]
 
 
-def swu_parse_sign(swu_sign: str) -> Dict[str, Any]:
+def swu_parse_sign(swu_sign: str) -> SignObject:
     """
     Parse an SWU sign with optional style string.
 
@@ -235,7 +244,7 @@ def swu_parse_sign(swu_sign: str) -> Dict[str, Any]:
         return {}
     prefix = m.group(1)
     signbox = m.group(2)
-    sequence = list(prefix[1:]) if prefix else None  # skip 𝠀, each char is a symbol
+    sequence = list(prefix[1:]) if prefix else None
     box = signbox[0]
     max_coord = swu_to_coord(signbox[1:3])
     spatials_str = signbox[3:] if len(signbox) > 3 else ""
@@ -258,7 +267,7 @@ def swu_parse_sign(swu_sign: str) -> Dict[str, Any]:
             "spatials": spatials,
             "style": m.group(3),
         }
-    )
+    )  # type: ignore[return-value]
 
 
 def swu_parse_text(swu_text: str) -> List[str]:
@@ -290,15 +299,12 @@ def swu_parse_text(swu_text: str) -> List[str]:
 # ----------------------------
 
 
-def swu_compose_symbol(swu_sym_object: Dict[str, Any]) -> Optional[str]:
+def swu_compose_symbol(swu_sym_object: SymbolObject) -> Optional[str]:
     """
     Function to compose an swu symbol with optional coordinate and style string.
 
     Args:
-        swu_sym_object: an swu symbol object with keys:
-            - 'symbol': str
-            - 'coord': Optional[List[int]]
-            - 'style': Optional[str]
+        swu_sym_object: an swu symbol object
 
     Returns:
         an swu symbol string
@@ -325,24 +331,19 @@ def swu_compose_symbol(swu_sym_object: Dict[str, Any]) -> Optional[str]:
     style_str = swu_sym_object.get("style")
     style_candidate = ""
     if isinstance(style_str, str):
-        style_match = re.match(f"^({style_pattern_full})$", style_str)
+        style_match = re.match(f"^({style_pattern_full})", style_str)
         if style_match:
             style_candidate = style_match.group(1)
 
     return symbol + coord_str + style_candidate
 
 
-def swu_compose_sign(swu_sign_object: Dict[str, Any]) -> Optional[str]:
+def swu_compose_sign(swu_sign_object: SignObject) -> Optional[str]:
     """
     Function to compose an swu sign with style string.
 
     Args:
-        swu_sign_object: an swu sign object with keys:
-            - 'sequence': Optional[List[str]]
-            - 'box': Optional[str]
-            - 'max': Optional[List[int]]
-            - 'spatials': Optional[List[Dict[str, Tuple[int, int]]]]
-            - 'style': Optional[str]
+        swu_sign_object: an swu sign object
 
     Returns:
         an swu sign string
@@ -423,7 +424,7 @@ def swu_compose_sign(swu_sign_object: Dict[str, Any]) -> Optional[str]:
 # ----------------------------
 
 
-def swu_info(swu: str) -> Dict[str, Any]:
+def swu_info(swu: str) -> SegmentInfo:
     """
     Function to gather sizing information about an swu sign or symbol.
 
@@ -454,7 +455,6 @@ def swu_info(swu: str) -> Dict[str, Any]:
     x1: int = 490
     y1: int = 490
     lane: int = 0
-    parsed: Dict[str, Any] = {}  # Unified parsed object for style
 
     if spatials := parsed_sign.get("spatials"):
         x_coords = [spatial["coord"][0] for spatial in spatials]
@@ -466,7 +466,7 @@ def swu_info(swu: str) -> Dict[str, Any]:
         height = y2 - y1
         segment = "sign"
         lane = lanes[parsed_sign["box"]]
-        parsed = parsed_sign
+        style = style_parse(parsed_sign.get("style", ""))
     else:
         parsed_symbol = swu_parse_symbol(swu)
         lane = lanes["𝠃"]
@@ -475,9 +475,8 @@ def swu_info(swu: str) -> Dict[str, Any]:
             width = (500 - x1) * 2
             height = (500 - y1) * 2
             segment = "symbol"
-        parsed = parsed_symbol
+        style = style_parse(parsed_symbol.get("style", ""))
 
-    style = style_parse(parsed.get("style", ""))
     zoom = style.get("zoom", 1)
     padding = style.get("padding", 0)
 
@@ -497,14 +496,13 @@ def swu_info(swu: str) -> Dict[str, Any]:
 # SWU Columns
 # ----------------------------
 
-swu_column_defaults: Dict[str, Any] = {
+swu_column_defaults: ColumnOptions = {
     "height": 500,
     "width": 150,
     "offset": 50,
     "pad": 20,
     "margin": 5,
     "dynamic": False,
-    "background": None,
     "punctuation": {
         "spacing": True,
         "pad": 30,
@@ -517,9 +515,7 @@ swu_column_defaults: Dict[str, Any] = {
 }
 
 
-def swu_column_defaults_merge(
-    options: Optional[Dict[str, Any]] = None
-) -> Dict[str, Any]:
+def swu_column_defaults_merge(options: Optional[ColumnOptions] = None) -> ColumnOptions:
     """
     Function to merge an object of column options with default values.
 
@@ -541,12 +537,12 @@ def swu_column_defaults_merge(
         **(options.get("punctuation") or {}),
     }
     merged["style"] = {**swu_column_defaults["style"], **(options.get("style") or {})}
-    return drop_none(merged)
+    return drop_none(merged)  # type: ignore[return-value]
 
 
 def swu_columns(
-    swu_text: str, options: Optional[Dict[str, Any]] = None
-) -> Dict[str, Any]:
+    swu_text: str, options: Optional[ColumnOptions] = None
+) -> ColumnsResult:
     """
     Function to transform an FSW text to an array of columns.
 
@@ -564,13 +560,16 @@ def swu_columns(
     if not isinstance(swu_text, str):
         return {}
     values = swu_column_defaults_merge(options)
+    if values["style"]["zoom"] == "x":
+        values["style"]["zoom"] = 1.0
+
     input_text = swu_parse_text(swu_text)
     if not input_text:
         return {}
 
-    cursor = 0
-    cols: List[List[Dict[str, Any]]] = []
-    col: List[Dict[str, Any]] = []
+    cursor = 0.0
+    cols: List[List[ColumnSegment]] = []
+    col: List[ColumnSegment] = []
     plus = 0
     center = values["width"] // 2
     max_height = values["height"] - values["margin"]
@@ -579,6 +578,9 @@ def swu_columns(
 
     for val in input_text:
         informed = swu_info(val)
+        if informed["zoom"] == "x":
+            informed["zoom"] = 1.0
+
         cursor += plus
         if values["punctuation"]["spacing"]:
             cursor += values["pad"] if informed["segment"] == "sign" else 0
@@ -604,15 +606,26 @@ def swu_columns(
             col = []
             pullable = True
 
-        item = {**informed, "text": val}
-        item["x"] = (
-            center
-            + (values["offset"] * informed["lane"])
-            - ((500 - informed["minX"]) * informed["zoom"] * values["style"]["zoom"])
-        )
-        item["y"] = cursor
+        item: ColumnSegment = {
+            **informed,
+            "x": int(
+                center
+                + (values["offset"] * informed["lane"])
+                - (
+                    (500 - informed["minX"])
+                    * to_zoom(informed["zoom"])
+                    * to_zoom(values["style"]["zoom"])
+                )
+            ),
+            "y": int(cursor),
+            "text": val,
+        }
         col.append(item)
-        cursor += informed["height"] * informed["zoom"] * values["style"]["zoom"]
+        cursor += (
+            informed["height"]
+            * to_zoom(informed["zoom"])
+            * to_zoom(values["style"]["zoom"])
+        )
 
         if values["punctuation"]["spacing"]:
             plus = (

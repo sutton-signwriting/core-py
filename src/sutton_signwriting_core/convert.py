@@ -7,7 +7,7 @@ Characters set definitions: https://datatracker.ietf.org/doc/id/draft-slevinski-
 from __future__ import annotations
 
 import re
-from typing import List
+from typing import List, TypeVar, Optional, Union
 
 from .symid_arr import symid_arr
 from .regex import (
@@ -24,9 +24,31 @@ from .regex import (
 # Utility function
 # ----------------------------
 
+T = TypeVar("T")
 
-def drop_none(d: dict) -> dict:
+
+def drop_none(d: dict[str, T | None]) -> dict[str, T]:
+    """
+    Remove key-value pairs from a dictionary where the value is None.
+
+    Args:
+        d: Input dictionary with optional values.
+
+    Returns:
+        Dictionary with same keys and non-None values.
+
+    Example:
+        >>> drop_none({"a": 1, "b": None, "c": "x"})
+        {"a": 1, "c": "x"}
+    """
     return {k: v for k, v in d.items() if v is not None}
+
+
+def to_zoom(zoom: Optional[Union[int, float, str]]) -> float:
+    """Convert zoom to float, handling 'x' and None."""
+    if zoom == "x" or zoom is None:
+        return 1.0
+    return float(zoom)
 
 
 # ----------------------------
@@ -538,6 +560,7 @@ def key_to_symid(key: str) -> str:
 
 __all__ = [
     "drop_none",
+    "to_zoom",
     "swu_to_mark",
     "mark_to_swu",
     "swu_to_num",

@@ -38,7 +38,7 @@ sutton-signwriting-core
 .. image:: https://img.shields.io/codecov/c/github/sutton-signwriting/core-py
    :target: https://codecov.io/gh/sutton-signwriting/core-py
    :alt: Code Coverage
-
+   
 
 ``sutton-signwriting-core`` is a Python library that supports general processing of SignWriting text.
 

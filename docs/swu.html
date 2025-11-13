@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SWU Module &mdash; sutton-signwriting-core 1.0.1 documentation</title>
+  <title>SWU Module &mdash; sutton-signwriting-core 1.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css?v=589ca1d9" />
@@ -14,7 +14,7 @@
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=292eb321"></script>
+      <script src="_static/documentation_options.js?v=fc837d61"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -160,7 +160,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sutton_signwriting_core.swu.swu_parse_symbol">
-<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.swu.</span></span><span class="sig-name descname"><span class="pre">swu_parse_symbol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">swu_sym</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sutton_signwriting_core.swu.swu_parse_symbol" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.swu.</span></span><span class="sig-name descname"><span class="pre">swu_parse_symbol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">swu_sym</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="datatypes.html#sutton_signwriting_core.datatypes.SymbolObject" title="sutton_signwriting_core.datatypes.SymbolObject"><span class="pre">SymbolObject</span></a></span></span><a class="headerlink" href="#sutton_signwriting_core.swu.swu_parse_symbol" title="Link to this definition"></a></dt>
 <dd><p>Parse an SWU symbol with optional coordinate and style string.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -179,7 +179,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sutton_signwriting_core.swu.swu_parse_sign">
-<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.swu.</span></span><span class="sig-name descname"><span class="pre">swu_parse_sign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">swu_sign</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sutton_signwriting_core.swu.swu_parse_sign" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.swu.</span></span><span class="sig-name descname"><span class="pre">swu_parse_sign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">swu_sign</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="datatypes.html#sutton_signwriting_core.datatypes.SignObject" title="sutton_signwriting_core.datatypes.SignObject"><span class="pre">SignObject</span></a></span></span><a class="headerlink" href="#sutton_signwriting_core.swu.swu_parse_sign" title="Link to this definition"></a></dt>
 <dd><p>Parse an SWU sign with optional style string.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -226,14 +226,11 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sutton_signwriting_core.swu.swu_compose_symbol">
-<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.swu.</span></span><span class="sig-name descname"><span class="pre">swu_compose_symbol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">swu_sym_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#sutton_signwriting_core.swu.swu_compose_symbol" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.swu.</span></span><span class="sig-name descname"><span class="pre">swu_compose_symbol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">swu_sym_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="datatypes.html#sutton_signwriting_core.datatypes.SymbolObject" title="sutton_signwriting_core.datatypes.SymbolObject"><span class="pre">SymbolObject</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#sutton_signwriting_core.swu.swu_compose_symbol" title="Link to this definition"></a></dt>
 <dd><p>Function to compose an swu symbol with optional coordinate and style string.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>swu_sym_object</strong> – an swu symbol object with keys:
-- ‘symbol’: str
-- ‘coord’: Optional[List[int]]
-- ‘style’: Optional[str]</p>
+<dd class="field-odd"><p><strong>swu_sym_object</strong> – an swu symbol object</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>an swu symbol string</p>
@@ -248,16 +245,11 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sutton_signwriting_core.swu.swu_compose_sign">
-<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.swu.</span></span><span class="sig-name descname"><span class="pre">swu_compose_sign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">swu_sign_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#sutton_signwriting_core.swu.swu_compose_sign" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.swu.</span></span><span class="sig-name descname"><span class="pre">swu_compose_sign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">swu_sign_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="datatypes.html#sutton_signwriting_core.datatypes.SignObject" title="sutton_signwriting_core.datatypes.SignObject"><span class="pre">SignObject</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#sutton_signwriting_core.swu.swu_compose_sign" title="Link to this definition"></a></dt>
 <dd><p>Function to compose an swu sign with style string.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>swu_sign_object</strong> – an swu sign object with keys:
-- ‘sequence’: Optional[List[str]]
-- ‘box’: Optional[str]
-- ‘max’: Optional[List[int]]
-- ‘spatials’: Optional[List[Dict[str, Tuple[int, int]]]]
-- ‘style’: Optional[str]</p>
+<dd class="field-odd"><p><strong>swu_sign_object</strong> – an swu sign object</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>an swu sign string</p>
@@ -283,7 +275,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sutton_signwriting_core.swu.swu_info">
-<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.swu.</span></span><span class="sig-name descname"><span class="pre">swu_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">swu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sutton_signwriting_core.swu.swu_info" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.swu.</span></span><span class="sig-name descname"><span class="pre">swu_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">swu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="datatypes.html#sutton_signwriting_core.datatypes.SegmentInfo" title="sutton_signwriting_core.datatypes.SegmentInfo"><span class="pre">SegmentInfo</span></a></span></span><a class="headerlink" href="#sutton_signwriting_core.swu.swu_info" title="Link to this definition"></a></dt>
 <dd><p>Function to gather sizing information about an swu sign or symbol.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -311,7 +303,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sutton_signwriting_core.swu.swu_column_defaults_merge">
-<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.swu.</span></span><span class="sig-name descname"><span class="pre">swu_column_defaults_merge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sutton_signwriting_core.swu.swu_column_defaults_merge" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.swu.</span></span><span class="sig-name descname"><span class="pre">swu_column_defaults_merge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="datatypes.html#sutton_signwriting_core.datatypes.ColumnOptions" title="sutton_signwriting_core.datatypes.ColumnOptions"><span class="pre">ColumnOptions</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="datatypes.html#sutton_signwriting_core.datatypes.ColumnOptions" title="sutton_signwriting_core.datatypes.ColumnOptions"><span class="pre">ColumnOptions</span></a></span></span><a class="headerlink" href="#sutton_signwriting_core.swu.swu_column_defaults_merge" title="Link to this definition"></a></dt>
 <dd><p>Function to merge an object of column options with default values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -330,7 +322,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sutton_signwriting_core.swu.swu_columns">
-<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.swu.</span></span><span class="sig-name descname"><span class="pre">swu_columns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">swu_text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sutton_signwriting_core.swu.swu_columns" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.swu.</span></span><span class="sig-name descname"><span class="pre">swu_columns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">swu_text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="datatypes.html#sutton_signwriting_core.datatypes.ColumnOptions" title="sutton_signwriting_core.datatypes.ColumnOptions"><span class="pre">ColumnOptions</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="datatypes.html#sutton_signwriting_core.datatypes.ColumnsResult" title="sutton_signwriting_core.datatypes.ColumnsResult"><span class="pre">ColumnsResult</span></a></span></span><a class="headerlink" href="#sutton_signwriting_core.swu.swu_columns" title="Link to this definition"></a></dt>
 <dd><p>Function to transform an FSW text to an array of columns.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>

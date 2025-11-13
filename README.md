@@ -1,4 +1,3 @@
-<!-- Start of content -->
 # sutton-signwriting-core
 [![Source Code on GitHub](https://img.shields.io/badge/source-GitHub-lightgrey?logo=github)](https://github.com/sutton-signwriting/core-py)
 [![Docs](https://img.shields.io/badge/docs-sutton--signwriting.io-blue)](https://www.sutton-signwriting.io/core-py)
@@ -37,7 +36,7 @@ This library supports both Formal SignWriting in ASCII (FSW) and SignWriting in 
 ```bash
 pip install sutton-signwriting-core
 ```
-<!-- End of content -->
+
 ---
 
 ## Usage
@@ -70,10 +69,6 @@ All functions are **fully typed**, **validated**, and **documented** with Python
 ---
 
 ## Development
-
-NOTE: for documentation in PDF and EPUB
-
-    sudo apt install latexmk
 
 ### Development Steps
 
@@ -108,12 +103,13 @@ mypy src
 
 # 8. Update Version string
 pyproject.toml:version = "1.0.0"
-sphinx-docs/source/conf.py:release = "1.0.0"
 src/sutton_signwriting_core/__init__.py:__version__ = "1.0.0"
+sphinx-docs/source/conf.py:release = "1.0.0"
+sphinx-docs/source/conf.py:version = "1.0"
 
 # 9. Create HTML documentation
 cd sphinx-docs
-sphinx-build -b html source/ ../docs/
+sphinx-build -b html -a -E source/ ../docs/
 
 # 10. Build distributions
 poetry build
@@ -121,6 +117,10 @@ poetry build
 # 11. Publish to pypi
 poetry publish
 
+# 12. Git commit, push, and tag
+git commit -m "message"
+git push origin main
+git tag v1.0.0 && git push --tags
 ```
 
 ---

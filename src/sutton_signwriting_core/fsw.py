@@ -5,10 +5,21 @@ FSW characters definition: https://datatracker.ietf.org/doc/id/draft-slevinski-f
 """
 
 import re
-from typing import Any, Dict, List, Optional, Tuple, Union, Set, TypedDict, cast
+from typing import Dict, List, Optional, Tuple, Union, Set, cast
 from dataclasses import dataclass
 
-from .convert import drop_none, fsw_to_coord
+from .datatypes import (
+    SymbolObject,
+    SignObject,
+    SegmentInfo,
+    ColumnOptions,
+    ColumnSegment,
+    ColumnsResult,
+    SpecialToken,
+    TokenizerMappings,
+)
+
+from .convert import drop_none, to_zoom, fsw_to_coord
 
 from .regex import (
     fsw_pattern_box,
@@ -178,7 +189,7 @@ def fsw_colorize(key: str) -> str:
 # ----------------------------
 
 
-def fsw_parse_symbol(fsw_sym: str) -> Dict[str, Any]:
+def fsw_parse_symbol(fsw_sym: str) -> SymbolObject:
     """
     Parse an FSW symbol with optional coordinate and style string.
 
@@ -204,10 +215,10 @@ def fsw_parse_symbol(fsw_sym: str) -> Dict[str, Any]:
             "coord": fsw_to_coord(m.group(2)) if m.group(2) else None,
             "style": m.group(3),
         }
-    )
+    )  # type: ignore[return-value]
 
 
-def fsw_parse_sign(fsw_sign: str) -> Dict[str, Any]:
+def fsw_parse_sign(fsw_sign: str) -> SignObject:
     """
     Parse an FSW sign with optional style string.
 
@@ -236,9 +247,7 @@ def fsw_parse_sign(fsw_sign: str) -> Dict[str, Any]:
         return {}
     prefix = m.group(1)
     signbox = m.group(2)
-    sequence = (
-        re.findall(r".{6}", prefix[1:]) if prefix else None
-    )  # skip 'A', every 6 chars
+    sequence = re.findall(r".{6}", prefix[1:]) if prefix else None
     box = signbox[0]
     max_coord = fsw_to_coord(signbox[1:8])
     spatials_str = signbox[8:] if len(signbox) > 8 else ""
@@ -258,7 +267,7 @@ def fsw_parse_sign(fsw_sign: str) -> Dict[str, Any]:
             "spatials": spatials,
             "style": m.group(3),
         }
-    )
+    )  # type: ignore[return-value]
 
 
 def fsw_parse_text(fsw_text: str) -> List[str]:
@@ -290,15 +299,12 @@ def fsw_parse_text(fsw_text: str) -> List[str]:
 # ----------------------------
 
 
-def fsw_compose_symbol(fsw_sym_object: Dict[str, Any]) -> Optional[str]:
+def fsw_compose_symbol(fsw_sym_object: SymbolObject) -> Optional[str]:
     """
     Function to compose an fsw symbol with optional coordinate and style string.
 
     Args:
-        fsw_sym_object: an fsw symbol object with keys:
-            - 'symbol': str
-            - 'coord': Optional[List[int]]
-            - 'style': Optional[str]
+        fsw_sym_object: an fsw symbol object
 
     Returns:
         an fsw symbol string
@@ -328,24 +334,19 @@ def fsw_compose_symbol(fsw_sym_object: Dict[str, Any]) -> Optional[str]:
     style_str = fsw_sym_object.get("style")
     style_candidate = ""
     if isinstance(style_str, str):
-        style_match = re.match(f"^({style_pattern_full})$", style_str)
+        style_match = re.match(f"^({style_pattern_full})", style_str)
         if style_match:
             style_candidate = style_match.group(1)
 
     return symbol + coord_str + style_candidate
 
 
-def fsw_compose_sign(fsw_sign_object: Dict[str, Any]) -> Optional[str]:
+def fsw_compose_sign(fsw_sign_object: SignObject) -> Optional[str]:
     """
     Function to compose an fsw sign with style string.
 
     Args:
-        fsw_sign_object: an fsw sign object with keys:
-            - 'sequence': Optional[List[str]]
-            - 'box': Optional[str]
-            - 'max': Optional[List[int]]
-            - 'spatials': Optional[List[Dict[str, Tuple[int, int]]]]
-            - 'style': Optional[str]
+        fsw_sign_object: an fsw sign object
 
     Returns:
         an fsw sign string
@@ -436,7 +437,7 @@ def fsw_compose_sign(fsw_sign_object: Dict[str, Any]) -> Optional[str]:
 # ----------------------------
 
 
-def fsw_info(fsw: str) -> Dict[str, Any]:
+def fsw_info(fsw: str) -> SegmentInfo:
     """
     Function to gather sizing information about an fsw sign or symbol.
 
@@ -467,7 +468,6 @@ def fsw_info(fsw: str) -> Dict[str, Any]:
     x1: int = 490
     y1: int = 490
     lane: int = 0
-    parsed: Dict[str, Any] = {}  # Unified parsed object for style
 
     if spatials := parsed_sign.get("spatials"):
         x_coords = [spatial["coord"][0] for spatial in spatials]
@@ -479,7 +479,7 @@ def fsw_info(fsw: str) -> Dict[str, Any]:
         height = y2 - y1
         segment = "sign"
         lane = lanes[parsed_sign["box"]]
-        parsed = parsed_sign
+        style = style_parse(parsed_sign.get("style", ""))
     else:
         parsed_symbol = fsw_parse_symbol(fsw)
         lane = lanes["M"]
@@ -488,9 +488,8 @@ def fsw_info(fsw: str) -> Dict[str, Any]:
             width = (500 - x1) * 2
             height = (500 - y1) * 2
             segment = "symbol"
-        parsed = parsed_symbol
+        style = style_parse(parsed_symbol.get("style", ""))
 
-    style = style_parse(parsed.get("style", ""))
     zoom = style.get("zoom", 1)
     padding = style.get("padding", 0)
 
@@ -510,14 +509,13 @@ def fsw_info(fsw: str) -> Dict[str, Any]:
 # FSW Columns
 # ----------------------------
 
-fsw_column_defaults: Dict[str, Any] = {
+fsw_column_defaults: ColumnOptions = {
     "height": 500,
     "width": 150,
     "offset": 50,
     "pad": 20,
     "margin": 5,
     "dynamic": False,
-    "background": None,
     "punctuation": {
         "spacing": True,
         "pad": 30,
@@ -530,9 +528,7 @@ fsw_column_defaults: Dict[str, Any] = {
 }
 
 
-def fsw_column_defaults_merge(
-    options: Optional[Dict[str, Any]] = None
-) -> Dict[str, Any]:
+def fsw_column_defaults_merge(options: Optional[ColumnOptions] = None) -> ColumnOptions:
     """
     Function to merge an object of column options with default values.
 
@@ -554,12 +550,12 @@ def fsw_column_defaults_merge(
         **(options.get("punctuation") or {}),
     }
     merged["style"] = {**fsw_column_defaults["style"], **(options.get("style") or {})}
-    return drop_none(merged)
+    return drop_none(merged)  # type: ignore[return-value]
 
 
 def fsw_columns(
-    fsw_text: str, options: Optional[Dict[str, Any]] = None
-) -> Dict[str, Any]:
+    fsw_text: str, options: Optional[ColumnOptions] = None
+) -> ColumnsResult:
     """
     Function to transform an FSW text to an array of columns.
 
@@ -577,13 +573,16 @@ def fsw_columns(
     if not isinstance(fsw_text, str):
         return {}
     values = fsw_column_defaults_merge(options)
+    if values["style"]["zoom"] == "x":
+        values["style"]["zoom"] = 1.0
+
     input_text = fsw_parse_text(fsw_text)
     if not input_text:
         return {}
 
-    cursor = 0
-    cols: List[List[Dict[str, Any]]] = []
-    col: List[Dict[str, Any]] = []
+    cursor = 0.0
+    cols: List[List[ColumnSegment]] = []
+    col: List[ColumnSegment] = []
     plus = 0
     center = values["width"] // 2
     max_height = values["height"] - values["margin"]
@@ -592,6 +591,9 @@ def fsw_columns(
 
     for val in input_text:
         informed = fsw_info(val)
+        if informed["zoom"] == "x":
+            informed["zoom"] = 1.0
+
         cursor += plus
         if values["punctuation"]["spacing"]:
             cursor += values["pad"] if informed["segment"] == "sign" else 0
@@ -617,15 +619,26 @@ def fsw_columns(
             col = []
             pullable = True
 
-        item = {**informed, "text": val}
-        item["x"] = (
-            center
-            + (values["offset"] * informed["lane"])
-            - ((500 - informed["minX"]) * informed["zoom"] * values["style"]["zoom"])
-        )
-        item["y"] = cursor
+        item: ColumnSegment = {
+            **informed,
+            "x": int(
+                center
+                + (values["offset"] * informed["lane"])
+                - (
+                    (500 - informed["minX"])
+                    * to_zoom(informed["zoom"])
+                    * to_zoom(values["style"]["zoom"])
+                )
+            ),
+            "y": int(cursor),
+            "text": val,
+        }
         col.append(item)
-        cursor += informed["height"] * informed["zoom"] * values["style"]["zoom"]
+        cursor += (
+            informed["height"]
+            * to_zoom(informed["zoom"])
+            * to_zoom(values["style"]["zoom"])
+        )
 
         if values["punctuation"]["spacing"]:
             plus = (
@@ -678,18 +691,6 @@ def fsw_columns(
 # ----------------------------
 # FSW Tokenizer
 # ----------------------------
-
-
-class SpecialToken(TypedDict):
-    index: int
-    name: str
-    value: str
-
-
-class TokenizerMappings(TypedDict):
-    i2s: Dict[int, str]
-    s2i: Dict[str, int]
-
 
 DEFAULT_SPECIAL_TOKENS: List[SpecialToken] = [
     {"index": 0, "name": "UNK", "value": "[UNK]"},

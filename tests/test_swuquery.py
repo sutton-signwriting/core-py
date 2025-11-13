@@ -49,7 +49,7 @@ def test_swuquery_parse_prefix_parts():
 def test_swuquery_parse_prefix_with_or():
     assert swuquery_parse("QA񀀁oR񀀁񆆑񆇡T") == {
         "query": True,
-        "prefix": {"required": True, "parts": [["or", "񀀁", ["񀀁", "񆆑"]], "񆇡"]},
+        "prefix": {"required": True, "parts": [["or_list", "񀀁", ["񀀁", "񆆑"]], "񆇡"]},
     }
 
 
@@ -85,13 +85,13 @@ def test_swuquery_parse_signbox_mixed():
 def test_swuquery_parse_signbox_with_or():
     assert swuquery_parse("Q񆀁roR񀀁񀇡𝤆𝤆") == {
         "query": True,
-        "signbox": [{"or": ["񆀁r", ["񀀁", "񀇡"]], "coord": [500, 500]}],
+        "signbox": [{"or_list": ["񆀁r", ["񀀁", "񀇡"]], "coord": [500, 500]}],
     }
 
 
 @pytest.mark.parametrize("invalid_input", ["a"])
 def test_swuquery_parse_invalid(invalid_input):
-    assert swuquery_parse(invalid_input) == {}
+    assert swuquery_parse(invalid_input) == {"query": False}
 
 
 # ------------------------------------------------------------------ #
@@ -129,7 +129,10 @@ def test_swuquery_compose_prefix_with_or():
         swuquery_compose(
             {
                 "query": True,
-                "prefix": {"required": True, "parts": [["or", "񀀁", ["񀀁", "񆆑"]], "񆇡"]},
+                "prefix": {
+                    "required": True,
+                    "parts": [["or_list", "񀀁", ["񀀁", "񆆑"]], "񆇡"],
+                },
             }
         )
         == "QA񀀁oR񀀁񆆑񆇡T"
@@ -184,7 +187,7 @@ def test_swuquery_compose_signbox_with_or():
         swuquery_compose(
             {
                 "query": True,
-                "signbox": [{"or": ["񆀁r", ["񀀁", "񀇡"]], "coord": [500, 500]}],
+                "signbox": [{"or_list": ["񆀁r", ["񀀁", "񀇡"]], "coord": [500, 500]}],
             }
         )
         == "Q񆀁roR񀀁񀇡𝤆𝤆"
