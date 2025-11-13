@@ -15,11 +15,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Todo
 - expand documentation with details and more examples
+- replace List[int] with Tuple[int, int] for x,y coordinates.
+
+## [1.1.1] - 2025-11-13
+### Updated
+- extended data type SignSpatial
 
 ## [1.1.0] - 2025-11-13
 ### Updated
 - function with custom data types
-
 
 ## [1.0.1] - 2025-11-11
 ### Fixed

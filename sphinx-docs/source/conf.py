@@ -13,7 +13,7 @@ project = "sutton-signwriting-core"
 copyright = "2025, Steve Slevinski <slevinski@signwriting.org>"
 author = "Steve Slevinski <slevinski@signwriting.org>"
 version = "1.1"
-release = "1.1.0"
+release = "1.1.1"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

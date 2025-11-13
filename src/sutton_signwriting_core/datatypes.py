@@ -226,6 +226,8 @@ class SignSpatial(TypedDict):
     """Symbol identifier."""
     coord: List[int]
     """Coordinate [x, y]."""
+    detail: NotRequired[List[str]]
+    """Array for CSS name or hex color for line and optional fill."""
 
 
 class SignObject(TypedDict):
