@@ -89,7 +89,7 @@ def _fswquery_parse_signbox(text: str) -> List[QuerySignboxElement]:
 
         if "o" in front:
             or_parts = front.split("o")
-            or_list: List[Union[str, List[str]]] = []
+            or_list: List[Union[QuerySignboxSymbol, QuerySignboxRange]] = []
             for or_part in or_parts:
                 if "S" in or_part:
                     or_list.append(or_part)
@@ -224,7 +224,9 @@ def fswquery_compose(fsw_query_object: QueryObject) -> Optional[str]:
             if isinstance(part_sb, dict):
                 if "or_list" in part_sb:
                     query_or = cast(QuerySignboxOr, part_sb)
-                    or_list: List[Union[str, List[str]]] = query_or["or_list"]
+                    or_list: List[Union[QuerySignboxSymbol, QuerySignboxRange]] = (
+                        query_or["or_list"]
+                    )
                     or_strs = []
                     for item in or_list:
                         if isinstance(item, str):

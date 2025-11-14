@@ -13,7 +13,7 @@ project = "sutton-signwriting-core"
 copyright = "2025, Steve Slevinski <slevinski@signwriting.org>"
 author = "Steve Slevinski <slevinski@signwriting.org>"
 version = "1.1"
-release = "1.1.1"
+release = "1.1.2"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -28,6 +28,7 @@ templates_path = ["_templates"]
 exclude_patterns = []
 
 autodoc_member_order = "bysource"
+autodoc_typehints = "description"
 
 
 # -- Options for HTML output -------------------------------------------------

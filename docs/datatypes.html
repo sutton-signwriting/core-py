@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Types Module &mdash; sutton-signwriting-core 1.1.1 documentation</title>
+  <title>Types Module &mdash; sutton-signwriting-core 1.1.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css?v=589ca1d9" />
@@ -14,7 +14,7 @@
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=58fbf978"></script>
+      <script src="_static/documentation_options.js?v=6f037312"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -53,78 +53,16 @@
 <li class="toctree-l2"><a class="reference internal" href="style.html">Style Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="convert.html">Convert Module</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Types Module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnOptions"><code class="docutils literal notranslate"><span class="pre">ColumnOptions</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnOptions.height"><code class="docutils literal notranslate"><span class="pre">ColumnOptions.height</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnOptions.width"><code class="docutils literal notranslate"><span class="pre">ColumnOptions.width</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnOptions.offset"><code class="docutils literal notranslate"><span class="pre">ColumnOptions.offset</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnOptions.pad"><code class="docutils literal notranslate"><span class="pre">ColumnOptions.pad</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnOptions.margin"><code class="docutils literal notranslate"><span class="pre">ColumnOptions.margin</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnOptions.dynamic"><code class="docutils literal notranslate"><span class="pre">ColumnOptions.dynamic</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnOptions.background"><code class="docutils literal notranslate"><span class="pre">ColumnOptions.background</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnOptions.style"><code class="docutils literal notranslate"><span class="pre">ColumnOptions.style</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnOptions.punctuation"><code class="docutils literal notranslate"><span class="pre">ColumnOptions.punctuation</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SymbolObject"><code class="docutils literal notranslate"><span class="pre">SymbolObject</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SymbolObject.symbol"><code class="docutils literal notranslate"><span class="pre">SymbolObject.symbol</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SymbolObject.coord"><code class="docutils literal notranslate"><span class="pre">SymbolObject.coord</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SymbolObject.style"><code class="docutils literal notranslate"><span class="pre">SymbolObject.style</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnPunctuation"><code class="docutils literal notranslate"><span class="pre">ColumnPunctuation</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnPunctuation.spacing"><code class="docutils literal notranslate"><span class="pre">ColumnPunctuation.spacing</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnPunctuation.pad"><code class="docutils literal notranslate"><span class="pre">ColumnPunctuation.pad</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnPunctuation.pull"><code class="docutils literal notranslate"><span class="pre">ColumnPunctuation.pull</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnSegment"><code class="docutils literal notranslate"><span class="pre">ColumnSegment</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnSegment.x"><code class="docutils literal notranslate"><span class="pre">ColumnSegment.x</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnSegment.y"><code class="docutils literal notranslate"><span class="pre">ColumnSegment.y</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnSegment.text"><code class="docutils literal notranslate"><span class="pre">ColumnSegment.text</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnsResult"><code class="docutils literal notranslate"><span class="pre">ColumnsResult</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnsResult.options"><code class="docutils literal notranslate"><span class="pre">ColumnsResult.options</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnsResult.widths"><code class="docutils literal notranslate"><span class="pre">ColumnsResult.widths</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnsResult.columns"><code class="docutils literal notranslate"><span class="pre">ColumnsResult.columns</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryObject"><code class="docutils literal notranslate"><span class="pre">QueryObject</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryObject.query"><code class="docutils literal notranslate"><span class="pre">QueryObject.query</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryObject.prefix"><code class="docutils literal notranslate"><span class="pre">QueryObject.prefix</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryObject.signbox"><code class="docutils literal notranslate"><span class="pre">QueryObject.signbox</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryObject.variance"><code class="docutils literal notranslate"><span class="pre">QueryObject.variance</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryObject.style"><code class="docutils literal notranslate"><span class="pre">QueryObject.style</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryPrefixSymbol"><code class="docutils literal notranslate"><span class="pre">QueryPrefixSymbol</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryPrefixRange"><code class="docutils literal notranslate"><span class="pre">QueryPrefixRange</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryPrefixOr"><code class="docutils literal notranslate"><span class="pre">QueryPrefixOr</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryPrefixElement"><code class="docutils literal notranslate"><span class="pre">QueryPrefixElement</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryPrefix"><code class="docutils literal notranslate"><span class="pre">QueryPrefix</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryPrefix.required"><code class="docutils literal notranslate"><span class="pre">QueryPrefix.required</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryPrefix.parts"><code class="docutils literal notranslate"><span class="pre">QueryPrefix.parts</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxElement"><code class="docutils literal notranslate"><span class="pre">QuerySignboxElement</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxOr"><code class="docutils literal notranslate"><span class="pre">QuerySignboxOr</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxOr.or_list"><code class="docutils literal notranslate"><span class="pre">QuerySignboxOr.or_list</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxOr.coord"><code class="docutils literal notranslate"><span class="pre">QuerySignboxOr.coord</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxRange"><code class="docutils literal notranslate"><span class="pre">QuerySignboxRange</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxRange.range"><code class="docutils literal notranslate"><span class="pre">QuerySignboxRange.range</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxRange.coord"><code class="docutils literal notranslate"><span class="pre">QuerySignboxRange.coord</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxSymbol"><code class="docutils literal notranslate"><span class="pre">QuerySignboxSymbol</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxSymbol.symbol"><code class="docutils literal notranslate"><span class="pre">QuerySignboxSymbol.symbol</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxSymbol.coord"><code class="docutils literal notranslate"><span class="pre">QuerySignboxSymbol.coord</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SegmentInfo"><code class="docutils literal notranslate"><span class="pre">SegmentInfo</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SegmentInfo.minX"><code class="docutils literal notranslate"><span class="pre">SegmentInfo.minX</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SegmentInfo.minY"><code class="docutils literal notranslate"><span class="pre">SegmentInfo.minY</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SegmentInfo.width"><code class="docutils literal notranslate"><span class="pre">SegmentInfo.width</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SegmentInfo.height"><code class="docutils literal notranslate"><span class="pre">SegmentInfo.height</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SegmentInfo.lane"><code class="docutils literal notranslate"><span class="pre">SegmentInfo.lane</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SegmentInfo.padding"><code class="docutils literal notranslate"><span class="pre">SegmentInfo.padding</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SegmentInfo.segment"><code class="docutils literal notranslate"><span class="pre">SegmentInfo.segment</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SegmentInfo.zoom"><code class="docutils literal notranslate"><span class="pre">SegmentInfo.zoom</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SignSpatial"><code class="docutils literal notranslate"><span class="pre">SignSpatial</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SignSpatial.symbol"><code class="docutils literal notranslate"><span class="pre">SignSpatial.symbol</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SignSpatial.coord"><code class="docutils literal notranslate"><span class="pre">SignSpatial.coord</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SignSpatial.detail"><code class="docutils literal notranslate"><span class="pre">SignSpatial.detail</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SignObject"><code class="docutils literal notranslate"><span class="pre">SignObject</span></code></a><ul>
@@ -133,12 +71,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SignObject.max"><code class="docutils literal notranslate"><span class="pre">SignObject.max</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SignObject.spatials"><code class="docutils literal notranslate"><span class="pre">SignObject.spatials</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SignObject.style"><code class="docutils literal notranslate"><span class="pre">SignObject.style</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SignSpatial"><code class="docutils literal notranslate"><span class="pre">SignSpatial</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SignSpatial.symbol"><code class="docutils literal notranslate"><span class="pre">SignSpatial.symbol</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SignSpatial.coord"><code class="docutils literal notranslate"><span class="pre">SignSpatial.coord</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SignSpatial.detail"><code class="docutils literal notranslate"><span class="pre">SignSpatial.detail</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.DetailSym"><code class="docutils literal notranslate"><span class="pre">DetailSym</span></code></a><ul>
@@ -157,14 +89,91 @@
 <li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.StyleObject.id"><code class="docutils literal notranslate"><span class="pre">StyleObject.id</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SymbolObject"><code class="docutils literal notranslate"><span class="pre">SymbolObject</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SymbolObject.symbol"><code class="docutils literal notranslate"><span class="pre">SymbolObject.symbol</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SymbolObject.coord"><code class="docutils literal notranslate"><span class="pre">SymbolObject.coord</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SymbolObject.style"><code class="docutils literal notranslate"><span class="pre">SymbolObject.style</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnPunctuation"><code class="docutils literal notranslate"><span class="pre">ColumnPunctuation</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnPunctuation.spacing"><code class="docutils literal notranslate"><span class="pre">ColumnPunctuation.spacing</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnPunctuation.pad"><code class="docutils literal notranslate"><span class="pre">ColumnPunctuation.pad</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnPunctuation.pull"><code class="docutils literal notranslate"><span class="pre">ColumnPunctuation.pull</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SpecialToken"><code class="docutils literal notranslate"><span class="pre">SpecialToken</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.TokenizerMappings"><code class="docutils literal notranslate"><span class="pre">TokenizerMappings</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnOptions"><code class="docutils literal notranslate"><span class="pre">ColumnOptions</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnOptions.height"><code class="docutils literal notranslate"><span class="pre">ColumnOptions.height</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnOptions.width"><code class="docutils literal notranslate"><span class="pre">ColumnOptions.width</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnOptions.offset"><code class="docutils literal notranslate"><span class="pre">ColumnOptions.offset</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnOptions.pad"><code class="docutils literal notranslate"><span class="pre">ColumnOptions.pad</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnOptions.margin"><code class="docutils literal notranslate"><span class="pre">ColumnOptions.margin</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnOptions.dynamic"><code class="docutils literal notranslate"><span class="pre">ColumnOptions.dynamic</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnOptions.background"><code class="docutils literal notranslate"><span class="pre">ColumnOptions.background</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnOptions.style"><code class="docutils literal notranslate"><span class="pre">ColumnOptions.style</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnOptions.punctuation"><code class="docutils literal notranslate"><span class="pre">ColumnOptions.punctuation</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SegmentInfo"><code class="docutils literal notranslate"><span class="pre">SegmentInfo</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SegmentInfo.minX"><code class="docutils literal notranslate"><span class="pre">SegmentInfo.minX</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SegmentInfo.minY"><code class="docutils literal notranslate"><span class="pre">SegmentInfo.minY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SegmentInfo.width"><code class="docutils literal notranslate"><span class="pre">SegmentInfo.width</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SegmentInfo.height"><code class="docutils literal notranslate"><span class="pre">SegmentInfo.height</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SegmentInfo.lane"><code class="docutils literal notranslate"><span class="pre">SegmentInfo.lane</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SegmentInfo.padding"><code class="docutils literal notranslate"><span class="pre">SegmentInfo.padding</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SegmentInfo.segment"><code class="docutils literal notranslate"><span class="pre">SegmentInfo.segment</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SegmentInfo.zoom"><code class="docutils literal notranslate"><span class="pre">SegmentInfo.zoom</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnSegment"><code class="docutils literal notranslate"><span class="pre">ColumnSegment</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnSegment.x"><code class="docutils literal notranslate"><span class="pre">ColumnSegment.x</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnSegment.y"><code class="docutils literal notranslate"><span class="pre">ColumnSegment.y</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnSegment.text"><code class="docutils literal notranslate"><span class="pre">ColumnSegment.text</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnsResult"><code class="docutils literal notranslate"><span class="pre">ColumnsResult</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnsResult.options"><code class="docutils literal notranslate"><span class="pre">ColumnsResult.options</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnsResult.widths"><code class="docutils literal notranslate"><span class="pre">ColumnsResult.widths</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnsResult.columns"><code class="docutils literal notranslate"><span class="pre">ColumnsResult.columns</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryPrefixSymbol"><code class="docutils literal notranslate"><span class="pre">QueryPrefixSymbol</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryPrefixRange"><code class="docutils literal notranslate"><span class="pre">QueryPrefixRange</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryPrefixOr"><code class="docutils literal notranslate"><span class="pre">QueryPrefixOr</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryPrefixElement"><code class="docutils literal notranslate"><span class="pre">QueryPrefixElement</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryPrefix"><code class="docutils literal notranslate"><span class="pre">QueryPrefix</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryPrefix.required"><code class="docutils literal notranslate"><span class="pre">QueryPrefix.required</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryPrefix.parts"><code class="docutils literal notranslate"><span class="pre">QueryPrefix.parts</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxSymbol"><code class="docutils literal notranslate"><span class="pre">QuerySignboxSymbol</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxSymbol.symbol"><code class="docutils literal notranslate"><span class="pre">QuerySignboxSymbol.symbol</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxSymbol.coord"><code class="docutils literal notranslate"><span class="pre">QuerySignboxSymbol.coord</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxRange"><code class="docutils literal notranslate"><span class="pre">QuerySignboxRange</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxRange.range"><code class="docutils literal notranslate"><span class="pre">QuerySignboxRange.range</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxRange.coord"><code class="docutils literal notranslate"><span class="pre">QuerySignboxRange.coord</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxOr"><code class="docutils literal notranslate"><span class="pre">QuerySignboxOr</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxOr.or_list"><code class="docutils literal notranslate"><span class="pre">QuerySignboxOr.or_list</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxOr.coord"><code class="docutils literal notranslate"><span class="pre">QuerySignboxOr.coord</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxElement"><code class="docutils literal notranslate"><span class="pre">QuerySignboxElement</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryObject"><code class="docutils literal notranslate"><span class="pre">QueryObject</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryObject.query"><code class="docutils literal notranslate"><span class="pre">QueryObject.query</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryObject.prefix"><code class="docutils literal notranslate"><span class="pre">QueryObject.prefix</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryObject.signbox"><code class="docutils literal notranslate"><span class="pre">QueryObject.signbox</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryObject.variance"><code class="docutils literal notranslate"><span class="pre">QueryObject.variance</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryObject.style"><code class="docutils literal notranslate"><span class="pre">QueryObject.style</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SpecialToken"><code class="docutils literal notranslate"><span class="pre">SpecialToken</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SpecialToken.index"><code class="docutils literal notranslate"><span class="pre">SpecialToken.index</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SpecialToken.name"><code class="docutils literal notranslate"><span class="pre">SpecialToken.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.SpecialToken.value"><code class="docutils literal notranslate"><span class="pre">SpecialToken.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sutton_signwriting_core.datatypes.TokenizerMappings"><code class="docutils literal notranslate"><span class="pre">TokenizerMappings</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.TokenizerMappings.i2s"><code class="docutils literal notranslate"><span class="pre">TokenizerMappings.i2s</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sutton_signwriting_core.datatypes.TokenizerMappings.s2i"><code class="docutils literal notranslate"><span class="pre">TokenizerMappings.s2i</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -199,6 +208,192 @@
   <section id="module-sutton_signwriting_core.datatypes">
 <span id="types-module"></span><h1>Types Module<a class="headerlink" href="#module-sutton_signwriting_core.datatypes" title="Link to this heading"></a></h1>
 <p>Data Types for Sutton SignWriting core functionality.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SymbolObject">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">SymbolObject</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.SymbolObject" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<p>The elements of a symbol string.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SymbolObject.symbol">
+<span class="sig-name descname"><span class="pre">symbol</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.SymbolObject.symbol" title="Link to this definition"></a></dt>
+<dd><p>Symbol identifier.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SymbolObject.coord">
+<span class="sig-name descname"><span class="pre">coord</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.SymbolObject.coord" title="Link to this definition"></a></dt>
+<dd><p>X, y coordinate.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SymbolObject.style">
+<span class="sig-name descname"><span class="pre">style</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.SymbolObject.style" title="Link to this definition"></a></dt>
+<dd><p>Style string.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SignSpatial">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">SignSpatial</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.SignSpatial" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<p>A spatial symbol in a sign.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SignSpatial.symbol">
+<span class="sig-name descname"><span class="pre">symbol</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.SignSpatial.symbol" title="Link to this definition"></a></dt>
+<dd><p>Symbol identifier.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SignSpatial.coord">
+<span class="sig-name descname"><span class="pre">coord</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.SignSpatial.coord" title="Link to this definition"></a></dt>
+<dd><p>Coordinate [x, y].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SignSpatial.detail">
+<span class="sig-name descname"><span class="pre">detail</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.SignSpatial.detail" title="Link to this definition"></a></dt>
+<dd><p>Array for CSS name or hex color for line and optional fill.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SignObject">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">SignObject</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.SignObject" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<p>The elements of a sign string.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SignObject.sequence">
+<span class="sig-name descname"><span class="pre">sequence</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.SignObject.sequence" title="Link to this definition"></a></dt>
+<dd><p>Array of symbols.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SignObject.box">
+<span class="sig-name descname"><span class="pre">box</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.SignObject.box" title="Link to this definition"></a></dt>
+<dd><p>Signbox marker or lane.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SignObject.max">
+<span class="sig-name descname"><span class="pre">max</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.SignObject.max" title="Link to this definition"></a></dt>
+<dd><p>Preprocessed x, y coordinate.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SignObject.spatials">
+<span class="sig-name descname"><span class="pre">spatials</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sutton_signwriting_core.datatypes.SignSpatial" title="sutton_signwriting_core.datatypes.SignSpatial"><span class="pre">SignSpatial</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.SignObject.spatials" title="Link to this definition"></a></dt>
+<dd><p>Array of symbols with coordinates.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SignObject.style">
+<span class="sig-name descname"><span class="pre">style</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.SignObject.style" title="Link to this definition"></a></dt>
+<dd><p>Style string.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.DetailSym">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">DetailSym</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.DetailSym" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<p>A symbol-specific style configuration for custom colors.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.DetailSym.index">
+<span class="sig-name descname"><span class="pre">index</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.DetailSym.index" title="Link to this definition"></a></dt>
+<dd><p>The index of the symbol.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.DetailSym.detail">
+<span class="sig-name descname"><span class="pre">detail</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.DetailSym.detail" title="Link to this definition"></a></dt>
+<dd><p>Array of CSS names or hex colors for line and optional fill.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.StyleObject">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">StyleObject</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.StyleObject" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<p>The elements of a style string.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.StyleObject.colorize">
+<span class="sig-name descname"><span class="pre">colorize</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.StyleObject.colorize" title="Link to this definition"></a></dt>
+<dd><p>Boolean to use standardized colors for symbol groups.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.StyleObject.padding">
+<span class="sig-name descname"><span class="pre">padding</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.StyleObject.padding" title="Link to this definition"></a></dt>
+<dd><p>Integer value for padding around symbol or sign.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.StyleObject.background">
+<span class="sig-name descname"><span class="pre">background</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.StyleObject.background" title="Link to this definition"></a></dt>
+<dd><p>CSS name or hex color for background.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.StyleObject.detail">
+<span class="sig-name descname"><span class="pre">detail</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.StyleObject.detail" title="Link to this definition"></a></dt>
+<dd><p>Array for CSS name or hex color for line and optional fill.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.StyleObject.zoom">
+<span class="sig-name descname"><span class="pre">zoom</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.StyleObject.zoom" title="Link to this definition"></a></dt>
+<dd><p>Value for specific zoom level or the letter ‘x’ for expandable.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.StyleObject.detailsym">
+<span class="sig-name descname"><span class="pre">detailsym</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sutton_signwriting_core.datatypes.DetailSym" title="sutton_signwriting_core.datatypes.DetailSym"><span class="pre">DetailSym</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.StyleObject.detailsym" title="Link to this definition"></a></dt>
+<dd><p>Custom colors for individual symbols</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.StyleObject.classes">
+<span class="sig-name descname"><span class="pre">classes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.StyleObject.classes" title="Link to this definition"></a></dt>
+<dd><p>List of class names separated with spaces used for SVG.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.StyleObject.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.StyleObject.id" title="Link to this definition"></a></dt>
+<dd><p>ID name used for SVG.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.ColumnPunctuation">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">ColumnPunctuation</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.ColumnPunctuation" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<p>Punctuation options for columns.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.ColumnPunctuation.spacing">
+<span class="sig-name descname"><span class="pre">spacing</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.ColumnPunctuation.spacing" title="Link to this definition"></a></dt>
+<dd><p>Whether to add spacing for punctuation.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.ColumnPunctuation.pad">
+<span class="sig-name descname"><span class="pre">pad</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.ColumnPunctuation.pad" title="Link to this definition"></a></dt>
+<dd><p>Padding for punctuation.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.ColumnPunctuation.pull">
+<span class="sig-name descname"><span class="pre">pull</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.ColumnPunctuation.pull" title="Link to this definition"></a></dt>
+<dd><p>Whether to pull punctuation closer.</p>
+</dd></dl>
+
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.ColumnOptions">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">ColumnOptions</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.ColumnOptions" title="Link to this definition"></a></dt>
@@ -261,228 +456,6 @@
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.ColumnPunctuation">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">ColumnPunctuation</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.ColumnPunctuation" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
-<p>Punctuation options for columns.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.ColumnPunctuation.spacing">
-<span class="sig-name descname"><span class="pre">spacing</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.ColumnPunctuation.spacing" title="Link to this definition"></a></dt>
-<dd><p>Whether to add spacing for punctuation.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.ColumnPunctuation.pad">
-<span class="sig-name descname"><span class="pre">pad</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.ColumnPunctuation.pad" title="Link to this definition"></a></dt>
-<dd><p>Padding for punctuation.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.ColumnPunctuation.pull">
-<span class="sig-name descname"><span class="pre">pull</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.ColumnPunctuation.pull" title="Link to this definition"></a></dt>
-<dd><p>Whether to pull punctuation closer.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.ColumnSegment">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">ColumnSegment</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.ColumnSegment" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
-<p>A segment in a column layout (extends SegmentInfo with position and text).</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.ColumnSegment.x">
-<span class="sig-name descname"><span class="pre">x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.ColumnSegment.x" title="Link to this definition"></a></dt>
-<dd><p>The x position in the column.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.ColumnSegment.y">
-<span class="sig-name descname"><span class="pre">y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.ColumnSegment.y" title="Link to this definition"></a></dt>
-<dd><p>The y position in the column.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.ColumnSegment.text">
-<span class="sig-name descname"><span class="pre">text</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.ColumnSegment.text" title="Link to this definition"></a></dt>
-<dd><p>The text of the sign or symbol with optional style string.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.ColumnsResult">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">ColumnsResult</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.ColumnsResult" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
-<p>The result of the columns functions, containing column layout data.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.ColumnsResult.options">
-<span class="sig-name descname"><span class="pre">options</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnOptions" title="sutton_signwriting_core.datatypes.ColumnOptions"><span class="pre">ColumnOptions</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.ColumnsResult.options" title="Link to this definition"></a></dt>
-<dd><p>Column layout options.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.ColumnsResult.widths">
-<span class="sig-name descname"><span class="pre">widths</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.ColumnsResult.widths" title="Link to this definition"></a></dt>
-<dd><p>Widths of each column.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.ColumnsResult.columns">
-<span class="sig-name descname"><span class="pre">columns</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnSegment" title="sutton_signwriting_core.datatypes.ColumnSegment"><span class="pre">ColumnSegment</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.ColumnsResult.columns" title="Link to this definition"></a></dt>
-<dd><p>Array of columns, each containing an array of segments.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QueryObject">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">QueryObject</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.QueryObject" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
-<p>Object of query elements with regular expression identification.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QueryObject.query">
-<span class="sig-name descname"><span class="pre">query</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.QueryObject.query" title="Link to this definition"></a></dt>
-<dd><p>Required true for query object.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QueryObject.prefix">
-<span class="sig-name descname"><span class="pre">prefix</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryPrefix" title="sutton_signwriting_core.datatypes.QueryPrefix"><span class="pre">QueryPrefix</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.QueryObject.prefix" title="Link to this definition"></a></dt>
-<dd><p>An object for prefix elements.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QueryObject.signbox">
-<span class="sig-name descname"><span class="pre">signbox</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxSymbol" title="sutton_signwriting_core.datatypes.QuerySignboxSymbol"><span class="pre">QuerySignboxSymbol</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxRange" title="sutton_signwriting_core.datatypes.QuerySignboxRange"><span class="pre">QuerySignboxRange</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxOr" title="sutton_signwriting_core.datatypes.QuerySignboxOr"><span class="pre">QuerySignboxOr</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.QueryObject.signbox" title="Link to this definition"></a></dt>
-<dd><p>Array of objects for symbols, ranges, and list of symbols or ranges, with optional coordinates.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QueryObject.variance">
-<span class="sig-name descname"><span class="pre">variance</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.QueryObject.variance" title="Link to this definition"></a></dt>
-<dd><p>Amount that x or y coordinates can vary and find a match, defaults to 20.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QueryObject.style">
-<span class="sig-name descname"><span class="pre">style</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.QueryObject.style" title="Link to this definition"></a></dt>
-<dd><p>Boolean value for including style string in matches.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QueryPrefixSymbol">
-<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">QueryPrefixSymbol</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.QueryPrefixSymbol" title="Link to this definition"></a></dt>
-<dd><p>A symbol identifier in a prefix query.</p>
-</dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QueryPrefixRange">
-<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">QueryPrefixRange</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.QueryPrefixRange" title="Link to this definition"></a></dt>
-<dd><p>A symbol range in a prefix query.</p>
-<p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</p>
-</dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QueryPrefixOr">
-<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">QueryPrefixOr</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.QueryPrefixOr" title="Link to this definition"></a></dt>
-<dd><p>An OR group of symbols or ranges in a prefix query.</p>
-<p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]</p>
-</dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QueryPrefixElement">
-<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">QueryPrefixElement</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.QueryPrefixElement" title="Link to this definition"></a></dt>
-<dd><p>A prefix query element as a <code class="xref py py-data docutils literal notranslate"><span class="pre">QueryPrefixSymbol</span></code>, <a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryPrefixRange" title="sutton_signwriting_core.datatypes.QueryPrefixRange"><code class="xref py py-data docutils literal notranslate"><span class="pre">QueryPrefixRange</span></code></a>, or <a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryPrefixOr" title="sutton_signwriting_core.datatypes.QueryPrefixOr"><code class="xref py py-data docutils literal notranslate"><span class="pre">QueryPrefixOr</span></code></a>.</p>
-<p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>] | <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QueryPrefix">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">QueryPrefix</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.QueryPrefix" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
-<p>Prefix elements for a query.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QueryPrefix.required">
-<span class="sig-name descname"><span class="pre">required</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.QueryPrefix.required" title="Link to this definition"></a></dt>
-<dd><p>Whether the prefix is required.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QueryPrefix.parts">
-<span class="sig-name descname"><span class="pre">parts</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.QueryPrefix.parts" title="Link to this definition"></a></dt>
-<dd><p>A list of symbols, ranges, or OR groups.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QuerySignboxElement">
-<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">QuerySignboxElement</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.QuerySignboxElement" title="Link to this definition"></a></dt>
-<dd><p>A signbox query element as a symbol, range, or an OR group of symbols and ranges.</p>
-<p>alias of <a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxSymbol" title="sutton_signwriting_core.datatypes.QuerySignboxSymbol"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuerySignboxSymbol</span></code></a> | <a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxRange" title="sutton_signwriting_core.datatypes.QuerySignboxRange"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuerySignboxRange</span></code></a> | <a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxOr" title="sutton_signwriting_core.datatypes.QuerySignboxOr"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuerySignboxOr</span></code></a></p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QuerySignboxOr">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">QuerySignboxOr</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.QuerySignboxOr" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
-<p>An OR group of symbols or ranges in a signbox query.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QuerySignboxOr.or_list">
-<span class="sig-name descname"><span class="pre">or_list</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.QuerySignboxOr.or_list" title="Link to this definition"></a></dt>
-<dd><p>An array of symbol strings and/or range arrays.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QuerySignboxOr.coord">
-<span class="sig-name descname"><span class="pre">coord</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.QuerySignboxOr.coord" title="Link to this definition"></a></dt>
-<dd><p>An optional coordinate [x, y].</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QuerySignboxRange">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">QuerySignboxRange</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.QuerySignboxRange" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
-<p>A symbol range in a signbox query.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QuerySignboxRange.range">
-<span class="sig-name descname"><span class="pre">range</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.QuerySignboxRange.range" title="Link to this definition"></a></dt>
-<dd><p>An array of two symbols defining the range [start, end].</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QuerySignboxRange.coord">
-<span class="sig-name descname"><span class="pre">coord</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.QuerySignboxRange.coord" title="Link to this definition"></a></dt>
-<dd><p>An optional coordinate [x, y].</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QuerySignboxSymbol">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">QuerySignboxSymbol</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.QuerySignboxSymbol" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
-<p>A symbol in a signbox query.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QuerySignboxSymbol.symbol">
-<span class="sig-name descname"><span class="pre">symbol</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.QuerySignboxSymbol.symbol" title="Link to this definition"></a></dt>
-<dd><p>A symbol identifier.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QuerySignboxSymbol.coord">
-<span class="sig-name descname"><span class="pre">coord</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.QuerySignboxSymbol.coord" title="Link to this definition"></a></dt>
-<dd><p>An optional coordinate [x, y].</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
 <dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SegmentInfo">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">SegmentInfo</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.SegmentInfo" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
@@ -538,170 +511,204 @@
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SignObject">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">SignObject</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.SignObject" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
-<p>The elements of a sign string.</p>
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.ColumnSegment">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">ColumnSegment</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.ColumnSegment" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#sutton_signwriting_core.datatypes.SegmentInfo" title="sutton_signwriting_core.datatypes.SegmentInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">SegmentInfo</span></code></a></p>
+<p>A segment in a column layout (extends SegmentInfo with position and text).</p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SignObject.sequence">
-<span class="sig-name descname"><span class="pre">sequence</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.SignObject.sequence" title="Link to this definition"></a></dt>
-<dd><p>Array of symbols.</p>
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.ColumnSegment.x">
+<span class="sig-name descname"><span class="pre">x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.ColumnSegment.x" title="Link to this definition"></a></dt>
+<dd><p>The x position in the column.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SignObject.box">
-<span class="sig-name descname"><span class="pre">box</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.SignObject.box" title="Link to this definition"></a></dt>
-<dd><p>Signbox marker or lane.</p>
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.ColumnSegment.y">
+<span class="sig-name descname"><span class="pre">y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.ColumnSegment.y" title="Link to this definition"></a></dt>
+<dd><p>The y position in the column.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SignObject.max">
-<span class="sig-name descname"><span class="pre">max</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.SignObject.max" title="Link to this definition"></a></dt>
-<dd><p>Preprocessed x, y coordinate.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SignObject.spatials">
-<span class="sig-name descname"><span class="pre">spatials</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sutton_signwriting_core.datatypes.SignSpatial" title="sutton_signwriting_core.datatypes.SignSpatial"><span class="pre">SignSpatial</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.SignObject.spatials" title="Link to this definition"></a></dt>
-<dd><p>Array of symbols with coordinates.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SignObject.style">
-<span class="sig-name descname"><span class="pre">style</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.SignObject.style" title="Link to this definition"></a></dt>
-<dd><p>Style string.</p>
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.ColumnSegment.text">
+<span class="sig-name descname"><span class="pre">text</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.ColumnSegment.text" title="Link to this definition"></a></dt>
+<dd><p>The text of the sign or symbol with optional style string.</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SignSpatial">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">SignSpatial</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.SignSpatial" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.ColumnsResult">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">ColumnsResult</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.ColumnsResult" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
-<p>A spatial symbol in a sign.</p>
+<p>The result of the columns functions, containing column layout data.</p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SignSpatial.symbol">
-<span class="sig-name descname"><span class="pre">symbol</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.SignSpatial.symbol" title="Link to this definition"></a></dt>
-<dd><p>Symbol identifier.</p>
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.ColumnsResult.options">
+<span class="sig-name descname"><span class="pre">options</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnOptions" title="sutton_signwriting_core.datatypes.ColumnOptions"><span class="pre">ColumnOptions</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.ColumnsResult.options" title="Link to this definition"></a></dt>
+<dd><p>Column layout options.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SignSpatial.coord">
-<span class="sig-name descname"><span class="pre">coord</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.SignSpatial.coord" title="Link to this definition"></a></dt>
-<dd><p>Coordinate [x, y].</p>
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.ColumnsResult.widths">
+<span class="sig-name descname"><span class="pre">widths</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.ColumnsResult.widths" title="Link to this definition"></a></dt>
+<dd><p>Widths of each column.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SignSpatial.detail">
-<span class="sig-name descname"><span class="pre">detail</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.SignSpatial.detail" title="Link to this definition"></a></dt>
-<dd><p>Array for CSS name or hex color for line and optional fill.</p>
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.ColumnsResult.columns">
+<span class="sig-name descname"><span class="pre">columns</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sutton_signwriting_core.datatypes.ColumnSegment" title="sutton_signwriting_core.datatypes.ColumnSegment"><span class="pre">ColumnSegment</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.ColumnsResult.columns" title="Link to this definition"></a></dt>
+<dd><p>Array of columns, each containing an array of segments.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QueryPrefixSymbol">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">QueryPrefixSymbol</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.QueryPrefixSymbol" title="Link to this definition"></a></dt>
+<dd><p>A symbol identifier in a prefix query.</p>
+<p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QueryPrefixRange">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">QueryPrefixRange</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.QueryPrefixRange" title="Link to this definition"></a></dt>
+<dd><p>An array of two symbols defining the range [start, end].</p>
+<p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QueryPrefixOr">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">QueryPrefixOr</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.QueryPrefixOr" title="Link to this definition"></a></dt>
+<dd><p>An OR group of symbols or ranges in a prefix query.</p>
+<ul class="simple">
+<li><p>element 0: Must be the string ‘or_list’</p></li>
+<li><p>elements 1+: <a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryPrefixSymbol" title="sutton_signwriting_core.datatypes.QueryPrefixSymbol"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueryPrefixSymbol</span></code></a> or <a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryPrefixRange" title="sutton_signwriting_core.datatypes.QueryPrefixRange"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueryPrefixRange</span></code></a></p></li>
+</ul>
+<p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QueryPrefixElement">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">QueryPrefixElement</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.QueryPrefixElement" title="Link to this definition"></a></dt>
+<dd><p>A prefix query element as a symbol, range, or an OR group of symbols and ranges.</p>
+<p>alias of <a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryPrefixSymbol" title="sutton_signwriting_core.datatypes.QueryPrefixSymbol"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueryPrefixSymbol</span></code></a> | <a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryPrefixRange" title="sutton_signwriting_core.datatypes.QueryPrefixRange"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueryPrefixRange</span></code></a> | <a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryPrefixOr" title="sutton_signwriting_core.datatypes.QueryPrefixOr"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueryPrefixOr</span></code></a></p>
+<p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>] | <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QueryPrefix">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">QueryPrefix</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.QueryPrefix" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<p>Prefix elements for a query.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QueryPrefix.required">
+<span class="sig-name descname"><span class="pre">required</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.QueryPrefix.required" title="Link to this definition"></a></dt>
+<dd><p>Whether the prefix is required.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QueryPrefix.parts">
+<span class="sig-name descname"><span class="pre">parts</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.QueryPrefix.parts" title="Link to this definition"></a></dt>
+<dd><p>A list of <a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryPrefixElement" title="sutton_signwriting_core.datatypes.QueryPrefixElement"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueryPrefixElement</span></code></a> items.</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.DetailSym">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">DetailSym</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.DetailSym" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QuerySignboxSymbol">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">QuerySignboxSymbol</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.QuerySignboxSymbol" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
-<p>A symbol-specific style configuration for custom colors.</p>
+<p>A symbol in a signbox query.</p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.DetailSym.index">
-<span class="sig-name descname"><span class="pre">index</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.DetailSym.index" title="Link to this definition"></a></dt>
-<dd><p>The index of the symbol.</p>
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QuerySignboxSymbol.symbol">
+<span class="sig-name descname"><span class="pre">symbol</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.QuerySignboxSymbol.symbol" title="Link to this definition"></a></dt>
+<dd><p>A symbol identifier.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.DetailSym.detail">
-<span class="sig-name descname"><span class="pre">detail</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.DetailSym.detail" title="Link to this definition"></a></dt>
-<dd><p>Array of CSS names or hex colors for line and optional fill.</p>
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QuerySignboxSymbol.coord">
+<span class="sig-name descname"><span class="pre">coord</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.QuerySignboxSymbol.coord" title="Link to this definition"></a></dt>
+<dd><p>An optional coordinate [x, y].</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.StyleObject">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">StyleObject</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.StyleObject" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QuerySignboxRange">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">QuerySignboxRange</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.QuerySignboxRange" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
-<p>The elements of a style string.</p>
+<p>A symbol range in a signbox query.</p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.StyleObject.colorize">
-<span class="sig-name descname"><span class="pre">colorize</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.StyleObject.colorize" title="Link to this definition"></a></dt>
-<dd><p>Boolean to use standardized colors for symbol groups.</p>
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QuerySignboxRange.range">
+<span class="sig-name descname"><span class="pre">range</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.QuerySignboxRange.range" title="Link to this definition"></a></dt>
+<dd><p>An array of two symbols defining the range [start, end].</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.StyleObject.padding">
-<span class="sig-name descname"><span class="pre">padding</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.StyleObject.padding" title="Link to this definition"></a></dt>
-<dd><p>Integer value for padding around symbol or sign.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.StyleObject.background">
-<span class="sig-name descname"><span class="pre">background</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.StyleObject.background" title="Link to this definition"></a></dt>
-<dd><p>CSS name or hex color for background.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.StyleObject.detail">
-<span class="sig-name descname"><span class="pre">detail</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.StyleObject.detail" title="Link to this definition"></a></dt>
-<dd><p>Array for CSS name or hex color for line and optional fill.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.StyleObject.zoom">
-<span class="sig-name descname"><span class="pre">zoom</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.StyleObject.zoom" title="Link to this definition"></a></dt>
-<dd><p>Decimal value for zoom level.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.StyleObject.detailsym">
-<span class="sig-name descname"><span class="pre">detailsym</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sutton_signwriting_core.datatypes.DetailSym" title="sutton_signwriting_core.datatypes.DetailSym"><span class="pre">DetailSym</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.StyleObject.detailsym" title="Link to this definition"></a></dt>
-<dd><p>int, detail: List[str]}.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Custom colors for individual symbols</p>
-</dd>
-<dt class="field-even">Type<span class="colon">:</span></dt>
-<dd class="field-even"><p>list of {index</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.StyleObject.classes">
-<span class="sig-name descname"><span class="pre">classes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.StyleObject.classes" title="Link to this definition"></a></dt>
-<dd><p>List of class names separated with spaces used for SVG.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.StyleObject.id">
-<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.StyleObject.id" title="Link to this definition"></a></dt>
-<dd><p>ID name used for SVG.</p>
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QuerySignboxRange.coord">
+<span class="sig-name descname"><span class="pre">coord</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.QuerySignboxRange.coord" title="Link to this definition"></a></dt>
+<dd><p>An optional coordinate [x, y].</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SymbolObject">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">SymbolObject</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.SymbolObject" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QuerySignboxOr">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">QuerySignboxOr</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.QuerySignboxOr" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
-<p>The elements of a symbol string.</p>
+<p>An OR group of symbols or ranges in a signbox query.</p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SymbolObject.symbol">
-<span class="sig-name descname"><span class="pre">symbol</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.SymbolObject.symbol" title="Link to this definition"></a></dt>
-<dd><p>Symbol identifier.</p>
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QuerySignboxOr.or_list">
+<span class="sig-name descname"><span class="pre">or_list</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxSymbol" title="sutton_signwriting_core.datatypes.QuerySignboxSymbol"><span class="pre">QuerySignboxSymbol</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxRange" title="sutton_signwriting_core.datatypes.QuerySignboxRange"><span class="pre">QuerySignboxRange</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.QuerySignboxOr.or_list" title="Link to this definition"></a></dt>
+<dd><p>An array of symbol strings and/or range arrays.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SymbolObject.coord">
-<span class="sig-name descname"><span class="pre">coord</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.SymbolObject.coord" title="Link to this definition"></a></dt>
-<dd><p>X, y coordinate.</p>
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QuerySignboxOr.coord">
+<span class="sig-name descname"><span class="pre">coord</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.QuerySignboxOr.coord" title="Link to this definition"></a></dt>
+<dd><p>An optional coordinate [x, y].</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QuerySignboxElement">
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">QuerySignboxElement</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.QuerySignboxElement" title="Link to this definition"></a></dt>
+<dd><p>A signbox query element as a symbol, range, or an OR group of symbols and ranges.</p>
+<p>alias of <a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxSymbol" title="sutton_signwriting_core.datatypes.QuerySignboxSymbol"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuerySignboxSymbol</span></code></a> | <a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxRange" title="sutton_signwriting_core.datatypes.QuerySignboxRange"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuerySignboxRange</span></code></a> | <a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxOr" title="sutton_signwriting_core.datatypes.QuerySignboxOr"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuerySignboxOr</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QueryObject">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">QueryObject</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.QueryObject" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<p>Object of query elements with regular expression identification.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QueryObject.query">
+<span class="sig-name descname"><span class="pre">query</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.QueryObject.query" title="Link to this definition"></a></dt>
+<dd><p>Required true for query object.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SymbolObject.style">
-<span class="sig-name descname"><span class="pre">style</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.SymbolObject.style" title="Link to this definition"></a></dt>
-<dd><p>Style string.</p>
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QueryObject.prefix">
+<span class="sig-name descname"><span class="pre">prefix</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sutton_signwriting_core.datatypes.QueryPrefix" title="sutton_signwriting_core.datatypes.QueryPrefix"><span class="pre">QueryPrefix</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.QueryObject.prefix" title="Link to this definition"></a></dt>
+<dd><p>An object for prefix elements.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QueryObject.signbox">
+<span class="sig-name descname"><span class="pre">signbox</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxSymbol" title="sutton_signwriting_core.datatypes.QuerySignboxSymbol"><span class="pre">QuerySignboxSymbol</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxRange" title="sutton_signwriting_core.datatypes.QuerySignboxRange"><span class="pre">QuerySignboxRange</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#sutton_signwriting_core.datatypes.QuerySignboxOr" title="sutton_signwriting_core.datatypes.QuerySignboxOr"><span class="pre">QuerySignboxOr</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.QueryObject.signbox" title="Link to this definition"></a></dt>
+<dd><p>Array of objects for symbols, ranges, and list of symbols or ranges, with optional coordinates.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QueryObject.variance">
+<span class="sig-name descname"><span class="pre">variance</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.QueryObject.variance" title="Link to this definition"></a></dt>
+<dd><p>Amount that x or y coordinates can vary and find a match, defaults to 20.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.QueryObject.style">
+<span class="sig-name descname"><span class="pre">style</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.QueryObject.style" title="Link to this definition"></a></dt>
+<dd><p>Boolean value for including style string in matches.</p>
 </dd></dl>
 
 </dd></dl>
@@ -710,12 +717,44 @@
 <dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SpecialToken">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">SpecialToken</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.SpecialToken" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<p>Configuration for a special token in the FSW tokenizer vocabulary.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SpecialToken.index">
+<span class="sig-name descname"><span class="pre">index</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.SpecialToken.index" title="Link to this definition"></a></dt>
+<dd><p>Unique integer index for this token in the vocabulary.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SpecialToken.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.SpecialToken.name" title="Link to this definition"></a></dt>
+<dd><p>Human-readable identifier for the token.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.SpecialToken.value">
+<span class="sig-name descname"><span class="pre">value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.SpecialToken.value" title="Link to this definition"></a></dt>
+<dd><p>Literal string representation of the token.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.TokenizerMappings">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.datatypes.</span></span><span class="sig-name descname"><span class="pre">TokenizerMappings</span></span><a class="headerlink" href="#sutton_signwriting_core.datatypes.TokenizerMappings" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<p>Bidirectional mappings for token indices and strings in the FSW tokenizer.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.TokenizerMappings.i2s">
+<span class="sig-name descname"><span class="pre">i2s</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.TokenizerMappings.i2s" title="Link to this definition"></a></dt>
+<dd><p>Mapping from integer indices to token strings.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sutton_signwriting_core.datatypes.TokenizerMappings.s2i">
+<span class="sig-name descname"><span class="pre">s2i</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sutton_signwriting_core.datatypes.TokenizerMappings.s2i" title="Link to this definition"></a></dt>
+<dd><p>Mapping from token strings to integer indices.</p>
+</dd></dl>
+
 </dd></dl>
 
 </section>

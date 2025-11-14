@@ -4,97 +4,53 @@ Data Types for Sutton SignWriting core functionality.
 
 from typing import (
     Dict,
-    TypedDict,
     List,
     Union,
     NotRequired,
 )
 
-# Query-related types
+from typing_extensions import TypedDict
 
 
-class QuerySignboxSymbol(TypedDict):
-    """A symbol in a signbox query."""
+class SymbolObject(TypedDict):
+    """
+    The elements of a symbol string.
+    """
+
+    symbol: NotRequired[str]
+    """Symbol identifier."""
+    coord: NotRequired[List[int]]
+    """X, y coordinate."""
+    style: NotRequired[str]
+    """Style string."""
+
+
+class SignSpatial(TypedDict):
+    """A spatial symbol in a sign."""
 
     symbol: str
-    """A symbol identifier."""
-    coord: NotRequired[List[int]]
-    """An optional coordinate [x, y]."""
+    """Symbol identifier."""
+    coord: List[int]
+    """Coordinate [x, y]."""
+    detail: NotRequired[List[str]]
+    """Array for CSS name or hex color for line and optional fill."""
 
 
-class QuerySignboxRange(TypedDict):
-    """A symbol range in a signbox query."""
-
-    range: List[str]
-    """An array of two symbols defining the range [start, end]."""
-    coord: NotRequired[List[int]]
-    """An optional coordinate [x, y]."""
-
-
-class QuerySignboxOr(TypedDict):
-    """An OR group of symbols or ranges in a signbox query."""
-
-    or_list: List[Union[str, List[str]]]
-    """An array of symbol strings and/or range arrays."""
-    coord: NotRequired[List[int]]
-    """An optional coordinate [x, y]."""
-
-
-QuerySignboxElement = Union[QuerySignboxSymbol, QuerySignboxRange, QuerySignboxOr]
-"""A signbox query element as a symbol, range, or an OR group of symbols and ranges."""
-
-
-QueryPrefixSymbol = str
-"""A symbol identifier in a prefix query."""
-
-QueryPrefixRange = List[str]
-"""A symbol range in a prefix query."""
-
-QueryPrefixOr = List[Union[str, List[str]]]
-"""An OR group of symbols or ranges in a prefix query."""
-
-QueryPrefixElement = Union[QueryPrefixSymbol, QueryPrefixRange, QueryPrefixOr]
-"""A prefix query element as a :py:data:`.QueryPrefixSymbol`, :py:data:`.QueryPrefixRange`, or :py:data:`.QueryPrefixOr`."""
-
-
-class QueryPrefix(TypedDict):
-    """Prefix elements for a query."""
-
-    required: bool
-    """Whether the prefix is required."""
-    parts: NotRequired[List[QueryPrefixElement]]
-    """A list of symbols, ranges, or OR groups."""
-
-
-class QueryObject(TypedDict):
+class SignObject(TypedDict):
     """
-    Object of query elements with regular expression identification.
+    The elements of a sign string.
     """
 
-    query: bool
-    """Required true for query object."""
-    prefix: NotRequired[QueryPrefix]
-    """An object for prefix elements."""
-    signbox: NotRequired[List[QuerySignboxElement]]
-    """Array of objects for symbols, ranges, and list of symbols or ranges, with optional coordinates."""
-    variance: NotRequired[int]
-    """Amount that x or y coordinates can vary and find a match, defaults to 20."""
-    style: NotRequired[bool]
-    """Boolean value for including style string in matches."""
-
-
-# Column and layout types
-
-
-class ColumnPunctuation(TypedDict):
-    """Punctuation options for columns."""
-
-    spacing: NotRequired[bool]
-    """Whether to add spacing for punctuation."""
-    pad: NotRequired[int]
-    """Padding for punctuation."""
-    pull: NotRequired[bool]
-    """Whether to pull punctuation closer."""
+    sequence: NotRequired[List[str]]
+    """Array of symbols."""
+    box: NotRequired[str]
+    """Signbox marker or lane."""
+    max: NotRequired[List[int]]
+    """Preprocessed x, y coordinate."""
+    spatials: NotRequired[List[SignSpatial]]
+    """Array of symbols with coordinates."""
+    style: NotRequired[str]
+    """Style string."""
 
 
 class DetailSym(TypedDict):
@@ -122,13 +78,24 @@ class StyleObject(TypedDict):
     detail: NotRequired[List[str]]
     """Array for CSS name or hex color for line and optional fill."""
     zoom: NotRequired[Union[int, float, str]]
-    """Decimal value for zoom level."""
+    """Value for specific zoom level or the letter 'x' for expandable."""
     detailsym: NotRequired[List[DetailSym]]
-    """Custom colors for individual symbols: list of {index: int, detail: List[str]}."""
+    """Custom colors for individual symbols"""
     classes: NotRequired[str]
     """List of class names separated with spaces used for SVG."""
     id: NotRequired[str]
     """ID name used for SVG."""
+
+
+class ColumnPunctuation(TypedDict):
+    """Punctuation options for columns."""
+
+    spacing: NotRequired[bool]
+    """Whether to add spacing for punctuation."""
+    pad: NotRequired[int]
+    """Padding for punctuation."""
+    pull: NotRequired[bool]
+    """Whether to pull punctuation closer."""
 
 
 class ColumnOptions(TypedDict):
@@ -190,9 +157,6 @@ class ColumnSegment(SegmentInfo):
     """The text of the sign or symbol with optional style string."""
 
 
-ColumnData = List[ColumnSegment]
-
-
 class ColumnsResult(TypedDict):
     """
     The result of the columns functions, containing column layout data.
@@ -206,80 +170,131 @@ class ColumnsResult(TypedDict):
     """Array of columns, each containing an array of segments."""
 
 
-class SymbolObject(TypedDict):
-    """
-    The elements of a symbol string.
-    """
+QueryPrefixSymbol = str
+"""A symbol identifier in a prefix query.
 
-    symbol: NotRequired[str]
-    """Symbol identifier."""
-    coord: NotRequired[List[int]]
-    """X, y coordinate."""
-    style: NotRequired[str]
-    """Style string."""
+alias of :class:`str`
+"""
+
+QueryPrefixRange = List[str]
+"""An array of two symbols defining the range [start, end]."""
+
+QueryPrefixOr = List[Union[QueryPrefixSymbol, QueryPrefixRange]]
+"""An OR group of symbols or ranges in a prefix query.
+
+- element 0: Must be the string 'or_list'
+- elements 1+: :class:`QueryPrefixSymbol` or :class:`QueryPrefixRange`
+"""
+
+QueryPrefixElement = Union[QueryPrefixSymbol, QueryPrefixRange, QueryPrefixOr]
+"""A prefix query element as a symbol, range, or an OR group of symbols and ranges.
+
+alias of :class:`QueryPrefixSymbol` | :class:`QueryPrefixRange` | :class:`QueryPrefixOr`
+"""
 
 
-class SignSpatial(TypedDict):
-    """A spatial symbol in a sign."""
+class QueryPrefix(TypedDict):
+    """Prefix elements for a query."""
+
+    required: bool
+    """Whether the prefix is required."""
+    parts: NotRequired[List[QueryPrefixElement]]
+    """A list of :class:`QueryPrefixElement` items."""
+
+
+class QuerySignboxSymbol(TypedDict):
+    """A symbol in a signbox query."""
 
     symbol: str
-    """Symbol identifier."""
-    coord: List[int]
-    """Coordinate [x, y]."""
-    detail: NotRequired[List[str]]
-    """Array for CSS name or hex color for line and optional fill."""
+    """A symbol identifier."""
+    coord: NotRequired[List[int]]
+    """An optional coordinate [x, y]."""
 
 
-class SignObject(TypedDict):
+class QuerySignboxRange(TypedDict):
+    """A symbol range in a signbox query."""
+
+    range: List[str]
+    """An array of two symbols defining the range [start, end]."""
+    coord: NotRequired[List[int]]
+    """An optional coordinate [x, y]."""
+
+
+class QuerySignboxOr(TypedDict):
+    """An OR group of symbols or ranges in a signbox query."""
+
+    or_list: List[Union[QuerySignboxSymbol, QuerySignboxRange]]
+    """An array of symbol strings and/or range arrays."""
+    coord: NotRequired[List[int]]
+    """An optional coordinate [x, y]."""
+
+
+QuerySignboxElement = Union[QuerySignboxSymbol, QuerySignboxRange, QuerySignboxOr]
+"""A signbox query element as a symbol, range, or an OR group of symbols and ranges."""
+
+
+class QueryObject(TypedDict):
     """
-    The elements of a sign string.
+    Object of query elements with regular expression identification.
     """
 
-    sequence: NotRequired[List[str]]
-    """Array of symbols."""
-    box: NotRequired[str]
-    """Signbox marker or lane."""
-    max: NotRequired[List[int]]
-    """Preprocessed x, y coordinate."""
-    spatials: NotRequired[List[SignSpatial]]
-    """Array of symbols with coordinates."""
-    style: NotRequired[str]
-    """Style string."""
+    query: bool
+    """Required true for query object."""
+    prefix: NotRequired[QueryPrefix]
+    """An object for prefix elements."""
+    signbox: NotRequired[List[QuerySignboxElement]]
+    """Array of objects for symbols, ranges, and list of symbols or ranges, with optional coordinates."""
+    variance: NotRequired[int]
+    """Amount that x or y coordinates can vary and find a match, defaults to 20."""
+    style: NotRequired[bool]
+    """Boolean value for including style string in matches."""
 
 
 class SpecialToken(TypedDict):
+    """
+    Configuration for a special token in the FSW tokenizer vocabulary.
+    """
+
     index: int
+    """Unique integer index for this token in the vocabulary."""
     name: str
+    """Human-readable identifier for the token."""
     value: str
+    """Literal string representation of the token."""
 
 
 class TokenizerMappings(TypedDict):
+    """
+    Bidirectional mappings for token indices and strings in the FSW tokenizer.
+    """
+
     i2s: Dict[int, str]
+    """Mapping from integer indices to token strings."""
     s2i: Dict[str, int]
+    """Mapping from token strings to integer indices."""
 
 
 __all__ = [
-    "ColumnData",
-    "ColumnOptions",
+    "SymbolObject",
+    "SignSpatial",
+    "SignObject",
+    "DetailSym",
+    "StyleObject",
     "ColumnPunctuation",
+    "ColumnOptions",
+    "SegmentInfo",
     "ColumnSegment",
     "ColumnsResult",
-    "QueryObject",
     "QueryPrefixSymbol",
     "QueryPrefixRange",
     "QueryPrefixOr",
     "QueryPrefixElement",
     "QueryPrefix",
-    "QuerySignboxElement",
-    "QuerySignboxOr",
-    "QuerySignboxRange",
     "QuerySignboxSymbol",
-    "SegmentInfo",
-    "SignObject",
-    "SignSpatial",
-    "DetailSym",
-    "StyleObject",
-    "SymbolObject",
+    "QuerySignboxRange",
+    "QuerySignboxOr",
+    "QuerySignboxElement",
+    "QueryObject",
     "SpecialToken",
     "TokenizerMappings",
 ]

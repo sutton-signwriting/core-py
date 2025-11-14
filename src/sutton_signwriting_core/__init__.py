@@ -7,7 +7,6 @@ from __future__ import annotations
 from .symid_arr import symid_arr
 
 from .datatypes import (
-    ColumnData,
     ColumnOptions,
     ColumnPunctuation,
     ColumnSegment,
@@ -196,26 +195,26 @@ from .swuquery import (
 
 __all__ = [
     # data types
-    "ColumnData",
-    "ColumnOptions",
+    "SymbolObject",
+    "SignSpatial",
+    "SignObject",
+    "DetailSym",
+    "StyleObject",
     "ColumnPunctuation",
+    "ColumnOptions",
+    "SegmentInfo",
     "ColumnSegment",
-    "QueryObject",
+    "ColumnsResult",
     "QueryPrefixSymbol",
     "QueryPrefixRange",
     "QueryPrefixOr",
     "QueryPrefixElement",
     "QueryPrefix",
-    "QuerySignboxElement",
-    "QuerySignboxOr",
-    "QuerySignboxRange",
     "QuerySignboxSymbol",
-    "SegmentInfo",
-    "SignObject",
-    "SignSpatial",
-    "DetailSym",
-    "StyleObject",
-    "SymbolObject",
+    "QuerySignboxRange",
+    "QuerySignboxOr",
+    "QuerySignboxElement",
+    "QueryObject",
     "SpecialToken",
     "TokenizerMappings",
     # FSW patterns
@@ -379,4 +378,4 @@ __all__ = [
     "swuquery_lines",
 ]
 
-__version__ = "1.1.1"
+__version__ = "1.1.2"

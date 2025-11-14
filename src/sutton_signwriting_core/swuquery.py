@@ -9,6 +9,7 @@ from typing import List, Optional, Union, cast
 
 from .datatypes import (
     QueryObject,
+    QueryPrefixOr,
     QueryPrefixElement,
     QueryPrefix,
     QuerySignboxElement,
@@ -59,7 +60,7 @@ def _swuquery_parse_prefix(text: str) -> QueryPrefix:
     for part in parts:
         if "o" in part:
             or_parts = re.findall(swuquery_pattern_item, part)
-            processed: list[Union[str, list[str]]] = ["or_list"]
+            processed: QueryPrefixOr = ["or_list"]
             for or_part in or_parts:
                 if or_part[0] != "R":
                     processed.append(or_part)
@@ -95,12 +96,15 @@ def _swuquery_parse_signbox(text: str) -> List[QuerySignboxElement]:
 
         if "o" in front:
             or_parts = front.split("o")
-            or_list = []
+            or_list: List[Union[QuerySignboxSymbol, QuerySignboxRange]] = []
             for or_part in or_parts:
                 if "R" not in or_part:
                     or_list.append(or_part)
                 else:
-                    or_list.append([or_part[1], or_part[2]])
+                    range_item = cast(
+                        QuerySignboxRange, [str(or_part[1]), str(or_part[2])]
+                    )
+                    or_list.append(range_item)
             query_or: QuerySignboxOr = {"or_list": or_list}
             if coord is not None:
                 query_or["coord"] = coord
@@ -229,7 +233,9 @@ def swuquery_compose(swu_query_object: QueryObject) -> Optional[str]:
             if isinstance(part_sb, dict):
                 if "or_list" in part_sb:
                     query_or = cast(QuerySignboxOr, part_sb)
-                    or_list: List[Union[str, List[str]]] = query_or["or_list"]
+                    or_list: List[Union[QuerySignboxSymbol, QuerySignboxRange]] = (
+                        query_or["or_list"]
+                    )
                     or_strs = []
                     for item in or_list:
                         if isinstance(item, str):

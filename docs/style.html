@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Style Module &mdash; sutton-signwriting-core 1.1.1 documentation</title>
+  <title>Style Module &mdash; sutton-signwriting-core 1.1.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css?v=589ca1d9" />
@@ -14,7 +14,7 @@
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=58fbf978"></script>
+      <script src="_static/documentation_options.js?v=6f037312"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -96,14 +96,17 @@
 <p>Style string definition: <a class="reference external" href="https://datatracker.ietf.org/doc/id/draft-slevinski-formal-signwriting-10.html#name-styling-string">https://datatracker.ietf.org/doc/id/draft-slevinski-formal-signwriting-10.html#name-styling-string</a></p>
 <dl class="py function">
 <dt class="sig sig-object py" id="sutton_signwriting_core.style.style_parse">
-<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.style.</span></span><span class="sig-name descname"><span class="pre">style_parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style_string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="datatypes.html#sutton_signwriting_core.datatypes.StyleObject" title="sutton_signwriting_core.datatypes.StyleObject"><span class="pre">StyleObject</span></a></span></span><a class="headerlink" href="#sutton_signwriting_core.style.style_parse" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.style.</span></span><span class="sig-name descname"><span class="pre">style_parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style_string</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sutton_signwriting_core.style.style_parse" title="Link to this definition"></a></dt>
 <dd><p>Parse a style string to a structured dictionary.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>style_string</strong> – a style string</p>
+<dd class="field-odd"><p><strong>style_string</strong> (<em>str</em>) – a style string</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Dictionary with style elements</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="datatypes.html#sutton_signwriting_core.datatypes.StyleObject" title="sutton_signwriting_core.datatypes.StyleObject"><em>StyleObject</em></a></p>
 </dd>
 </dl>
 <p class="rubric">Example</p>
@@ -115,11 +118,11 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sutton_signwriting_core.style.style_compose">
-<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.style.</span></span><span class="sig-name descname"><span class="pre">style_compose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="datatypes.html#sutton_signwriting_core.datatypes.StyleObject" title="sutton_signwriting_core.datatypes.StyleObject"><span class="pre">StyleObject</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#sutton_signwriting_core.style.style_compose" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.style.</span></span><span class="sig-name descname"><span class="pre">style_compose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sutton_signwriting_core.style.style_compose" title="Link to this definition"></a></dt>
 <dd><p>Function to compose style string from dictionary.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>style_dict</strong> – a dictionary of style elements with keys:
+<dd class="field-odd"><p><strong>style_dict</strong> (<a class="reference internal" href="datatypes.html#sutton_signwriting_core.datatypes.StyleObject" title="sutton_signwriting_core.datatypes.StyleObject"><em>StyleObject</em></a>) – a dictionary of style elements with keys:
 - ‘colorize’: Optional[bool]
 - ‘padding’: Optional[int]
 - ‘background’: Optional[str]
@@ -131,6 +134,9 @@
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>style string</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str | None</p>
 </dd>
 </dl>
 <p class="rubric">Example</p>
@@ -151,17 +157,20 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sutton_signwriting_core.style.style_rgb_to_hex">
-<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.style.</span></span><span class="sig-name descname"><span class="pre">style_rgb_to_hex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rgb</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#sutton_signwriting_core.style.style_rgb_to_hex" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.style.</span></span><span class="sig-name descname"><span class="pre">style_rgb_to_hex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rgb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sutton_signwriting_core.style.style_rgb_to_hex" title="Link to this definition"></a></dt>
 <dd><p>Function to convert rgb color to hex or “transparent” if below tolerance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>rgb</strong> – an rgb color</p></li>
-<li><p><strong>tolerance</strong> – max alpha for full transparency (default: 0)</p></li>
+<li><p><strong>rgb</strong> (<em>str</em>) – an rgb color</p></li>
+<li><p><strong>tolerance</strong> (<em>float</em>) – max alpha for full transparency (default: 0)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>a hex color or “transparent”</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -175,17 +184,20 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sutton_signwriting_core.style.style_rgba_to_hex">
-<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.style.</span></span><span class="sig-name descname"><span class="pre">style_rgba_to_hex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#sutton_signwriting_core.style.style_rgba_to_hex" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.style.</span></span><span class="sig-name descname"><span class="pre">style_rgba_to_hex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sutton_signwriting_core.style.style_rgba_to_hex" title="Link to this definition"></a></dt>
 <dd><p>Function to merge color with background based on alpha transparency</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>color</strong> – an rgba color</p></li>
-<li><p><strong>background</strong> – an rgba background color</p></li>
+<li><p><strong>color</strong> (<em>str</em>) – an rgba color</p></li>
+<li><p><strong>background</strong> (<em>str</em>) – an rgba background color</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>a hex color or “transparent”</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 <p class="rubric">Example</p>
@@ -197,17 +209,20 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sutton_signwriting_core.style.style_merge">
-<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.style.</span></span><span class="sig-name descname"><span class="pre">style_merge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="datatypes.html#sutton_signwriting_core.datatypes.StyleObject" title="sutton_signwriting_core.datatypes.StyleObject"><span class="pre">StyleObject</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="datatypes.html#sutton_signwriting_core.datatypes.StyleObject" title="sutton_signwriting_core.datatypes.StyleObject"><span class="pre">StyleObject</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="datatypes.html#sutton_signwriting_core.datatypes.StyleObject" title="sutton_signwriting_core.datatypes.StyleObject"><span class="pre">StyleObject</span></a></span></span><a class="headerlink" href="#sutton_signwriting_core.style.style_merge" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">sutton_signwriting_core.style.</span></span><span class="sig-name descname"><span class="pre">style_merge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sutton_signwriting_core.style.style_merge" title="Link to this definition"></a></dt>
 <dd><p>Function to merge style dictionaries.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>style1</strong> – a style dictionary</p></li>
-<li><p><strong>style2</strong> – a style dictionary</p></li>
+<li><p><strong>style1</strong> (<a class="reference internal" href="datatypes.html#sutton_signwriting_core.datatypes.StyleObject" title="sutton_signwriting_core.datatypes.StyleObject"><em>StyleObject</em></a><em> | </em><em>None</em>) – a style dictionary</p></li>
+<li><p><strong>style2</strong> (<a class="reference internal" href="datatypes.html#sutton_signwriting_core.datatypes.StyleObject" title="sutton_signwriting_core.datatypes.StyleObject"><em>StyleObject</em></a><em> | </em><em>None</em>) – a style dictionary</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>a style dictionary</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="datatypes.html#sutton_signwriting_core.datatypes.StyleObject" title="sutton_signwriting_core.datatypes.StyleObject"><em>StyleObject</em></a></p>
 </dd>
 </dl>
 <p class="rubric">Example</p>
